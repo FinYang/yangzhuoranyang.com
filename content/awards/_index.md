@@ -14,6 +14,8 @@ image = ""
 caption = ""
 +++
 
+* 2019 Monash University Econometrics Honours Memorial Scholarship
+
 * 2018 The International Institute of Forecasters Student Forecasting Award 
     offered by Monash University Applied Forecasting for Business and Economics 
 
