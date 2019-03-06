@@ -35,7 +35,7 @@ weight = 5
 
 My name is Yangzhuoran Yang, but usually I let people call me __Fin__ as that's easier if you don't speak Chinese.
 
-I just finished my undergraduate degree. While waiting to begin Honours study at Monash, I am currently working for [Dr Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo), [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu) and [Professor Rob J. Hyndman](https://robjhyndman.com/) as a research assistant. The works I've done are mostly related to R programming and data manipulation. One of the projects that I'm doing recently involves stochastic optimization. You can find the software I have contributed on this site.
+I am doing Honours in Econometrics at Monash. The project I've been working on is about portfolio selection in a stochastic control setting with [Dr Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo) and [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu). I am also working part-time for them and [Professor Rob J. Hyndman](https://robjhyndman.com/) as a research assistant. The works I've done are mostly related to R programming and data manipulation. You can find the software I have contributed on this site.
 
 Apart from that, I have also been doing some private tutoring on Econometrics related courses for a few years. I have a degree on Actuarial Science, but sadly I find Business analytics and Econometrics are more interesting to me.
 
