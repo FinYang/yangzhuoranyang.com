@@ -1,7 +1,7 @@
 +++
 title = "Study Materials"
 
-date = 2019-05-01T21:53:00
+date = 2019-05-01
 # lastmod = 2018-09-09T00:00:00
 
 # List format.
