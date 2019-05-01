@@ -14,7 +14,19 @@ image = ""
 caption = ""
 +++
 
+ 
+
 * 2019 Monash University Econometrics Honours Memorial Scholarship
+
+* 2018 Monash Business School Prize for the Top Achieving Student in Actuarial Science (Undergraduate) 
+
+* 2018 Monash University Medal for Undergraduate Academic Excellence
+
+* 2018 Monash Business School Student Excellence Award in recognition of exceptional academic excellence in:  
+
+  - Business analytics
+  - Modelling in finance and insurance
+  - Applied forecasting for business and economics
 
 * 2018 The International Institute of Forecasters Student Forecasting Award 
     offered by Monash University Applied Forecasting for Business and Economics 
