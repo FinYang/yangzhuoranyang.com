@@ -16,7 +16,7 @@ image = ""
 caption = ""
 +++
 
-
+If you can't access any of the materials, let me know by leaving a comment or sending me an email in the contact section.
 
 
 ## _Semester 2 2018_  
@@ -37,6 +37,8 @@ caption = ""
  - [Poisson Process](Poisson_process.html) 29/9/18
  - [WLLN and CLT](hist_asy.pdf)
 
+---
+
 ## _Semester 1 2018_
 
 ### ETC2410 Introduction to Econometrics
@@ -52,6 +54,7 @@ caption = ""
 
  - [**Slides**](ETC3460_slides_S1_2018.html) 
 
+---
 
 ## _Semester 2 2017_
 
