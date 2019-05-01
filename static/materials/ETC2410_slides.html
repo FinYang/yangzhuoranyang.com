@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ETC2410</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Fin" />
+    <link href="ETC2410_slides_files/remark-css-0.0.1/example.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ETC2410
+### Fin
+### Semester 2 2017
+
+---
+
+
+
+
+
+###Week 1
+* Experimental and Non-experimental data
+* Cross-sectional, Time-series, Panel or Longitudinal dara, Pooled
+* Ceteris paribus (other relevent factors being equal)  
+* Stages of empirical analysis
+1. Understanding the problem
+2. Formulating an appropriate conceptual model to tackle the problem
+3. Collecting appropriate data
+4. Lookong at the data (Descriptive Analytics)
+5. Estimating the model, making inference, predictions and policy presciptions as appropriate
+6. Evaluation, learning and improving each of the previous steps, and iterating until the problem is solved  
+* Predictive analytics (no causality) and Prescriptive analytics (causal)
+
+---
+
+* Simple Linear Regression  
+A complete model for a random variable is a model of its probability distribution. We model the conditional distribution of y given x, a model for `\(E(y|x)\)`.  
+
+`$$\begin{array}{c|c}
+y &amp;x \\ \hline Dependent\ \ Variable &amp; Explained\ \ Variable\\ Response\ \ Variable &amp; Predicted\ \  Variable\\ Independent\ \ Variable &amp; Explanatory\ \  Variable\\ Control\ \  Variable &amp; Predictor\ \  Variable\\ Regressand &amp; Regressor\\ 
+\end{array}$$`
+
+
+* Population and Sample format
+    + Population 
+        - `\(E(y|x)=\beta_0 + \beta_1 x\)`
+    + Sample Estimation
+        - `\(\hat{y} = \widehat{E(y|x)} = \hat{\beta_0} + \hat{\beta_1}x\)`  
+
+* **Law of Probability**  
+If A and B are mutually exclusice events then `\(P(A\;or\; B)=P(A)+P(B)\)`  
+If A and B are two events, then `\(P(A|B)=\frac{P(A\;and\;B)}{P(B)}\)`    
+  
+---
+  
+* ***Model***
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-1-1.png" width="45%" height="45%" /&gt;&lt;img src="homoscedasticity.png" width="45%" height="45%" /&gt;
+ `\(E(y|x)=\beta_0 + \beta_1 x\)`  
+ `\(y=\beta_0 + \beta_1 x +u\)` where `\(u\)` is a random variable with `\(E(u)=0\)` and `\(E(u|x)=0\)`  
+
+---
+
+`$$\begin{aligned}
+\mathrm{Population\ \ parameter} &amp;\ \ \ \ |\ \ \ \ \mathrm{its\ \ estimater}\\
+\mu_y = E(y) &amp;\ \ \ \ |\ \ \ \bar{y}=\frac{1}{n}\sum_{i=1}^{n}{y_i}\\
+\sigma_y^2=E(y-\mu_y)^2 &amp;\ \ \ \ |\ \ \ \ s_y^2=\hat{\sigma}_y^2=\frac{1}{n-1}\sum_{i=1}^n{(y_i-\hat{y})^2}\\
+\sigma_y=\sqrt{\sigma_y^2} &amp;\ \ \ \ |\ \ \ \ \hat{\sigma_y}=\sqrt{\hat{\sigma}_y^2}\\
+\sigma_{xy}=E(x-\mu_x)(y-\mu_y) &amp;\ \ \ \ |\ \ \ \ \hat{\sigma}_{xy}= \frac{1}{n-1}\sum^n_{i=1}{(x_i- \bar{x})(y_i-\bar{y})}\\
+\rho_{xy}=\frac{\sigma_{xy}}{\sigma_x\sigma_y}&amp;\ \ \ \ |\ \ \ \ \hat{\rho}_{xy}=\frac{\hat{\sigma}_{xy}}{\hat{\sigma}_x \hat{\sigma}_y}\\
+E(y|x)=\beta_0 + \beta_1 x &amp;\ \ \ \ |\ \ \ \ \hat{\beta}_1 = \frac{\hat{\sigma}_{xy}}{\hat{\sigma}_x \hat{\sigma}_y}\qquad \hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}
+\end{aligned}$$`
+
+
+`$$\mathrm{Independent\;\; properties}$$`
+`$$P(A|B)=P(A)$$`
+`$$P(AB)=P(A)\times P(B)$$`
+`$$E(XY)=E(x)E(y)$$`
+`$$Cov(x,y)=E(xy)-E(x)E(y)=0$$`
+`$$Corr(x,y)=0$$`
+
+
+---
+
+
+###Week2
+* Geometry
+
+`$$y_i =\beta_0 +\beta_1 x_i +u_i$$`
+
+`$$\left(\begin{array}{c} y_1 \\ y_2 \\ \vdots \\ y_n\end{array}\right)=
+\left(\begin{array}{c} 1\\ 1\\ \vdots \\ 1\end{array}\right)\beta_0 +
+\left(\begin{array}{c}x_1\\ x_2\\ \vdots\\ x_n \end{array}\right)\beta_1 +
+\left(\begin{array}{c}u_1\\ u_2\\ \vdots\\ u_n\end{array}\right)$$`
+
+
+`$$\mathbf{y}=\left(\begin{array}{c} y_1 \\ y_2 \\ \vdots \\ y_n\end{array}\right)\ \ \mathrm{and}\ \ 
+\mathbf{u}=\left(\begin{array}{c} u_1 \\ u_2 \\ \vdots \\ u_n\end{array}\right)\ \ \
+\mathbf{X}=\left(\begin{array}{cc} 1 &amp; x_1 \\ 1&amp; x_2 \\ \vdots &amp;\vdots \\ 1&amp;x_n\end{array}\right)\ \ \ 
+\mathbf{\beta}=\left(\begin{array}{c} \beta_0 \\ \beta_1 \end{array}\right)$$`
+
+
+`$$\begin{array}{c} \mathbf{y}\\ n\times 1\end{array}=
+\begin{array}{c} \mathbf{X}\\ n\times (k+1)\end{array}
+\begin{array}{c} \mathbf{\beta}\\ (k+1)\times 1\end{array}+
+\begin{array}{c} \mathbf{u}\\ n\times 1\end{array}$$`
+
+
+`$$\begin{array}{c} \mathbf{X}\\ n\times (k+1)\end{array}=
+\left(\begin{array}{ccccc} 1&amp;x_{11}&amp;x_{12}&amp;\cdots&amp;x_{1k}\\ 1&amp;x_{21}&amp;x_{22}&amp;\cdots&amp;x_{2k}\\
+\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\ 1&amp;x_{n1}&amp;x_{n2}&amp;\cdots&amp;x_{nk}\\\end{array}\right)
+\ \ \ \ 
+\begin{array}{c}\mathbf{\beta}\\ (k+1)\times 1\end{array}= 
+\left(\begin{array}{c}\beta_0\\ \beta_1\\  \vdots\\ \beta_k\end{array}\right)$$`
+
+---
+
+* Vector
+    + `\(length(\mathbf{u})=(\mathbf{u}'\mathbf{u})^{1/2}\)`  
+    + For `\(\mathbf{u}\)` and `\(\mathbf{v}\)` of the same dimension
+        - `\(\mathbf{u}'\mathbf{v}=0 \Leftrightarrow \mathbf{u}\ \mathrm{and}\ \mathbf{v}\ \mathrm{are\ perpendicular\ (orthogonal)\ to\ wach\ other}\)`
+
+`\(\mathbf{Y}\)` be explained as a combination of columns of `\(\mathbf{X}\)` (the column space of `\(\mathbf{X}\)`) with zero `\(\mathbf{\hat{u}}\)` (orthogonal to each other)
+
+---
+
+* ***Derivation of `\(\mathbf{\hat{\beta}}\)` in matrix***
+
+`$$\begin{aligned}
+\mathbf{y}=\mathbf{X}\mathbf{\hat{\beta}}+\mathbf{\hat{u}} &amp;\Rightarrow \mathbf{\hat{u}}=\mathbf{y}-\mathbf{X}\mathbf{\hat{\beta}}\\   
+\mathbf{X}'\mathbf{\hat{u}}&amp;=0\\  
+\mathbf{X}'(\mathbf{y}-\mathbf{X}\mathbf{\hat{\beta}})=0 &amp;\Rightarrow \mathbf{X}'\mathbf{y} = \mathbf{X}'\mathbf{X}\mathbf{\hat{\beta}}\\   
+&amp;\Rightarrow \mathbf{\hat{\beta}}=(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}
+\end{aligned}$$`
+
+
+For `\(\mathbf{X}'\mathbf{X}\)` to be invertible ( `\((\mathbf{X}'\mathbf{X})^{-1}\)` exists while `\((\mathbf{X}'\mathbf{X})^{-1}(\mathbf{X}'\mathbf{X})=\mathbf{I}\)` ), columns of `\(\mathbf{X}\)` must be linearly independent.  
+The vector of OLS predicted value `\(\mathbf{\hat{y}}\)` is the prthogmal projection of `\(\mathbf{y}\)` in the column space of `\(\mathbf{X}\)`. 
+`$$\mathbf{\hat{y}}=\mathbf{X}\mathbf{\hat{\beta}}=\mathbf{X(X'X)^{-1}X'y}$$`
+
+
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+`\(\mathbf{y}=\mathbf{\hat{y}}+\mathbf{\hat{u}}\)` 
+
+---
+
+
+`\(\mathbf{y}\)`, `\(\mathbf{\hat{y}}\)` and `\(\mathbf{\hat{u}}\)` form a right-angled triangle.
++ `\(length(\mathbf{\hat{y}})=(\mathbf{\hat{y}}'\mathbf{\hat{y}})^{1/2}\)`   `\(\Rightarrow\)`  
+`$$\mathbf{y}'\mathbf{y}=\mathbf{\hat{y}}'\mathbf{\hat{y}}+\mathbf{\hat{u}}'\mathbf{\hat{u}}$$`
+i.e. `$$\sum_{i=1}^n{y_i^2}=\sum_{i=1}^n{\hat{y}_i^2}+\sum_{i=1}^n{\hat{u}_i^2}$$`
+Subtracting `\(n\bar{y}^2\)` from both sides
+`$$\sum_{i=1}^n{(y_i-\bar{y})^2}=\sum_{i=1}^n{(\hat{y}_i-\bar{y})^2}+\sum_{i=1}^n{\hat{u}_i^2}$$`
+i.e.  
+`$$SST=SSE+SSR$$`
+
+`$$R^2=\frac{SSE}{SST}=1-\frac{SSR}{SST}$$`  
+---
+
+
+* ***Interpretation***
+
+`$$Murder=\beta_0+\beta_1 Assault + \beta_2 Population + u$$`
+
+
+
+```
+## 
+## Call:
+## lm(formula = Murder ~ Assault + UrbanPop, data = USArrests)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.5530 -1.7093 -0.3677  1.2284  7.5985 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.207153   1.740790   1.842   0.0717 .  
+## Assault      0.043910   0.004579   9.590 1.22e-12 ***
+## UrbanPop    -0.044510   0.026363  -1.688   0.0980 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.58 on 47 degrees of freedom
+## Multiple R-squared:  0.6634,	Adjusted R-squared:  0.6491 
+## F-statistic: 46.32 on 2 and 47 DF,  p-value: 7.704e-12
+```
+
+
+
+---
+
+The linear regression model only need to be linear in parameters.
+`$$\log{y}=\beta_0+\beta_1x_1+\beta_2x_2+u$$`
+`$$y=\beta_0+\beta_1\log{x_1}+\beta_2x_2+u$$`
+`$$\log{y}=\beta_0+\beta_1\log{x_1}+\beta_2x_2+u$$`
+
+`$$\begin{array}{cccc}
+Model &amp; Dep\ Var &amp; Indep\ Var &amp; Interpretation\\
+\hline
+level-level &amp; y &amp; x &amp; \Delta y=\beta_1\Delta x\\
+level-log &amp; y &amp; \log{x} &amp; \Delta{y} =\frac{\beta_1}{100} (\%\Delta{x})\\ 
+log-level &amp; log{y} &amp; x &amp; \%\Delta{y}=100\beta(\Delta{x})\\
+log-log &amp; log{y} &amp; \log{x} &amp; \%\Delta{y}=\beta(\%\Delta{x})\\
+\end{array}$$`
+
+A strictly positive ranged variable can be logged `\(postively\ \ skewed \xrightarrow{log}less\ \ skewed\)`  
+Explanatory variables measured in years are not logged.  
+Variables that are already in percentages are not logged.  
+
+---
+
+###Week3  
+
+* Choose `\(\log{y}\)` or `\(y\)`
+ 
+`$$\log{y}=\widehat{\log{y}}+\widehat{u}$$`
+`$$y=e^{\widehat{\log{y}}+\widehat{u}}=e^{\widehat{\log{y}}} \times e^{\widehat{u}}$$`
+While `\(\widehat{u}\)` has mean zero, the expected value of `\(e^{\widehat{u}}\)` is not equal to 1 (expectation is applied only up to linear transformation). It is a constant bigger than 1, called `\(\alpha\)`  
+i.e. `\(\hat{y}_{from\ log}=\alpha e^{\widehat{\log{y}}}\)`  
+To get `\(\alpha\)`, we regress y on `\(e^{\widehat{\log{y}}}\)` with no constant.  
+If `\(\alpha&lt;1\)`, we take `\(\alpha=1\)`  
+
+
+
+To chose between model of `\(\log{y}\)` and `\(y\)`, we can select log or level model based on which models prediction has a higher corrletion with `\(y\)` (the true value in the sample).
+
+i.e.
+`$$\widehat{Corr}(y, \hat{y})\ \ \ \ v.s.\ \ \ \ \widehat{Corr}(y, \hat{y}_{from\ log})$$`
+
+---
+
+* Quadratic terms 
+
+`$$\widehat{Murder}=3.207+0.0439 Assault -0.0445 Population$$`
+
+`$$\widehat{Murder}=1.514+0.07835 Assault -0.000094 {Assault}^2 -0.0568 Population$$`
+
+
+
+
+`$$Murder=\beta_0+\beta_1 Assault + \beta_2 {Assault}^2 +\beta_3 Population + u$$`  
+
+`$$\frac{\Delta{Murder}}{\Delta{Assault}}=\beta_1 +2\beta_2 Assault$$`
+dependes on the number of assault alredy happened.  
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* Prescriptive analytics  
+  + Investigating **causal effect** of an x on a y, while adding all other possible variables as control variables.   
+  + Inferences of all those other variables are minor objectives.
+
+* Predictive analytics  
+  + **Not** investigating causal effect.  
+  + Simply trying to predic y based on some xs while keeping the model **simple**.  
+  + *Parsimony*   ***KISS Principle***: Keep it simple, stupid.  
+
+---
+
+* **Model Selection Criteria**
+
+General Form
+
+`$$\begin{array}{ccc}I(k)=c\ \ \ +&amp;\ln{[SSR(k)]}\ \ \ +&amp;(k+1)\frac{\alpha}{T}\\  \  &amp; decreasing\ in\ k&amp;increasing \ in\ k\\  \end{array}$$`  
+
+`$$\begin{array}{l}1.\quad Adjusted\ R^2\ \ (\bar{R^2}) \\  \bar{R^2}= 1-\frac{{SSR}/{n-k-1}}{{SST}/{n-1}}\\  \hline 2.\quad Akaike Information Caiteria\ \ (AIC) \\  AIC=c_1 +\ln(SSR) + \frac{2k}{n}\\ \hline 3.\quad Hannan-Quinn Criterion\ \ (HQ)\\  HQ=c_2 +\ln(SSR) + \frac{2k\ln({\ln{(n)}})}{n}\\ \hline 4.\quad Schwarz\ or\ Bayesian\ Information\ Criterion\ \ (SIC\ or\ BIC)\\ BIC=c_3+\ln(SSR) + \frac{k\ln{(n)}}{n}\\  \end{array}$$`   
+
+
+order of penalties
+`$$P(BIC) &gt; P(HQ) &gt;P(AIC)&gt;P(\bar{R^2})$$`
+
+---
+
+* Rescaling (e.g. change the unit)  
+ + do not create any new information, so it only changes OLS results in predictable and non-substantive ways.  
+ 
+ `$$\begin{aligned} \hat{y}=\hat{\beta_0}+\hat{\beta_1}x_1+\hat{\beta_2}x_2&amp;\Rightarrow \hat{y}=\hat{\beta_0^*}+\hat{\beta_1^*}x_1^*+\hat{\beta_2^*}x_2\\ 1.\quad x_1\rightarrow cx_1&amp;\quad x_1^*=cx_1\\  \Rightarrow \hat{\beta_0^*}&amp;= \hat{\beta_0} \quad \hat{\beta_1^*}= \hat{\beta_1}/c\quad \hat{\beta_2^*}= \hat{\beta_2}\\  2.\quad x_1\rightarrow a+cx_1&amp;\quad x_1^*=a+cx_1\\  \Rightarrow \hat{\beta_0^*}&amp;= \hat{\beta_0}-\hat{\beta_1}/c\quad \hat{\beta_1^*}= \hat{\beta_1}/c\quad \hat{\beta_2^*}= \hat{\beta_2}\\  \end{aligned}$$`
+
+Since `\(\hat{y}\)` does not change residuals, SST, SSE, SSR stay the same, so `\(R^2\)` will not change.
+
+`$$\begin{aligned} y=\hat{\beta_0}+\hat{\beta_1}x_1+\hat{\beta_2}x_2+\hat{u}&amp;\Rightarrow y=\hat{\beta_0^*}+\hat{\beta_1^*}x_1^*+\hat{\beta_2^*}x_2+\hat{u}^*\\ y\rightarrow cy\quad y^*&amp;=cy\\ \Rightarrow \hat{\beta_0^*}&amp;= c\hat{\beta_0}\quad \hat{\beta_1^*}= c\hat{\beta_1}\quad \hat{\beta_2^*}= c\hat{\beta_2}\quad \hat{u}^*=c\hat{u}\\ \end{aligned}$$`  
+
+SST, SSE, SSR all change (multiplied by) same amount, so `\(R^2\)` will not change. 
+
+---
+
+* An estimator (sample `\(\rightarrow\)` population) is *an unbiased estimater* of a parameter of interest if its expected value is the parameter of interest.
+* Under the following assumptions `\(E(\hat{\beta})=\beta\)`. i.e. unbiased.  
+
+
+`$$\begin{array}{c}\mathbf{Multiple\ Regression\ Model\ \ Assumptions} \end{array}$$`
+
+`$$\begin{array}[t]{ &gt;{$}l&lt;{$}|&gt;{$}l&lt;{$} }\hline 
+\mathbf{MLR.1\ Linear\ in\ Parameters}\ &amp; \mathbf{E.1\ Linear\ in\ parameters} \\ y = \beta_0 =\beta_1 x_1 + \cdots +\beta_k x_k +u &amp; \mathbf{\underset{n\times 1}{y}=\underset{n\times (k+1)}{X}\underset{(k+1)\times 1}{\beta}+\underset{n\times 1}{u}}\\ \hline
+{\mathbf{ MLR.2\ Random\ Sampling}   \\ We\ have\ a\ sample\ of\ n\ observations}\\ \hline   
+{\mathbf{ MLR.4\ Zero\ Conditional\ Mean}\\ E(u|x_1, x_2, \cdots, x_k)=0} &amp; 
+{\mathbf{E.3\ Zero\ Conditional\ Mean}\\  E(\mathbf{u|X})=\mathbf{\underset{(n\times 1)}{0} }}  \\  
+\hline
+\mathbf{MLR.3\ No\ Perfect\ Collinearity} &amp; \mathbf{E.2\ No\ Perfect\ Collinearity} \\
+None\ of\ x_1,\ x_1,\ \cdots ,\ x_k\ is\ a\ constant\ and\ there\\ are\ no\ exact\ linear\ relationships\ among\ them &amp; \mathbf{X}\ has\ rank\ k+1 \\  
+\hline 
+\mathbf{MLR.5\ Homoskedasticity}\ &amp; \mathbf{E.4\ Homo\ +\ Randomness} \\ 
+Var(u|x_1,\ x_2,\ \cdots ,\ x_k)=\sigma^2 &amp; Var(\mathbf{u}|\mathbf{X})=\sigma^2 \mathbf{I}_n \\ 
+\hline
+\mathbf{MLR.6\ Normality} &amp; \mathbf{E.5\ Normality}\\ 
+Conditional\ on\ \mathbf{X}\ the\ population\ errors&amp;\\ are\ normally\ distributed &amp;\\ 
+\hline
+\end{array}$$`
+
+
+
+---
+* Results from the assumptions  
+E.1-E.3 Ubiasedness  
+E.1-E.4 BLUE
+E.1-E.5 T-test, F-test
+
+* ***Unbiasedness***  
+
+To show `\(E(\hat{\beta})=\beta\)`, we need **E.2** (E.2 `\(\Rightarrow\)` `\(\mathbf{X'X}\)` can have a inverse).  
+Using **E.1**  `$$\mathbf{\hat{\beta}}=(\mathbf{X'X})^{-1}\mathbf{X'y}=(\mathbf{X'X})^{-1}\mathbf{X'(X\beta+u)}=\mathbf{\beta} + (\mathbf{X'X})^{-1}\mathbf{X'u}$$`  
+`$$E(\mathbf{\hat{\beta}})=E[\mathbf{\beta} + (\mathbf{X'X})^{-1}\mathbf{X'u}]=\mathbf{\beta}+E( (\mathbf{X'X})^{-1}\mathbf{X'u}) {\overset{\mathbf{E.3}}{=}} \mathbf{\beta}$$`  
+since `\(E(\mathbf{u}|\mathbf{X})=0\Rightarrow E( (\mathbf{X'X})^{-1}\mathbf{X'u})=0\)`
+
+Zero conditional mean is not a problem for predictive analysis because the x set is all we have, we don't want to and won't get causal effect.  
+However, for presctiptive analysis, if we don't controll variables that may be affect by the x we are interested in, we won't get causal effect.  
+
+
+---
+
+* variance-covariance matrix  
+
+For a random variable `\(\mathbf{v}\)` and its expectation 
+
+ `$$\mathbf{v}=\left(\begin{array}{c} v_1\\ v_2\\ \vdots\\ v_n \end{array}\right)\qquad E(\mathbf{v})=\underset{n\times 1}{\mu}=\left(\begin{array}{c} \mu_1\\ \mu_2\\ \vdots\\ \mu_n\end{array} \right)$$`  
+ 
+ variance `\(\sigma^2_i\)` covariance `\(\sigma^2_{ij}\)`  
+ `\(Var({\mathbf{A}'\mathbf{v}})=\mathbf{A}'Var({\mathbf{v}})\mathbf{A}\)`
+The variance-covariance matrix for `\(\mathbf{v}\)` 
+`$$Var(\mathbf{v})=E(\mathbf{v}-\mathbf{\mu})(\mathbf{v}-\mathbf{\mu})'=\left[\begin{array}{cccc} \sigma^2_1 &amp;\sigma_{12} &amp; \cdots &amp; \sigma_{1n} \\ \sigma_{21} &amp; \sigma^2_2 &amp; \cdots &amp; \sigma_{2n}\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ \sigma_{n1} &amp; \sigma_{n2} &amp; \cdots &amp; \sigma_n^2\end{array}\right]$$`
+
+---
+
+* The variance of OLS estimator  
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=\sigma^2(\mathbf{X'X})^{-1}$$`
+Proof: `$$\mathbf{\hat{\beta}}=(\mathbf{X'X})^{-1}\mathbf{X'y}=(\mathbf{X'X})^{-1}\mathbf{X'(X\beta+u)}=\mathbf{\beta} + \underset{\mathbf{A}'}{\underbrace{(\mathbf{X'X})^{-1}\mathbf{X}'}}\mathbf{u}$$`  
+`$$\begin{aligned}Var(\mathbf{\hat{\beta}}|\mathbf{X}) &amp;=Var(\mathbf{\beta} +(\mathbf{X'X})^{-1}\mathbf{X'u}|\mathbf{A})\\ &amp;=Var(\mathbf{A}'\mathbf{u}|\mathbf{A})\\ &amp;=\mathbf{A}'Var(\mathbf{u})\mathbf{A}\\ E.5\ \Rightarrow Var(\mathbf{\hat{\beta}})&amp;=\mathbf{A}'\sigma^2\mathbf{I}_n\mathbf{A}\\ &amp;=\sigma^2(\mathbf{X'X})^{-1}\mathbf{X}'\mathbf{X}(\mathbf{X'X})^{-1}\\ &amp;=\sigma^2(\mathbf{X'X})^{-1}\end{aligned}$$`  
+
+To estimate `\(\sigma^2\)`, we can use the unbiased estiomator 
+`$$\hat{\sigma}^2=\frac{\sum^n_{i=1}\hat{u}^2_i}{n-k-1}=\frac{\mathbf{u}'\mathbf{u}}{n-k-1}$$`
+
+---
+
+* *B.L.U.E.*  
+   + What is BLUE
+      -   Best(smallest variance) Linear Unbiased Estimator  
+   + How to prove BLUE  
+      -   Using E.1-E-1, based on Gauss-Markov Theorem, `\(\mathbf{\hat{\beta}}\)` is BLUE of `\(\mathbf{\beta}\)`  
+      
+      
+---
+
+
+###Week 4
+
+`$$E(\hat{\mathbf{\beta}}|\mathbf{X})=\mathbf{\beta}\qquad Var(\hat{\mathbf{\beta}}|\mathbf{X})=\sigma^2 (\mathbf{X'X})^{-1}$$`
+
+`$$\mathbf{u}|\mathbf{X}\sim N(\mathbf{0}, \sigma^2\mathbf{I_n})$$`
+
+* Assumption MLR.6 or E.5 (Normality): Conditional on X the population errors are normally distributed.
+
+`$$Normal\ Distribution\ + Randomness \Rightarrow i.i.d. (independent\ identical\ distribution)$$`
+
+i.e. Conditional on explanatory variables, population errors `\(\mathbf{u}_i\)` are i.i.d. `\(N(0, \sigma^2)\)`
+
+---
+
+* MLR.1 - MLR.6 are **Classical Linear Model (CLM)** assumptions.
+
+Under CLM assumptions 
+`$$\hat{\mathbf{\beta}}|\mathbf{X}\sim N(\mathbf{\beta}, \sigma^2(\mathbf{X'X})^{-1})$$`
+
+`$$\hat{\beta}_j|X\sim N(\beta_j, Var(\hat{\beta}_j))$$`
+
+`$$Var(\hat{\beta}_j)=\sigma^2\{(\mathbf{X'X})^{-1}\}_{jj}$$`
+
+`$$\frac{\hat{\beta_j}-\beta_j}{sd(\beta_j)} \sim N(0,1)$$`
+
+
+`\(sd(\hat{\beta}_j)\)` depends on `\(\sigma\)`, which is unknown.
+
+* Using `\(\hat{\sigma}\)` as an estimator of `\(\sigma\)`, instead of normal distribution, we are getting a **t distribution**.
+
+
+`$$\frac{\hat{\beta_j}-\beta_j}{se(\beta_j)} \sim t_{n-k-1}=t_{df}$$`
+
+t distribution has fatter tails than N(0,1).  
+As df increases, it gets more similar to N(0,1).
+
+---
+* ***T TEST***
+
+**t statistic** (or *t ratio*)
+
+`$$t_{\hat{\beta}_j}=\frac{\hat{\beta}_j}{se(\hat{\beta}_j)}$$`
+
+The size or the **significant level** `\(\alpha\)`  
+the probability that we reject the null when it is true (*Type I error*)
+
+&gt; If `\(H_0 : \beta_j=r\)`, then `\(\frac{\hat{\beta_j}-r}{se(\beta_j)} \sim t_{n-k-1}\)`
+
+A `\((1-\alpha)\%\)` **confidence interval** is defined as `\(\hat{\beta}_j\pm c\times se(\hat{\beta}_j)\)`, where `\(c\)` is `\((1-\frac{\alpha}{2})\)` percentile of a `\(t_{n-k-1}\)` distribution (Two sided test).
+
+---
+
+**P Value** is the probability that the realization falling out of the range between negative t statistic and positive t statistic. (two sided test)
+
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **Steps of testing a hypothesis**  
+
+1. Specify the null. e.g. `\(H_0:\beta_1=0\)`   
+
+2. Specify the alternative. e.g. `\(H_1:\beta_1&gt;0\)` (one sided) or `\(H_1:\beta_1\neq0\)` (two sided)   
+
+3. State the test statistic and its distribution under `\(H_0\)`. e.g. `\(\frac{\hat{\beta_j}}{se(\beta_j)} \sim t_{n-k-1}\ \mathbf{under\ H_0}\)`  
+
+4. Specify the level of significance of the test i.e. `\(\alpha=0.05\)`  
+
+5. Find the critical value from the distribution of the test statistic with reference to the alternative hypothesis and the desired significant level, and exercise the rejection rule.  
+
+6. See if the value of `\(t_{calc}\)` test statistic in your sample `\(t_{calc}\)` is inside or outside the rejection zone and express your conclusion with a sensitive sentence   
+
+---
+
+* **F-test**
+
+The overall sifnificant: The alternative can only be that at least one of these restriction is not true (i.e. at least one is sifnificant).  
+
+We estimatie two equtions: *the unrestricted model* and *the restricted model*   
+
+`$$F=\frac{(SSR_r-SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \sim F_{q,n-k-1}\ under\ H_0$$`
+
+`\(q\)`: the numerator df (the number of restriction)   `\(n-k-1\)`: the denominator of df 
+
+F-statistic is always postive ( `\(SSR_r&gt;SSR_{ur}\)` )    
+
+
+* **A useful formulation of the F-test**    
+  
+
+`$$SSR_r=(1-R_r^2)SST\qquad SSR_{ur}=(1-R_{ur}^2)SST$$`
+
+
+
+`$$F=\frac{(R_{ur}^2-R_r^2)/q}{(1-R_{ur}^2)/(n-k-1)}$$`    
+
+F-test for *overall significant* of a model for the special null hypothesis is that all slop parameter are zero    
+`$$F=\frac{R^2/k}{(1-R^2)/(n-k-1)} \sim F_{k,n-k-1}\ under\ H_0$$`   
+
+---
+
+`$$F=\frac{(SSR_r-SSR_{ur})/3}{SSR_{ur}/(n-4)} \sim F_{3,n-4}\ under\ H_0$$`   
+
+`$$H_0:\beta_0=1\ and\ \beta_2=\beta_3=0$$`   
+
+`$$price_i=\beta_0+\beta_1assess_i+\beta_2area_i+\beta_3bed_i+u_i$$`    
+
+`$$price_i=\beta_0+assess_i+u_i$$`    
+
+`$$\Rightarrow price_i-assess_i=\beta_0+u_i$$`    
+
+---
+
+###Week 5
+
+* **Reparameterisation**    
+one-sided single restriction, more than one parameter   
+`$$y=\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3+u$$`
+
+`$$\begin{aligned} H_0: \beta_1 &amp;=\beta_2\\ H_1 : \beta_1 &amp;&gt; \beta_2 \end{aligned}$$`
+
+`$$\text{Define}\ \delta=\beta_1-\beta_2\ \ \ \ \ \hat{\delta}=\hat{\beta_1}-\hat{\beta_2}$$`    
+
+`$$H_0:\delta=0\ \ \ \ H_1:\delta&gt;0$$`     
+
+`$$Var(\hat{\delta})=Var(\hat{\beta_1})+Var(\hat{\beta_2})-2Cov(\hat{\beta_1},\hat{\beta_2})$$`     
+
+
+Under CLM assumptions `\(\hat{\beta}\)` condotional on x is normally distribution     
+
+`$$\beta_1=\delta+\beta_2$$`  
+
+`$$y=\beta_0+(\delta+\beta_2)x_1+\beta_2x_2+\beta_3x_3+u$$`    
+
+`$$\Rightarrow y=\beta_0+\delta x_1+\beta_2(x_1+x_2)+\beta_3x_3+u$$`    
+
+---
+
+* **Predictions and Prediction Intervals**
+
+**Two Sources of Error**   
+ - 1.Estimation uncertainty: caused by not knowing the value of the true parameters    
+ 
+ - 2.u: not predictable by our predictor, even if we know the true value of `\(\beta\)`    
+
+
+
+* std.error `\(\rightarrow\)` Estimation uncertainty
+
+`$$\widehat{Murder}=6.41594+0.02093Population$$`
+
+`$$\widehat{Murder}=\beta_0+\beta_1(Population-1000,000)$$`
+
+
+---
+
+The relative magnitudes of `\(Var(u)\)` and `\(Var(\hat{y})\)` is 1 to `\(1/n\)`, so often ignore estimation uncertainty.  
+
+Only consider estimation uncertainty, 95% confidence interval for `\(E(y_i|x_{i1}, \cdots,x_{ik})\)` : `$$\hat{y}\pm (cv(t_{n-k-1}, two\ tailed:0.05)\times se(\hat{y})$$`  
+
+95% prediction interval for `\(y_i\)` :
+`$$\hat{y}\pm (cv(t_{n-k-1}, two\ tailed:0.05)\times se(\hat{e})$$`   
+where
+`$$se(\hat{e})=\sqrt{\hat{\sigma}^2+[se(\hat{y})]^2}$$`
+
+
+Ignoring estimation uncertainty, 95% prediction interval for `\(y_i\)` :
+`$$\hat{y}\pm (cv(t_{n-k-1}, two\ tailed:0.05)\times \hat{\sigma}$$`   
+
+---
+
+* **Dummy variable**
+
+A binary vaiable is a 0-1 variable whose value for observation i is 1 if that observation belongs to a category and 0 otherwise. e.g. `\(male_i= \begin{cases} 1, &amp; \text{if}\  i\  \text{is male}\ \\ 0, &amp; \text{otherwise} \end{cases}\)`
+
+e.g. `$$\begin{aligned}E(wage_i|female_i, educ_i)&amp;=\beta_0 +\delta_0 female_i + \beta_1 educ_i\\  E(wage_i|female_i=0, educ_i)&amp;=\beta_0+\beta_1 educ_i\\   E(wage_i|female_i=1, educ_i)&amp;=(\beta_0+\delta_0)+\beta_1 educ_i\end{aligned}$$`
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+e.g. `$$\begin{aligned}E(wage_i|female_i, educ_i)&amp;=\beta_0 +\delta_0 female_i + \beta_1 educ_im + \delta_1 female_i \times educ_i\\ E(wage_i|female_i=0, educ_i)&amp;=\beta_0+\beta_1 educ_i\\  E(wage_i|female_i=1, educ_i)&amp;=(\beta_0+\delta_0)+(\beta_1+\delta_1) educ_i\end{aligned}$$`
+
+&lt;img src="ETC2410_slides_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+The hypothesis of no difference in expected wage between men and women:  
+`$$H_0:\delta_0=\delta_1=0\qquad H_1:\text{At least one of the two is not zero}$$`
+
+
+---
+
+* **Multicollinearity**
+
+ - Because of high correlation between `\(X_1\)` (FEMALE) and `\(X_1 \times X_2\)` (FEMALE `\(\times\)` EDUC) (for instance), data tells us that although there is strong evidence that expacted wage for men and women is not the same, it is hard to determine if the intercept is different or the slope. 
+
+ - While perfect collinearity causes problems for the OLS estimator, multicollinearity does not affect any of the properties of OLS. It only makes it different to ascertain the contribution of each one x in a group of multicollinear x's to explaining y.
+
+* **Dummy variable trap** : use all dummy variables in a regression.
+
+ - "base" or "benchmark" category - the omitted category
+
+ - Changing the benchmark category should not matter qualitatively.
+
+---
+
+* **A more accurate estimate of `\(\Delta log(y)\)` given `\(\Delta x =1\)` **
+
+Often use `\(d\log{(y)}=\frac{i}{y}dy\)` ( `\(100\beta_1\  \text{as the}\ \% \Delta\)`)
+
+A better measure of `\(\% \Delta y\)` as `\(x_1\)` increases by 1 is `\(100(e^{\beta_1}-1)\)`
+
+ - Reasoning:  
+
+We are looking for `\(\frac{(\hat{y}_{after}-\hat{y}_{before})}{\hat{y}_{before}}\)`  
+
+In the log-level model, we are getting `\(\widehat{\log{(y)}}_{after}-\widehat{\log{(y)}}_{before}=\beta_1\)`  
+
+Exponentiating and subtracting one gives `\(\frac{(\hat{y}_{after}-\hat{y}_{before})}{\hat{y}_{before}}=e^{\beta_1}-1\)`
+
+For `\(-0.10&lt;\beta_1&lt;0.10\)`, this does not make much difference.  
+
+In practice, given estimation uncertainty, such approximation errors are understood and tolerated.
+
+---
+
+###Week 6  
+
+* **Doubting Homoskedasticity** 
+
+e.g. Variance of food consumption on poor and rich people
+
+e.g. Using average of group instead of individual, variance depends inversely on group size  
+
+e.g. In finance, unpredicted news increase the volatility of the market  
+
+When HTSK, the estimator is not BLUE with unreliable T and F test. Also, `\(Var(\hat{\beta})\neq \sigma^2 \mathbf{(X'X)}^{-1}\)`  
+
+Since `\(E(u_i|x_{i1}, \cdots, x_{ik})=0\)`, `\(Var(u_i|x_{i1}, \cdots, x_{ik})=E(u_i^2|x_{i1}, \cdots, x_{ik})\)`  
+
+---
+
+* **Breusch-Pagan test**  
+
+`$$y_i=\beta_0 +\beta_1 x_{i1} +\beta_2 x_{i2}+\cdots +\beta_k x_{ik} +u_i\ for\ i=1, \cdots , n$$`
+
+`$$\begin{aligned} H_0 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\sigma^2\ for\ i=1, \cdots , n\\ H_1 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\delta_0 + \delta_1 z_{i1} + \delta_2 z_{i2}+\cdots+\delta_q z_{iq} \\ &amp;\text{where}\ z_{i1}, z_{i2}, \cdots z_{iq}\  \text{are a subset of}\ x_{i1}, \cdots, x_{ik}\end{aligned}$$`
+
+In fact the z variables can include some variables that do not appear in the conditional mean, but may affect the variance.
+
+&gt; 1. Estimate the model by OLS as usual. Obtain `\(\hat{u}_i\)` for i=1, `\(\cdots\)` , n and square them. 
+2. Regress `\(\hat{u}_i^2\)` on a constant `\(z_{i1}, z_{i2}, \cdots z_{iq}\)` . Denote the `\(R^2\)` of this auxiliary regression by `\(R^2_{\hat{u}_i^2}\)`  
+3. Under `\(H_0\)` , the statistic `\(n\times R^2_{\hat{u}_i^2}\)` has a `\(\chi^2\)` distribution with q degrees of freedom in large samples. The satistic is called the Lagrange Multiplier (LM) statistic for HTSK.  
+4. Given the desired level of significance, we obtain the cv of the test from the `\(\chi^2\)` table, and reject `\(H_0\)` if the value of the test statistic is larger than the cv.
+   
+F-test is also useful ( `\(F_{q,\ n-q-1}\)` )
+
+---
+
+* **White Test**  
+
+`$$\begin{aligned} H_0 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\sigma^2\ for\ i=1, \cdots , n\\ H_1 &amp;: \text{the variance is a smooth unknown function of}\ \ x_{i1}, \cdots, x_{ik} \end{aligned}$$`
+
+&gt;  Regress `\(\hat{u}_i^2\)` on a constant, `\(x_{i1}, \cdots, x_{ik}\)` , and all pairwise crooss products of `\(x_{i1}, \cdots, x_{ik}\)`.
+ 
+It has the power to dedect this general form of heteroskedasticity in large samples.  
+
+Test statistic `\(n\times R^2_{\hat{u}_i^2}\)`   
+Distribution `\(\chi^2\)` with degrees of freedom as the number of explanatory variables.  
+
+
+* **Special case of White Test**  
+ In the general white test, `\(k+k(k+1)\)` regressors are too many.  
+ 
+Since `\(\hat{y}\)` is a function of all the `\(x\)` s, `\(\hat{y}^2\)` will be a function of the squares and crossproducts of all the `\(x\)` s. 
+
+Therefore, `\(\hat{y}\)` and `\(\hat{y}^2\)` can proxy for all of the `\(x\)` s' squares and crossproducts.  
+
+&gt; Regress the residuals squared on `\(\hat{y}\)` and `\(\hat{y}^2\)`
+
+---
+
+* **Solution for HTSK 1 -- Robust Standard Errors**  
+ Live with the second best. Find the usable standard error for t, F test.  
+ 
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}[\mathbf{X}'Var(\mathbf{u}|\mathbf{x})\mathbf{X}](\mathbf{X'X})^{-1}$$`
+
+With Homo
+
+`$$Var(\mathbf{u}|\mathbf{X})=\sigma^2 \mathbf{I_n} \Rightarrow Var(\mathbf{\hat{\beta}}|\mathbf{X})=\sigma^2(\mathbf{X'X})^{-1}$$`
+
+With HTSK 
+`$$Var(\mathbf{u}|\mathbf{X})=\left[\begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right]$$`
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+which is a reliable estimator for `\(Var(\mathbf{\hat{\beta}}|\mathbf{X})\)` in large samples.  
+
+The square root of diagonal elements of this matrix are called White stansard error or Robust standard error, which are reliable for inference.
+
+---
+
+* **Solution for HTSK 2 -- Transforming the Model**  
+
+ - a. Logaristhmic transformation of y solve the problem when population model has `\(\log{(y)}\)` but we used y
+ 
+ - b. Weighted Least Squares (WLS): used when variance of each error is proportional to a known functuon of a single independent variable  
+ 
+---
+ 
+* **Weighted Least Squares (WLS)**
+
+`$$y_i=\beta_0 +\beta_1 x_{i1} +\beta_2 x_{i2}+\cdots +\beta_k x_{ik} +u_i\ for\ i=1, \cdots , n$$`
+
+`$$Var(u_i|x_{i1}, x_{i2}, \cdots , x_{ik})=\sigma^2 h_i$$`
+where `\(h_i\)` is a known function of one of `\(x\)` s, or a function of a variable `\(z\)` as long as 
+`$$E(u_i|x_{i1}, x_{i2}, \cdots , x_{ik}, z_i)=0$$`
+
+e.g. `\(h_i=x_i\)`, or `\(h_i=x_i^2\)`, or `\(h_i=\frac{1}{z_i}\)`  
+
+Multiplying both sides of model equation by `\(w_i=\frac{1}{\sqrt{h_i}}\)` eliminates HTSK:  
+weighted model 
+
+`$$(w_iy_i)=\beta_0w_i +\beta_1 (w_ix_{i1}) +\beta_2 (w_ix_{i2})+\cdots +\beta_k (w_ix_{ik}) +(w_iu_i)\ for\ i=1, \cdots , n$$`
+
+(no constant term) This estimator is called the *Weighted Least Squares (WLS)* estimator of `\(\beta\)`  
+
+---
+
+###Week 7 
+
+* **Consistency** 
+
+Sometimes the random sampling assumption is not satisfied ( `\(E(\mathbf{u}|\mathbf{X})\neq 0\)` ) but errors are uncorrelated with regressors ( `\(E(u_i|x_{i1}, x_{i2}, \cdots , x_{ik})=0\)` ) e.g. time series data.
+
+OLS will not be unbiased, but consistant.
+
+* **Asymptotic Normality** 
+
+Sometimes errors are not normally distributed.  
+
+The distribution of the OLS estimator will be approximatedly Normal in large samples.  
+
+---
+
+* **The Law of Large Numbers**  
+
+Sample averages converge to population means as `\(n\rightarrow \infty\)`  
+
+**Reasoning** : A single variable `\(y\)` with `\(E(y)=\mu\)` and `\(Var(y)=\sigma^2\)`  
+
+Taking `\(n\)` observations, sample average `\(\bar{y}\)`, `\(E(\bar{y})=\mu\)` and `\(Var(\bar{y})=\sigma^2/n\)`  
+
+As `\(n\rightarrow \infty\)` , `\(Var(\bar{y})\rightarrow 0\)` , the chance of `\(\bar{y}\)` being anything other than `\(\mu\)` goes to 0.
+
+*Proof* for `\(Var(\bar{y})=\sigma^2/n\)` : 
+
+`$$\begin{aligned} Var(\bar{y}) &amp;= Var(\frac{1}{n}\sum^{n}_{i=1}y_i)=\frac{1}{n^2}Var(\sum^{n}_{i=1}y_i)\\ &amp;\overset{i.i.d.}{=} \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n}\end{aligned}$$`
+
+---
+
+* Convergence
+
+`\(\bar{y}\)` converges in probability to `\(\mu\)` i.e. `\(p\lim(\bar{y})=\mu\)` or `\(\bar{y}\xrightarrow{p}\mu\)`  
+
+If an estimator converges in probability to the population parameter that it estimates, we say that the estimator is **consistent**.
+
+The sample mean is a consistent estimator of the population mean (LLN).
+
+ -  `\(E(\bar{y}^2)\neq \mu^2\)` , but `\(p\lim(\bar{y}^2)=\mu^2\)`  
+ -  `\(E(\frac{1}{\bar{y}})=?\)` , but `\(p\lim(\frac{1}{\bar{y}})=\frac{1}{\mu}\)`  provided `\(\mu\neq 0\)`  
+ -  `\(E(\frac{1}{\hat{\sigma}^2_y})=?\)` , but `\(p\lim(\frac{1}{\hat{\sigma}^2_y})=\frac{1}{Var(y)}\)`   
+ 
+(go through non-linear combinations and smooth functions as well)  
+
+**Conclusion**: Even if we have non-random sample, i.e. `\(E(\mathbf{u}|\mathbf{X})\neq 0\)` , as long as `\(E(u_i)=0\)` and `\(u_i\)` is uncorrelated with `\(x_{i1}\)` to `\(x_{ik}\)` , then the OLS estimator is consistent.  
+
+---
+
+* **Central Limit Theorem**  
+
+The sum (or the average) of n Normal random variables is Normal.  
+
+However,  
+
+ - The sum (or the average) of n Uniform random variables is Not Uniform.
+
+ - The sum (or the average) of n F random variables is Not F.  
+
+ - The sum (or the average) of n Bernouli random variables (1 with probability p and 0 with probability 1-p) is Not Bernouli.  
+
+If n is large,  
+
+ - the sum (or the average) of n Uniform / F / Bernouli random variables is approximately Normal.  
+
+ - the sum (or the average) of n random variables from any distribution with a finite variance is approximately Normal.  
+
+**Conclusion**: For any error distribution, as long as the sample size is large, the OLS estimator is approximately Normal, and we can base our statistical inference on the usual t and F tests (allow to use OLS even if the distribution of the dependent variable is far from Normal, and may even have spikes on some values, such as the spike at zero for the married women's work hours).
+
+---
+
+###Week 8
+
+* **Cross-sectional data, time series data, panel data**  
+ Panel data: can be used to address questions that coonot be adequately addressed using either cross-section or time series data.
+ 
+ - **Univariate time series**: A time series data set consisting of observations on a single variable.  
+ - **Multivariate time series**: A time series data set consisting of observations on several variables.  
+ 
+* Notation  
+`\(y_t\)` : the value of the time series in time period t.  
+`\(T\)` : sample size  
+
+* **What time series data can do, but cross-section cannot:**  
+
+ - Forecast future values of a variable  
+ - Estimate the dynamic causal effect of one variable `\(x\)` (estimate the causal effect on y, over several time periods, of a change in `\(x\)` today. e.g. tax on alcohol)  
+ 
+---
+
+* **Properties**
+
+   1. Observations on time series data are ordered.
+   
+   2. Time series data is generally charaacterized by some form of temporal dependence.
+   
+   3. Because of temporal dependence, it is implaisible to assume that the random variable `\(y_t\)` and `\(y_{t-1}\)` are i.i.d.  
+ 
+---
+
+* **Lag**
+
+`\(y_{t-j}\)` jth lag of y, the value of y in time period `\(t-j\)` (the value of j periods earlier)
+
+The change in the value of y in period t - the first difference of y - `\(\Delta y_t\)` 
+  - `\(\Delta y_t=y_t - y_{t-1}\)`
+  - `\(\Delta y_{t-1} = y_{t-1} - y_{t-2}\)`
+  - `\(\Delta y_{t-j}=y_{t-j}-y_{t-j-1}\)`
+
+Each time we lag a time series one period we lose an observation.
+
+Each time we difference a time series we lose an observation.
+
+---
+
+When working with timeseries data, by collecting a random sample of observations, `\((y_1, y_2. \cdots , y_T)\)` , we are making random draws from each of there T probability distributions. Specific features of these distributions are of interest to us (eg. mwan, variance etc)  
+
+If we impose no restrictions on the sequence of these random variable, then we will have T means, `\((\mu_1, \mu_2, \cdots , \mu_T)\)` , T variances, `\((\sigma^2_1, \sigma^2_2, \cdots , \sigma^2_T)\)` and `\(T(T-1)/2\)` covariances to estimate, which leads to the necessity of introducing **Stationary Time Series**.
+
+
+* **Stationary Time Series**  
+
+A univariate time series is an ordered squance of random variables indexed by time. (Infinite number of realizations) `\(\{y_t:t=\cdots -2, -1, 0, 1, 2, \cdots \}\)`  
+
+**Weakly Stationary** (covariance stationary, second-order stationary)
+
+&gt; a) `\(E(y_i) =\mu &lt; \infty \ \ for\  all\ t\)`   
+  b) `\(Var(y_t)= E[(y_t-\mu)^2]=\gamma_0&lt;\infty\ \ for\ t\)`  
+  c) `\(Cov(y_t)= E[(y_t-\mu)(y_{t-j}-\mu)]=\gamma_j &lt; \infty\)`  
+  
+Its first and second moments are both finite and time invariant.  
+The covariance depends only on the time interval separating them and not on time itself)  
+
+---
+
+* **White Noise**
+
+`\(e\sim WN(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`  
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(Cov(e_t, e_{t-j})=0 \forall j\neq0\)` (no linear relationship)  
+
+If it's also normally distributed -- Gaussian white noise
+
+* **I.I.D. -- Independentlly and Identically Distributed**  
+
+`\(e\sim i.i.d(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`   
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(e_t\)` and `\(e_{t-j}\)` and independent random variables `\(\forall j\)` and `\(\forall t\)` (stronger, norelationship, either linear or nonlinear)    
+
+Define `\(E_t(y_{t+j})=E(y_{t+j}|y_t, y_{t-1}, y_{t-2}, \cdots)\)`  
+
+Under independent assumption `\(E_t(y_{t+j})=E(y_{t+j})\forall j \geq 1\)`
+
+---
+
+* **Trend**  
+
+ - **Positive time trend** : A time series which displays a strong tendency to *increase* over time.
+ 
+ - **Negative time trend** : A time series which displays a strong tendency to *decrease* over time.
+
+Time trends in economic time series are generally attributable to underlying economic or demographic factors affecting the time series.  
+
+ 
+
+* **Adding a deterministic function of `\(t\)` in the model**  
+
+
+`$$y_t=\alpha_0 + \alpha_1 t + e_t,\ \ t=1, 2, \cdots , T, \text{where}\ \ e_t\sim i.i.d.(0, \sigma^2)$$`  
+
+`\(\alpha_1 t\)` is called a **linear time trend** (a linear function of the variable t), and a **deterministic trend** (as opposed to a stochastic trend) (the value of t is known in each time period in advance of collecting any data)  
+
+---
+
+
+
+`$$y_t=\alpha_0 + \alpha_1 t + e_t,\ \ t=1, 2, \cdots , T, \text{where}\ \ e_t\sim i.i.d.(0, \sigma^2)$$`  
+
+`$$E(y_t)=\alpha_0+\alpha_1t$$`  
+
+`$$\begin{aligned} \Delta E(y_t) &amp;= E(y_t)-E(y_{t-1})\\ &amp;= [\alpha_0 +\alpha_0 t] -[\alpha_0 +\alpha_1(t-1)]\\ &amp;= \alpha_0 +\alpha_1 t-\alpha_0 -\alpha_1t +\alpha_1\\ &amp;=\alpha_1 \end{aligned}$$`
+
+Parameter `\(\alpha_1\)` measures the change in the expected or average value of the time series from one time period to the next
+
+
+
+`$$\alpha_1 &gt; 0 \Rightarrow E(y_t) \text{  is increasing over time}$$`  
+
+`$$\alpha_1 &lt; 0 \Rightarrow E(y_t) \text{  is decreasing over time}$$`  
+
+---
+
+
+* **Transforming non-stationary series to stationary seies**
+
+**Simple return** : from time `\(t-1\)` to `\(t\)` 
+
+Simple gross return 
+
+`$$1+ R_t =\frac{P_t}{P_{t-1}}$$` 
+
+Simple net return 
+
+`$$R_t =\frac{P_t}{P_{t-1}}-1=\frac{P_t-P_{t-1}}{P_{t-1}}$$`
+
+**Log return** : The natural logarithm of the simple gross return is called the log return
+
+`$$r_t=\ln{(1+R_t)}=\ln{\frac{P_t}{P_{t-1}}}=\ln{P_t}-\ln{P_{t-1}}$$`
+
+For small `\(R_t\)` , `\(r_t=\ln{(1+R_t)} \approx R_t\)`
+    
+---
+* **autocorrelation function (ACF)**
+
+The correlation coefficient `\(\rho_j\)` captures both the direct and indirect effect on `\(y_t\)` of a change in `\(y_{T-J}\)` .  
+
+* **partial autocorrelation function (PACF)**
+
+The partial correlation coefficient captures the direct effect only.  
+
+
+
+
+---
+    
+* **Autocorrelation Function (ACF)**
+
+`$$\begin{aligned} \rho_j &amp;= \frac{cov(y_t, y_{t-j})}{\sqrt{Var(y_t)}\sqrt{Var(y_{t-j})}}\\ &amp;= \frac{\gamma_j}{\sqrt{\gamma_0}\sqrt{\gamma_0}}=\frac{\gamma_j}{ \gamma_0}\end{aligned}$$`
+    
+under the stationarity assumption `\(Var(y_t)=Var(y_{t-j})=\gamma_0\)`
+
+`$$\begin{aligned} \rho_{-j} &amp;= \frac{cov(y_t, y_{t+j})}{\sqrt{Var(y_t)}\sqrt{Var(y_{t+j})}}\\ &amp;=\frac{\gamma_{-j}}{ \gamma_0}\end{aligned}$$`
+
+Under the stationarity assumption 
+
+`$$\rho_{-j}=\rho_j$$`
+
+---
+
+The parameter `\(\rho_j\)` measures the strength of the linear relationship between `\(y_t\)` and `\(y_{t-j}\)` 
+
+* **Properties**
+
+&gt; P1 `\(\rho_0 =\frac{\gamma_0}{\gamma_0}=1\)`    
+  P2 `\(-1\leq \rho_j \leq 1 \ , \ \forall j\)`  
+  P3 The sign of `\(\rho_j\)` indicates the direction of the linear relationship between `\(y_t\)` and `\(y_{t-j}\)` 
+  
+* **features**  
+
+&gt; (1) `\(\rho_j\)` is unit free  
+  (2) `\(\rho_j\)` is easy to interpret  
+  
+---
+
+* **Partial Autocorrelation Function (PACF)**  
+
+`\(\varphi_{jj}\)` : The partial autocorrelation at lag `\(j\)` , which we denote by `\(\varphi_{jj}\)` , measures the correlation between `\(y_t\)` and `\(y_{t-j}\)` , when the intermediate values `\(y_{t-1}, \cdots , y_{t-j+1}\)` are held constant.  
+
+e.g. `$$\varphi_{22}\ :\ y_t=\varphi_{21}y_{t-1}+\varphi_{22}y_{t-2}+u_t$$`  
+
+A change in `\(y_{t-2}\)` holding `\(y_{t-1}\)` chonstant has a **direct effect** on `\(y_t\)` , captured by `\(\varphi_{22}\)` : `\(\varphi_{22}=\frac{\partial y_t}{\partial y_{t-2}}\)`
+
+(where `\(y_{t-1}=\varphi_{21}y_{t-2}+\varphi_{22}y_{t-3}+u_{t-1}\)` representing the **indirect effect** on `\(y_t\)` ) 
+
+The PACF is obtained by plotting `\(\varphi_{jj}\)` against `\(j\)` .  
+The SPACF is obtained by plotting `\(\hat{\varphi}_{jj}\)` against non-negative value of `\(j\)` .  
+
+---
+
+`$$\begin{array}{c|c} \textbf{Population parameters} &amp; \textbf{Sample statistics}\\ 
+E(y_t)=\mu=\int^{\infty}_{-\infty}y_tf(y_t)dy &amp; \bar{y}=\frac{1}{T}\sum^T_{t=1}y_t\\ 
+\gamma_0=E[(y_t-\mu)^2] &amp; \hat{\gamma}_0=\frac{1}{T}\sum^T_{t=1}(y_t-\bar{y})^2\\  \gamma_j=E[(y_t-\mu)(y_{t-j}-\mu)] &amp; \hat{\gamma}_j=\frac{1}{T}\sum^T_{t=1}(y_t-\bar{y})(y_{t-j}-\bar{y})\\ 
+\rho_{j} = \frac{cov(y_t, y_{t-j})}{\sqrt{Var(y_t)}\sqrt{Var(y_{t-j})}} =\frac{\gamma_{j}}{ \gamma_0} &amp; \hat{\rho}_{j}=\frac{\hat{\gamma_{j}}}{\hat{\gamma_0}}= \frac{\sum^T_{t=j+1}(y_t-\bar{y})(y_{t-j}-\bar{y})}{\sum^T_{t=j+1}(y_t-\bar{y})^2}
+\end{array}$$`
+
+The observed data are being generated by some underlying statistical model -- *data generating process* (DGP)  
+Strategy:  
+1. construct SACF, SPACF  
+2. identify DGP  
+3. estimate the selected model by OLS  
+4. forecast
+
+---
+
+* **Testing for autocorrelation - The Ljung-Box Q test**  
+
+`$$\begin{aligned}
+H_0 &amp;: \rho_1=\rho_2=\rho_3=\cdots =\rho_s=0\\ 
+H_1 &amp;: \rho_j\neq 0 \text{ for at least one } j=1,2,\cdots , s
+\end{aligned}$$`
+
+$$\text{Test statistic  } Q_s=T(T+2)\sum^s_{j=1}\frac{\hat{\rho}^2_j}{(T-j)} $$
+
+`$$\text{Under } H_0\ \ Q_s \overset{asy}{\sim} \chi^2 (s)$$` 
+
+(may be unreliable in small samples)
+
+* **Test autocorrelation in the error term**  
+
+`$$\text{Under } H_0\ \ Q_s \overset{asy}{\sim} \chi^2 (s-p)$$`  
+
+the first lag for which the test statistic is available is s=p+1
+
+---
+
+###Week 9
+
+* **The stationary autoregresssive model**   
+
+Economic and …nancial time series typically display **autoregressive behavior**. That is, the value of the time series in the current period is correlated with past values of itself.  
+e.g. Habit persistence, Institutional arrangements  
+
+
+
+`$$\text{AR(p) Model:} \ \ y_t=\varphi_0+\varphi_1y_{t-1}+\varphi_2y_{t-2}+\cdots +\varphi_py_{t-p}+u_t\ \ \ \ \ \text{where}\ u_t\sim WN(0,\sigma^2)$$`            
+
+linear regression model in which the dependent variable is `\(y_t\)` and the repressors are lags of `\(y_t\)`      
+
+In its general form this model has p lags of `\(y_t\)` on the right_hand side, and hence we call this a pth-order autoregression or AR(p) model.      
+
+AR(1): 
+
+`$$y_t=\varphi_0+\varphi_1y_{t-1}+u_t$$`  
+
+AR(2):
+
+`$$y_t=\varphi_0+\varphi_1y_{t-1}+\varphi_2y_{t-2}+u_t$$`     
+
+---
+
+* **The AR(1) model**   
+
+`$$|\varphi_1|&lt;1$$`    
+
+&gt; P1 Mean of AR(1) model      
+
+`$$E(y_t)=\frac{\varphi_0}{1-\varphi_1}$$`      
+
+&gt; P2 Varinance of AR(1) model    
+
+`$$Var(y_t)=\frac{\sigma^2}{1-\varphi_1^2}$$`       
+
+&gt; P3 Autocovariance and autocorrelation of AR(1) model   
+
+`$$Cov(y_t,y_{t-j})=\gamma_j=\frac{\sigma^2}{1-\varphi_1^2}\varphi_1^j,\ \forall j \in \mathbb{N}$$`     
+
+`$$\rho_j=\frac{\gamma_j}{\gamma_0}=\varphi_1^j,\ \forall j \in \mathbb{N}$$`     
+
+For a stationary AR(1) process the **partial autocorrelation coefficients** goes to zero after one lag.  
+`$$\varphi_{11}=\varphi_1\ \ \text{and}\ \ \varphi_{jj}=0\forall j &gt;1$$`  
+
+`$$\{\rho_1, \rho_2, \rho_3, \cdots\}=\{\varphi_1, \varphi_1^2, \varphi_1^3,\cdots\}$$`
+
+---
+
+* **The AR(2) model**      
+
+`$$y_t=\varphi_0+\varphi_1y_t-1+\varphi_2y_t-2+u_t \ \ \ \ \text{where}\ u_t\sim WN(0,\sigma^2)$$`
+
+&gt; P1 Mean of AR(2) model    
+
+`$$E(y_t)=\frac{\varphi_0}{1-\varphi_1-\varphi_2}$$`     
+
+&gt; P2 The correlation function of AR(2) model   
+
+`$$\rho_1 = \frac{\varphi_1}{1- \varphi_2} , \ and \  \rho_k = \varphi_1 \rho_{k-1}+ \varphi_2 \rho_{k-2},\ k \geq 2$$`       
+
+---
+
+* **The AR(P) model**    
+
+`$$y_t=\varphi_0 + \varphi_1y_{t-1} + \varphi_2y_{t-2} + \cdots + \varphi_py_{t-p} + u_t$$`      
+
+&gt; The ACF declines exponentially    
+  The PACF cuts off after p lags or `\(\varphi_{jj}=0,\ \forall \geq p\)`     
+
+These observations suggest that if the ACF of `\(\{y_t\}\)` declines exponentially, and the PACF cuts off after lag p, then an AR(p) model might be a good model to represent the DGP of `\(\{y_t\}\)`      
+
+---
+
+`\(p\)` : known order for an autoregressive process, **lag truncation parameter** , is actually unknown and need to be chosen.
+
+* **Method for lag selection**   
+
+&gt; M1 Inspection of the SACF and SPACF  
+
+* if the SACF declines exponentially and the sample autocorrelation coefficients become statistically insignificant after p lags, this suggests that the order of the autoregression is p.
+
+&gt; M2 The general to specific rule  
+
+* t test the last lag parameter, repeat the process.  
+ - initial choice of p is arbitrary    
+ - the choice of p will be too large, at least some of the time (5% chance fail to reject)  
+ - in real world, for highly correlated variables, near multinearity problem (s.d. increasing, t value decreasing, wrong test)  
+
+&gt; M3 Information criteria     
+
+---
+
+* **Information criteria**  
+
+Minimizing
+
+`$$\begin{array}{ccc}I(k)=c\ \ \ +&amp;\ln{[SSR(k)]}\ \ \ +&amp;(k+1)\frac{\alpha}{T}\\  \  &amp; decreasing\ in\ k&amp;increasing \ in\ k\\  \end{array}$$`  
+
+e.g. Akaike's information criterion (AIC): `\(\alpha=2\)`  
+Schwarz-Bayes information criterion (BIC or SIC): `\(\alpha=\ln{(T)}\)` ( `\(\frac{\ln{T}}{T}&gt;\frac{2}{T}\)` for `\(T&gt;8\)` , penalizes additional lags more severely ) 
+
+*Note*: When using lag length selections criteria to choose between the two methods, **both** models should be estimated using the data with the same number of observations. Otherwise the model with more observations will be advantaged. (be aware of the cases where *extra lag means less observation*)  
+
+---
+
+* **Autoregressive Distributed lag Models (ADL model)**  
+
+`$$\begin{aligned}ADL(p,q):\ \ y_t=c&amp;+\varphi_1 y_{t-1}+\varphi_2y_{t-2}+\cdots +\varphi_py_{t-p}\\ &amp;\ +\alpha_1x_{t-1}+\alpha_2x_{t-2}+\cdots +\alpha_q x_{t-q}+u_t
+\end{aligned}$$`
+
+‘*autoregressive*’ because lagged values of the dependent variable are included as regressors.  
+‘*distributed lag*’ because lags of an additional regressor, in this case INF, are also included in the model.
+
+---
+
+* **Model checking**  
+
+We need to check if the model is adequate. (if it is, resideal should be *white noise*)
+
+If not `\(\Rightarrow\)`  
+If some fitted coefficients are very small, the model could be simplified by removing these coefficients.    
+If residuals show correlation then the model should be extended to take care of those correlations.  
+
+* **Seasonality**  
+
+Some time series exhibit certain cyclical/periodic behaviour. This is referred to as seasonality.  
+
+The procedure of removing seasonality is called **seasonal adjustment** .  
+
+
+
+* **Eliminating seasonality**  
+
+ - Using seasonal differencing at where a pattern exists : `\(y_t =y_t-y_{t-i}\)` where `\(i\)` is the lag of pattern  
+ - Using dummy variables: `\(Qi_t=1\)` if t is the season with pattern i, and `\(Qi_t=0\)` if t is not. `\(y_t=\beta_0+\beta_1 Qi_t +e_t\)`  
+
+
+---
+
+###Week 10
+
+* **Forecasting stationary autoregressive time series**  
+at time T (*forecast origin*), seeing time T+k (k:*forecast horizon*)  
+
+ - **point forecast** for `\(y_{T+k}\)` : this implies that `\(y_{T+k}\)` will assume a particular value.  
+ 
+ - **interval forecast** (or **forecast interval**): this implies that `\(y_{T+k}\)` will lie in a specified interval with a specified probability.  
+ 
+Forecast intervals are generally more useful than point forecasts since they assess how con…dent we are about the accuracy of our forecast.
+
+* with a sample of `\(T\)` observations `\((y_1, y_2, \cdots , y_T)\)`  
+
+ - The **prediction** is `\(\hat{y}_t=\hat{c} +\hat{\varphi}_1y_{t-1}, \ \ \ t=2, 3, \cdots , T\ \ \Rightarrow\)` within-sample observations  
+ - A **forecast** is `\(y_{T+j}, \text{for }\ j\geq 1\ \ \ \Rightarrow\)` out-of-sample observations  
+ 
+---
+
+* **Forecast error**  
+
+`\(F_{T+k|T}\)` denotes the forecast value of `\(y_{T+k}\)` in period `\(T\)` , given that we observe `\((y_T, y_{T-1}, \cdots , y_1)\)`  
+
+The k step ahead forecast error 
+
+`$$FE(k)=y_{T+k}-F_{T+k|T}$$` 
+
+the mean of the k-steo ahead forecast error 
+
+`$$E(FE(k))=E(y_{T+k}-F_{T+k|T})$$`
+
+* **Forecasting criteria**  
+
+ - Specifies how forecasts are to be formed  
+ - Uses only currently available information  
+ - Leads to forecasts which are in some sense 'accurate'  
+ 
+---
+
+* **Forecasting criteria**  
+
+&gt; Choose `\(F_{T+k|T}\)` to minimize  
+`$$E(FE(k)^2)=E((y_{T+k}-F_{T+k|T})^2)$$`
+
+which is the mean squared forecast error MSFE(k), or mean squared error of the forecast MSE(k)  
+
+&gt; by setting 
+`$$F_{T+k|T}=E_T(y_{T+k})$$` 
+
+which is the forecast of `\(y_{T+k}\)` which minimizes the mean squared error of the forecast.  
+
+&gt; In practice, `\(F_{T+k|T}=\hat{E}_T(y_{T+k})\)`
+
+---
+
+* **Point forecasts**  
+
+For AR(1)
+`$$y_t=c+\varphi_1y_{t-1}+u_t\ \ \text{where} \ \ E_{t-1}(u_t)=E(u_t|y_{t-1}, y_{t-2}, \cdots , y_1)$$`
+
+Steps for `\(y_{T+1}\)`  
+
+&gt; **S1** Updating to  
+`$$y_{T+1}=c+\varphi_1y_T+u_{T+1}$$`  
+
+&gt; **S2** Taking conditional expections  
+`$$E_T(y_{T+1})=E_T(c+\varphi_1y_T+u_{T+1})=c + \varphi_1E_T(y_T)+E_T(u_{T+1})=c+\varphi_1y_T$$`
+since `\(E_T(y_T)=y_T\)` , `\(E_T(u_{T+1})=0\)`  
+
+&gt; **S3** Replacing the unknown parameters  
+`$$F_{T+1|T}=\hat{E}_T(y_{T+1})=\hat{c}+\hat{\varphi}_1y_T$$`  
+
+To forcast `\(y_{T+2}\)` , we repeat S1 - S3 
+`$$E_T(y_{T+2})=c+\varphi_1(c+\varphi_1y_t)=(1+\varphi_1)c+\varphi_1^2y_T$$`
+
+---
+
+* The forecasts of `\(\{y_t\}\)` are generated **recursively**  
+
+`$$F_{T+1|T}=\hat{c}+\hat{\varphi}_1y_T$$`
+
+`$$F_{T+2|T}=\hat{c}+\hat{\varphi}_1F_{T+1|T}$$`
+
+`$$F_{T+3|T}=\hat{c}+\hat{\varphi}_1F_{T+2|T}$$`
+
+--- 
+
+`$$y_{T+1}=c+\varphi_1y_T+u_{T+1}\quad \text{and}\quad F_{T+1|T}=\hat{c}+\hat{\varphi}_1y_T$$`  
+
+`$$FE(1)=y_{T+1}-F_{T+1|T}=(c+\varphi_1y_T+u_{T+1})-(\hat{c}+\hat{\varphi}_1 y_T)\\ =u_{T+1}+(c-\hat{c})+(\varphi_1-\hat{\varphi}_1)y_T$$`
+
+---
+
+* **Intrinsic uncertainty**  
+
+`\(u_{T+1}\neq E_T(u_{T+1})=0\)` the future is intrinsically uncertain.
+
+Not predictable by our predictors, even if we know the true value of parameters.  
+
+* **Estimation uncertainty**  
+
+We make errors when we estimate the unknown parameters of the model.
+
+`\(\hat{c}\neq c\)` and `\(\hat{\varphi}_1\neq \varphi_1\)` , caused by not knowing the valur of the true parameters  
+---
+
+A forecast interval is like a confidence interval except a forecast interval pertains to the future value of a time series and confidence interval pertains to an unknown parameter.  
+
+* **Interval Forecasts**  
+
+For AR(1) 
+`$$FE(1)=u_{T+1}+(c-\hat{c})+(\varphi_1-\hat{\varphi}_1)y_T$$`  
+with the assumption: `\(u_t\sim i.i.d.N(0,\sigma^2)\)`  
+
+`$$FE(1)\sim N(0, FEV(1))$$`
+where FEV is the one-step ahead forecast error variance  
+
+`$$\frac{FE(1)}{sd(1)}\sim N(0,1)$$`
+where `\(sd(1)=\sqrt{FEV(1)}\)` is the standard deviation of FE(1)  
+
+---
+
+`$$P[-1.96\times sd(1)&lt;FE(1)&lt;1.96\times sd(1)]=0.95$$` 
+where `\(FE(1)=y_{T+1}-F_{T+1|T}\)`
+
+`$$P[F_{T+1|T}-1.96\times sd(1)&lt;y_{T+1}&lt;F_{T+1|T}+1.96\times sd(1)]=0.95$$` 
+
+`$$P[F_{T+1|T}-1.96\times SEF(1)&lt;y_{T+1}&lt;F_{T+1|T}+1.96\times SEF(1)]=0.95$$` 
+where `\(SEF(1)\)` is an estimator of `\(sd(1)\)` and is known as the standard error of the forecast (standard error of the one-step ahead forecast)
+
+For AR(p)
+
+`$$F_{T+1|T}=\hat{E}_T(Y_{T+1})=\hat{c}+\hat{\varphi}_1y_T+\hat{\varphi}_2y_{T-1}+\cdots +\hat{\varphi}_py_{T-p+1}$$`
+
+`$$F_{T+2|T}=\hat{E}_T(Y_{T+2})=\hat{c}+\hat{\varphi}_1F_{T+1|T}+\hat{\varphi}_2y_{T}+\cdots +\hat{\varphi}_py_{T-p+2}$$`
+
+`$$P[F_{T+k|T}-1.96\times SEF(k)&lt;y_{T+k}&lt;F_{T+k|T}+1.96\times SEF(k)]=0.95$$`  
+
+The practice of estimating a model over one time period to generate forecasts for a different time period is called **out-of-sample forecasting**.   
+
+---
+
+* **Forecast evaluation formulae**
+
+Root mean squared error  
+
+`$$RMSE=\sqrt{\frac{\sum^{T+k}_{t=T+1}(y_t-y_t^f)^2}{k}}$$`  
+
+Mean absolute error  
+
+`$$MAE=\sum^{T+k}_{t=T+1}\frac{1}{k}\left|y_t-y_t^f\right|$$`
+
+Mean absolute percentage error  
+
+`$$MAPE=100\sum^{T+k}_{t=T+1}\frac{1}{k}\left|\frac{y_t-y_t^f}{y_t}\right|$$`
+
+where  
+`\(y_t\)` = actual value of the time series in period t  
+`\(y_t^f\)` = forecast value of the time series in period t
+
+---
+
+* **Inference**  
+Under some assumptions:
+
+&gt; **R1** B.L.U.E.
+
+&gt; **R2** can use t-test
+
+&gt; **R3** can use F-test
+
+* **Assumptions**  
+
+ - **A1** The model is linear in Parameters `\(y_t=\beta_0+\beta_1x_{t1}+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)`  
+ 
+ - **A2** No perfect collinearity: None of the regressors can be expressed as an exact linear combination of the other regressors.  
+ 
+ - **A3** Zero conditional mean: For each time period t, `\(E(u_t|\mathbf{X})=0\)`  
+ 
+ - **A4** Homoskedasticity: For each timem period t, `\(Var(u_t|\mathbf{X})=Var(u_t)=\sigma^2\)`  
+ 
+ - **A5** No serial correlation: Conditional on X, the errors in two different time periods are uncorrelated. That is `\(Corr(u_t, u_s|\mathbf{X})=0\forall t\neq s\)`  
+ 
+ - **A6** Normality of the errors: The errors are independent of X and have identical and independent normal distributions, `\(u_t\sim n.i.d.(0,\sigma^2)\)`  
+ 
+---
+ 
+* **Theorem(1)**  
+When A1, A2, A3 hold, the OLS estimator `\(\hat{\beta}\)` is an unbiased estimator of `\(\beta\)` , `\(E(\hat{\beta})=\beta\)`  
+
+* **Theorem(2)**  
+When A1, A2, A3, A4, A5 hold, `\(\hat{\beta}\)` is the best linear unbiased estimator (BLUE) of `\(\beta\)` (Gauss-Markov Theorem)  
+
+* **Theorem(3)**  
+When A1 to A6 hold, the OLS estimator of `\(\beta\)` is normally distributed. Can be tested using t-test and F-test.  
+
+* **Theorem(4)**  
+When A1 to A6 hold, `\(Var(\hat{\beta}_j)=\frac{\sigma^2}{[SST_j(1-R^2_j)]}\quad j=1, 2, \cdots , k\)` , `\(\hat{\sigma}^2=\frac{SSR}{T-k-1}\)` is an unbaised estimator of the error variance `\(\sigma^2\)` , that is `\(E(\hat{\sigma}^2)=\sigma^2\)`  
+
+---
+
+**_A3_**  requires  **Strictly exogenous** `\(E(u_t|X_{s1}, X_{s2}, \cdots ,X_{sk})=0\forall s=1,2,\cdots , T\)`  
+implication: the error term in any time period t is uncorrelated with each of the regressors in all time periods, past, present, and future.  
+`$$Corr(u_t,x_{11})=\cdots=Corr(u_t,x_{T1})=Corr(u_t,x_{1k})=\cdots=Corr(u_t,x_{Tk})=0$$`
+
+**Contemporaneous exogeneity**: `\(E(u_t|\mathbf{X}_t)=E(u_t|X_{t1}, X_{t2}, \cdots ,X_{tk})=0\)`  
+implication:
+`$$Corr(u_t,x_{t1})=Corr(u_t,x_{t2})=\cdots=Corr(u_t,x_{tk})=0\qquad t=1, 2, \cdots , T$$`  
+
+**Violated** A3: when the model contains a lag of the dependent variables as a regressors (AR(p), ADL(p,q))
+
+A3 only restrict correlation between error terms and regressors, but not regressors themselves or errors themselves.
+
+---
+
+**_A4_** 's problem, heteroskedasticity is more common in cross-sectional, but can also arise in time series.  
+
+**_A5_** requires `\(Corr(u_t, u_s)=0 \forall t\neq s\)`  
+When violated, the errors are **sutocorrelated** or **serially correlated** , which is very common when omitted influences are correlated across time.  
+`$$\text{Positive first-order autocorrelation:  }\ Corr(u_t, u_{t-1})&gt;0$$`  
+
+**Consequences of violations** :  
+
+&gt; **C1**  The OLS estimator is no longer efficient.   
+
+&gt; **C2**  `\(t=\frac{\hat{\beta}_j}{se(\hat{\beta}_j)}\)` no longer has a t distribution, even asymptotically
+
+&gt; **C3**  `\(F\)` no longer has an F distribution, even asymptotically.  
+
+C2 and C3 are most serious.
+
+---
+
+* **Consistent estimator**  
+
+`\(\hat{\beta}_T\)` is a consistent estimator of `\(\beta\)` if there is a high probability that `\(\hat{\beta}_j\)` is "very close" to `\(\beta\)` in a large sample.  
+
+`$$p\lim({\hat{\beta}_T})=\beta$$`  
+
+`$$Pr(|\hat{\beta}_T-\beta|&lt;\epsilon)\rightarrow1\ \text{as}\ \ T\rightarrow \infty \text{ for all }\epsilon &gt;0$$`  
+
+`\(\hat{\beta}_T\)` converges in probability to `\(\beta\)` , or, `\(\beta\)` is the probability limit of `\(\hat{\beta}_T\)`.  
+
+* **Theorm(5)**  
+The OLS estimator of `\(\beta\)` in the linear regression model `\(\mathbf{y}_t=\mathbf{X_t'\beta}+\mathbf{u_t}, \ \ t=1, 2, \cdots, T\)` si a consistent estimator of `\(\beta\)` when  
+&gt; **D1** The stochastic process `\(\{y_t, x_{t1}, \cdots , x_{tk}:t=1, 2, \cdots \}\)` is stationary and weakly dependent  
+&gt; **D2** The regressors `\((x_{t1}, \cdots , x_{tk})\)` are contemporaneously exogenous  
+
+---
+
+
+* A stationary time series `\(\{x_t\}\)` is **weakly dependent** if `\(Corr(x_t, x_{t+h})\)` goes to zero "sufficiently quickly" as h tends to infinity.  
+
+**Violation of consistency**: lag of y in regressors  
+`$$\begin{aligned} y_t&amp;=\beta_0 +\beta_1y_{t-1}+u_t\\  y_{t-1}&amp;=\beta_0+\beta_1y_{t-2}+u_{t-1}\\ 
+corr&amp;(y_{t-1}, u_{t-1})\neq 0 \\ \text{and if}\ \ corr&amp;(u_t, u_{t-1})\neq0\ \ \text{(first order autocorrelation)}\\ \text{ then }\ corr&amp;(y_{t-1}, u_{t})\neq 0 \end{aligned}$$`
+
+---
+
+###Week 11  
+
+* **Testing for Autocorrelation in the error term**  
+
+ - A simple test  
+ - Breusch-Godfrey test  
+ 
+ 
+---
+ 
+* **A test** for first-order autocorrelation with strictly exogenous regressors  
+
+`$$y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t$$`  
+
+`$$u_t=\rho u_{t-1}+e_t\ \text{where}\ |\rho|&lt;1\ \&amp;\ e_t\sim WN(0,\sigma^2_e)$$`  
+
+Assuming `\(E(e_t|u_{t-1}, u_{t-2}, \cdots)=0\)` and `\(Var(e_t|u_{t-1})=Var(e_t)=\sigma^2_e\)`  
+
+`$$\begin{aligned}H_0 &amp;: \rho=0\\ H_1 &amp;: \rho \neq 0\end{aligned}$$`
+
+&gt; **S1** Estimate `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` , obtain `\(\hat{u}_t\)`  
+
+&gt; **S2** Estimate `\(\hat{u}_t=\rho\hat{u}_{t-1}+e_t\)` , then under `\(H_0\)` `\(\frac{\hat{\rho}}{se\hat{\rho}}\overset{asy}{\sim}t(T-k-1)\)`  
+
+&gt; **S3** Reject `\(H_0\)` if `\(t_{calc}&gt;t_{crit}\)`  
+
+**Limitations** : 
+      1. Vaild only if the regressors are strictly exogenous  
+      2. Only for first-order autocorrelation  
+      3. An asymptotic test, may be unreliable in small samples  
+      
+---
+
+* **Breusch-Godfrey test**  
+
+If the error term in `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` is autocorrelated of order q then `\(u_t=\rho_1u_{t-1}+\rho_2u_{t-2}+\cdots +\rho_qu_{t-q}+e_t\)`  
+
+`$$\begin{aligned}H_0 &amp;: \rho_1=\rho_2=\cdots=\rho_q=0\\ H_1 &amp;: \rho_j \neq 0\ \text{for at least one }\ j=1, 2, 3, \cdots , q\end{aligned}$$`
+
+&gt; **S1** Estimate `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` , obtain `\(\hat{u}_t\)`  
+
+&gt; **S2** Estimate `\(\hat{u}_t=\alpha_1+\alpha_2x_{t2}+\cdots +\alpha_kx_{tk}\ \ +\rho_1\hat{u}_{t-1}+\cdots+\rho_q\hat{u}_{t-q} +e_t\)` , then under `\(H_0\)` `\(BG=(T-q)R^2_{\hat{u}}\overset{asy}{\sim}\chi^2(q)\)`  
+
+&gt; **S3** Reject `\(H_0\)` if `\(BG_{calc}&gt;BG_{crit}\)`  
+
+**Note** :
+       1. Not require strict exogenous  
+       2. Can test higher order autocorrelation  
+       3. Also an asymptotic test  
+  
+  
+---
+
+* **Correcting for autocorrelation**  
+
+&gt; 1. Using HAC error (heteroskedasticity and autocorrelatuon consistent), also called serial correlation-robust standard error  
+`$$se(\hat{\beta}_1)_{hac}\ \text{is a consistent extimator of }\ \sqrt{Var(\hat{\beta}_1)_{sc}}$$`
+`$$Var(\hat{\beta}_1)_{sc}=Var(\hat{\beta}_1)_{f_T}\qquad f_t=1+2\sum^{T-1}_{j=1}\left(\frac{T-J}{T}\right)\rho_j$$`  
+
+&gt; 2. Changing the specification of our model (e.g. adding additional lag of the dependent variable)  
+
+&gt; 3. Feasible generalized least squares (FGLS) estimator - Making an assumption about the precise nature of the autocorrelation.  
+
+---
+
+* **Random walk**  
+
+`$$y_t=y_{t-1}+u_t\ \text{where}\ u_t\sim WN(0,\sigma^2)$$`
+
+A random walk (or unit root non-stationary time series) is a covariance non-stationary model.  
+
+Assume that the starting value of the random walk is at `\(t = 0\)` where `\(y_0 = 0\)` .
+
+`$$y_t=y_{t-1}+u_t=y_{t-2}+u_{t-1}+u_t=u_1+u_2+\cdots +u_{t-1}+u_t$$`
+
+Mean:  
+`$$E(y_t)=E(u_1+u_2+\cdots +u_{t-1}+u_t)=0$$`
+
+Variance:  
+`$$\begin{aligned}Var(y_t)&amp;=E(u_1+u_2+\cdots+u_{t-1}+u_t)^2\\ 
+&amp;= E(u_1)^2+E(u_2)^2+\cdots +E(u_t)^2\\ &amp;=\sigma^2+\sigma^2+\cdots +\sigma^2=t\sigma^2\end{aligned}$$`
+
+---
+
+* **Properties of a unit root model**  
+
+1. A unit root process is not predictable  
+2. A unit root process is not mean-reverting (i.e. over time it drifts away from the mean)
+
+`$$\begin{aligned}F_{T+1|T}&amp;=E(y_{T+1}|F_T)=E(y_{T+1}|y_T. y_{T-1},\cdots )\\ &amp;= E(y_T+u_{T+1}|y_T, y_{T-1}, \cdots)=y_T\end{aligned}$$`  
+
+`$$\begin{aligned}F_{T+2|T}&amp;=E(y_{T+2}|F_T)=E(y_{T+1}+u_{T+2}|F_T)\\ &amp;= E(y_{T+1}|F_T)+E(u_{T+2}|F_T)=y_T\end{aligned}$$`
+
+In general, for any horizon `\(k\geq 1\)` , the k-step ahead forecast is 
+`$$F_{T+k|T}=y_T$$`  
+
+Therefore, for any horizon, the forecast of a random walk is the value `\(y_t\)` of the series at the forecast origin.  
+This shows that the process is not mean reverting or predictable.
+
+---
+
+* **Random walk with a drift**  
+
+`$$y_t=\varphi_0+y_{t-1}+u_t$$`  
+
+`$$y_t=t\varphi_0+y_0+u_t+\cdots +u_2+u_1$$`  
+
+a time trend `\((\varphi_0t)\)`  
+a pure random walk `\((u_t+\cdots +u_2+u_1)\)`
+
+* **Random walk with a drift versus trend stationary time series**  
+
+For a series with a deterministic time trend  
+`$$y_t=\alpha_0+\alpha_1t+e_t\ \text{where} \ e_t\sim IID(0,\sigma^2)$$`  
+
+* we have that:  
+    1. `\(y_t\)` grows linearly with time  
+    2. the mean `\(E(y_t)=\alpha_0+\alpha_1t\)` is time dependent  
+    3. the variance `\(Var(y_t)=E[y_t-E(y_t)]^2=E(e^2_t)=\sigma^2\)` is constant  
+    
+A unit root with a drift model has a variance that is time dependent.  
+
+---
+
+* **Unit root testing**  
+
+`$$y_t=\varphi_1y_{t-1}+u_t$$`
+
+`$$y_t=\varphi_0+\varphi_1y_{t-1}+u_t$$`  
+where `\(e_t\sim IID(0,\sigma^2)\)`  
+
+`$$\begin{aligned}&amp;H_0(\text{random walk}) : \varphi_1=1\\ &amp;H_1(\text{stationary}):|\varphi_1|&lt;1 \end{aligned}$$`
+
+
+---
+
+* **Dicket-Fuller test**  
+
+`$$DF=\frac{\hat{\varphi}_1-1}{se(\hat{\varphi}_1)}$$`
+
+Using both forms, the DF statistic under the null has non-standard distributions.  
+
+Using the unit root with a drift model and when `\(\varphi_0\neq 0\)` and `\(\varphi_1=1\)` then DF is asymptotically normal under the null.
+
+The critical values required form testing were obtained by Phillips (1987), Fuller (1976) by simulation.  
+
+An augmented version of this statistic (ADF) assumes the same t-ratio as before but is based on the following model specification for `\(y_t\)` : 
+
+`$$y_t=\varphi_0+\beta t+\varphi_1y_{t-1}+\sum^{p-1}_{i=1}\Delta y_{t-i}+u_t$$`  
+* where:
+      1. `\(c_t=\varphi_0 +\beta t\)` is a deterministic trend, and  
+      2. `\(\Delta y_j=y_j-y_{j-1}\)` is the differenced series of `\(y_j\)`
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"includes": {
+"in_header": "mylatexpackage.sty"
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});
+(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

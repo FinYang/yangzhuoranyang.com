@@ -307,7 +307,7 @@ enableGitInfo = false
 
 [[menu.main]]
   name = "Study Materials"
-  url = "https://fya.netlify.com/"
+  url = "/materials/"
   weight = 4
 
 [[menu.main]]

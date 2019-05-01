@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OLS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Fin" />
+    <meta name="date" content="2017-09-23" />
+    <link href="OLS_slides_files/remark-css-0.0.1/example.css" rel="stylesheet" />
+    <script src="OLS_slides_files/htmlwidgets-0.9/htmlwidgets.js"></script>
+    <script src="OLS_slides_files/plotly-binding-4.7.1/plotly.js"></script>
+    <script src="OLS_slides_files/typedarray-0.1/typedarray.min.js"></script>
+    <script src="OLS_slides_files/jquery-1.11.3/jquery.min.js"></script>
+    <link href="OLS_slides_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="OLS_slides_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <link href="OLS_slides_files/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="OLS_slides_files/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# OLS
+### Fin
+### 23 September 2017
+
+---
+
+
+
+
+##2 Observations
+
+`$$\left[\begin{array}{c}5\\ 2\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+&lt;img src="OLS_slides_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##2 Observations
+
+`$$\left[\begin{array}{c}5\\ 2\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+&lt;img src="OLS_slides_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##2 Observations
+`$$\left[\begin{array}{c}5\\ 2\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+&lt;img src="OLS_slides_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##2 Observations
+
+`$$\left[\begin{array}{c}5\\ 2\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+&lt;img src="OLS_slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##2 Observations
+
+
+`$$\left[\begin{array}{c}5\\ 2\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+&lt;img src="OLS_slides_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##3 Obersvations
+`$$\left[\begin{array}{c}5\\ 2\\ 3\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+<div id="23584a8d12d5" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="23584a8d12d5">{"x":{"visdat":{"2358443a284d":["function () ","plotlyVisDat"]},"cur_data":"2358443a284d","attrs":{"2358443a284d":{"x":[0,12],"y":[0,12],"z":[0,12],"mode":"lines","alpha":1,"sizes":[10,100],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1]},"yaxis":{"domain":[0,1]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[0,12],"y":[0,12],"z":[0,12],"mode":"lines","type":"scatter3d","line":{"fillcolor":"rgba(31,119,180,1)","color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+
+---
+##3 Obersvations
+`$$\left[\begin{array}{c}5\\ 2\\ 3\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+<div id="235841076593" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="235841076593">{"x":{"visdat":{"235828c329c":["function () ","plotlyVisDat"]},"cur_data":"235828c329c","attrs":{"235828c329c":{"x":[0,12,0,25],"y":[0,12,0,5],"z":[0,12,0,5],"mode":"lines","alpha":1,"sizes":[10,100],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1]},"yaxis":{"domain":[0,1]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[0,12,0,25],"y":[0,12,0,5],"z":[0,12,0,5],"mode":"lines","type":"scatter3d","line":{"fillcolor":"rgba(31,119,180,1)","color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+
+---
+##3 Obersvations
+`$$\left[\begin{array}{c}5\\ 2\\ 3\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+<div id="2358574d7407" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="2358574d7407">{"x":{"visdat":{"235870a072bd":["function () ","plotlyVisDat"]},"cur_data":"235870a072bd","attrs":{"235870a072bd":{"x":[0,15,0,12,0,25,12],"y":[0,6,0,12,0,5,12],"z":[0,9,0,12,0,5,12],"mode":"lines","alpha":1,"sizes":[10,100],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1]},"yaxis":{"domain":[0,1]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[0,15,0,12,0,25,12],"y":[0,6,0,12,0,5,12],"z":[0,9,0,12,0,5,12],"mode":"lines","type":"scatter3d","line":{"fillcolor":"rgba(31,119,180,1)","color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+
+---
+##3 Obersvations
+`$$\left[\begin{array}{c}5\\ 2\\ 3\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+<div id="23581d627eb" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="23581d627eb">{"x":{"visdat":{"23587e3827c5":["function () ","plotlyVisDat"]},"cur_data":"23587e3827c5","attrs":{"23587e3827c5":{"x":[0,15,0,12,0,25,12,0,15],"y":[0,6,0,12,0,5,12,0,7.5],"z":[0,9,0,12,0,5,12,0,7.5],"mode":"lines","alpha":1,"sizes":[10,100],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1]},"yaxis":{"domain":[0,1]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[0,15,0,12,0,25,12,0,15],"y":[0,6,0,12,0,5,12,0,7.5],"z":[0,9,0,12,0,5,12,0,7.5],"mode":"lines","type":"scatter3d","line":{"fillcolor":"rgba(31,119,180,1)","color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+
+---
+##3 Obersvations
+`$$\left[\begin{array}{c}5\\ 2\\ 3\end{array}\right]=
+\left[\begin{array}{c}1\\ 1\\ 1\end{array}\right]\hat{\beta}_0+
+\left[\begin{array}{c}5\\ 1\\ 1\end{array}\right]\hat{\beta}_1+\mathbf{\hat{u}}=
+\left[\begin{array}{cc}1&amp;5\\ 1&amp;1\\ 1&amp;1\end{array}\right]\hat{\mathbf{\beta}}+\mathbf{\hat{u}}$$`
+
+<div id="23581b6311ee" style="width:504px;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="23581b6311ee">{"x":{"visdat":{"2358374a115c":["function () ","plotlyVisDat"]},"cur_data":"2358374a115c","attrs":{"2358374a115c":{"x":[0,15,0,12,0,25,12,0,15,15],"y":[0,6,0,12,0,5,12,0,7.5,6],"z":[0,9,0,12,0,5,12,0,7.5,9],"mode":"lines","alpha":1,"sizes":[10,100],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1]},"yaxis":{"domain":[0,1]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[0,15,0,12,0,25,12,0,15,15],"y":[0,6,0,12,0,5,12,0,7.5,6],"z":[0,9,0,12,0,5,12,0,7.5,9],"mode":"lines","type":"scatter3d","line":{"fillcolor":"rgba(31,119,180,1)","color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});
+(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

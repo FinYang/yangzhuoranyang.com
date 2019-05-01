@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ETC3460</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Fin" />
+    <link href="ETC3460_slides_S1_2018_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="ETC3460_slides_S1_2018_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ETC3460
+### Fin
+### Semester 1 2018
+
+---
+
+
+
+
+#Part 0 Probability and Statistics
+
+
+* **Features of financial data**  
+
+  - Heavy tails  
+  - Asymmetry  
+  - Lack of persistence in return levels  
+  - Persistent volatility  
+  - Volatility Clustering
+  
+---
+
+
+* **Transforming non-stationary series to stationary seies**
+
+**Simple return** : from time `\(t-1\)` to `\(t\)` 
+
+Simple gross return 
+
+`$$1+ R_t =\frac{P_t}{P_{t-1}}$$` 
+
+Simple net return 
+
+`$$R_t =\frac{P_t}{P_{t-1}}-1=\frac{P_t-P_{t-1}}{P_{t-1}}$$`
+
+--
+
+**Log return** : The natural logarithm of the simple gross return is called the log return
+
+`$$r_t=\ln{(1+R_t)}=\ln{\frac{P_t}{P_{t-1}}}=\ln{P_t}-\ln{P_{t-1}}$$`
+
+For small `\(R_t\)` , `\(r_t=\ln{(1+R_t)} \approx R_t\)`
+
+  
+---
+  
+##Random variable##
+
+A __random variable__ is a rule that assigns a numerical outcome to an event in each possible state of the world. (A phenomena that can not be predicted with perfect accuracy)
+
+--
+
+* **Sample space**
+
+The __sample space__, denoted by `\(\Omega\)` is the set of all possible values that a random variable can take.
+
+--
+
+* **Event**  
+
+An __event__ can be any subset of the sample space `\(\Omega\)`.  
+
+--
+
+* **Event space**  
+
+The set of all events in the sample space `\(\Omega\)` is called the __event space__, and is denoted `\(\mathcal{F}\)`  
+
+--
+
+* **Power set**  
+
+Let `\(\Omega\)` be a set. The set of all possible combinations of the elements in `\(\Omega\)` is called the __power set__, and is denoted `\(2^\Omega\)`.  
+
+---
+
+* **Discrete random variable**
+
+A __discrete random variable__ `\(X\)` has a finite number of distinct outcomes. For example, rolling a die is a random variable with 6 distinct outcomes.  
+For `\(\Omega\)` the sample space of `\(X\)`, `\(\Omega\)` contains a countable number of elements.  
+
+--
+
+A __Bernoulli random variable__ is a random variable that takes values in `\(\{0,1\}\)`, with the probability `\(p\)` (parameter) of taking 1.
+ 
+--
+
+* **Continuous random variable**  
+ 
+A __continuous random variable__ can take a continum of values within some interval (infinitely many values). For example, rainfall in Melbourne in May can be any number in the range from 0.00 to 200.00 mm.  
+For any `\(\omega \in \Omega\)`, `\(\Pr(\omega)=0\)`
+
+--
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/dj-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/dj-2.png" width="45%" height="45%" /&gt;
+
+---
+
+###Discrete Random Variable  
+
+Let `\(R(X)\)` denote the __range__ of the random variable `\(X\)`, i.e., the set of possible values that X can take.  
+
+--
+
+* **Probability mass function (pmf)**  
+
+The __probability mass function__ for the random variable `\(X\)`, denoted `\(f(x)\)`, enumerates the probability `\(X=x\)` for all elements in `\(R(X)\)`. That is 
+
+`$$f(x)=\Pr(x)\text{ and } f(x)=0 \text{ for all } x\not\in R(X)$$`
+
+--
+
+* **Bernoulli random variable**
+
+A __Bernoulli random variable__ has range `\(R(X)={0,1}\)` and pmf   
+
+`$$f(x)=p^x(1-p)^{1-x},\ \ \ \ p\in [0,1]$$`   
+
+where `\(p\)` denotes the probability of success. We refer to `\(p\)` as the parameter of the Bernoulli random Variable.
+
+---
+
+* **Estimation for Bernoulli**
+
+Mathematically, for `\(n\)` denoting the total nomber of observations, we can estimate `\(p\)` by 
+
+`$$\hat{p}=\frac{\# \{r_t&gt;0\}}{n}$$`
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/djbernoulli-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/djbernoulli-2.png" width="45%" height="45%" /&gt;
+
+---
+
+* **Poisson Random Variable**  
+
+A __Poisson random variable__ has range `\(R(X)=\{1,2,3,\ldots\}\)`. The pmf for the Possiob random variable is given by  
+
+`$$f(x)=\frac{\lambda^xe^{-\lambda}}{x!}$$`
+
+where the parameter `\(\lambda\)` is referred to as the intensity parameter. `\(\lambda\)` governs the size of counts that are most likely to occur.  
+
+Larger the `\(\lambda\)`, bigger the probability of getting large values.  
+
+--
+
+Given `\(\lambda=10\)`, calculate the probability of event
+
+`$$\Pr(X=11) = \frac{\lambda^xe^{-\lambda}}{x!} = \frac{10^{11}e^{-10}}{11!} = 0.1137364$$`
+
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/poisson-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+###Continuous Random Variable   
+
+Continous random variables are governed by their __probability density function (pdf)__.  
+
+* **Probability density function**  
+
+A random variable `\(X\)` is called continuous if its range is un-countable infinite and there exists a non-negative-valued function `\(f(x)\)` defined on `\(\mathbb{R}\)` such that for any event `\(B\subset R(X)\)`, we have  
+
+`$$\Pr(B)=\int_B f(x)dx\ge 0, f(x)=0 \text{ for all } x\not\in R(X)\\ \int_\Omega f(x)dx=1$$`  
+
+---
+
+* **Normal distribution**  
+
+A random variable `\(X\)` has pdf  
+
+`$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$`  
+
+`\(\mu\)` is the location parameter; `\(\sigma\)` is the scale parameter. Often, denoted as `\(X\sim N(\mu, \sigma^2)\)`.  
+
+Special case: stansard normal distribution, `\(\mu=0\)` and `\(\sigma = 1\)`  
+
+--
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/norm-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+###Moments and Expectations  
+
+* **Expectation** 
+
+If `\(X\)` is a discrete random variable with pmf `\(f(x)\)`, then the expected value of `\(X\)`, denoted `\(\mathbb{E}[X]\)`, is given by 
+
+`$$\mathbb{E}(X) = \sum_{x\in R(X)} xf(x)$$`  
+
+--
+
+If `\(X\)` is a continous random variable with pdf `\(f(x)\)`, then the expected value of `\(X\)`, denoted `\(\mathbb{E}[X]\)`, is given by 
+
+`$$\mathbb{E}(X) = \int_{R(X)} xf(x)dx$$`
+
+--
+
+`$$X\sim N(0,1)\Rightarrow \mathbb{E}[X]=0\\ X\sim N(\mu,\sigma^2)\Rightarrow \mathbb{E}[X]=\mu$$`  
+
+`$$X\sim \mathcal{B}(p)\Rightarrow \mathbb{E}[X]=p$$`
+
+`$$X\sim \mathcal{P}(\lambda)\Rightarrow \mathbb{E}[X]=\lambda$$`
+
+---
+
+Features we want to know  
+
+ 1. The expected return  
+ 2. The risk  
+ 3. The likelihood of returns being above or below the mean  
+ 4. The likelihood of returns 
+
+--
+
+* **Moments**  
+
+For each integer `\(k\)`, the __$k$-th moment__ of `\(X\)` is   
+
+`$$\mu_k=\mathbb{E}[X^k]$$`  
+
+The `\(k\)`-th __central moment__ of `\(X\)` is  
+
+`$$\bar\mu_k=\mathbb{E}[(X-\mu_1)^k]$$`   
+
+The `\(k\)`-th __standardized moment__ of `\(X\)` is  
+
+`$$\bar\mu_k^s=\mathbb{E}\left[\left(\frac{X-\mu_1}{\sqrt{\bar\mu_2}}\right)^k\right]$$`  
+
+---
+
+`$$X\sim N(0,1)\Rightarrow \mathbb{E}[X]=0 \text{ and }\mathbb{E}[X^2]=1\\ X\sim N(\mu,\sigma^2)\Rightarrow \mathbb{E}[X]=\mu\text{ and }\mathbb{E}[X^2]=\sigma^2+\mu^2$$`  
+
+`$$X\sim \mathcal{B}(p)\Rightarrow \mathbb{E}[X]=p\text{ and }\mathbb{E}[X^2]=p(1-p)+p^2$$`
+
+`$$X\sim \mathcal{P}(\lambda)\Rightarrow \mathbb{E}[X]=\lambda\text{ and }\mathbb{E}[X^2]=\lambda+\lambda^2$$`
+
+---
+
+
+Features we want to know  
+
+ 1. The expected return - `\(\mathbb{E}[r_t]\)`   
+ 2. The risk - `\(\bar\mu_2=\mathbb{E}[(r_t-\mu_1)^2]\)`  
+ 3. The likelihood of returns being above or below the mean - __skewness__
+ 4. The likelihood of returns - __kurtosis__  
+ 
+--
+
+* **Skewness**  
+
+Likelihood of extremes above or belew mean.  
+
+`$$\bar\mu_3=\mathbb{E}[(r_t-\mu_1)^3]$$`  
+
+`$$\bar\mu_3^s=\mathbb{E}\left[\left(\frac{r_t-\mu_1}{\sqrt{\bar\mu_2}}\right)^3\right]$$`  
+
+--
+
+For stock returns, negative skewness is more likely than positive skewness.  
+
+---
+
+* **Kurtosis**  
+
+Likelihood of extremes  
+
+`$$\bar\mu_4^s=\mathbb{E}\left[\left(\frac{r_t-\mu_1}{\sqrt{\bar\mu_2}}\right)^4\right]$$`  
+
+--
+
+Kurtosis of the standard normal random variable is exactly 3.  
+
+"excess kurtosis":  
+
+`\(\text{Ex.Kurt} = \bar\mu_4^s -3\)`  
+
+ - `\(\text{Ex.Kurt}&lt;0\)`, thinner tails than normal  
+ - `\(\text{Ex.Kurt}&gt;0\)`, thicker tails than normal  
+
+
+---
+
+* student-t distribution  
+
+`$$\bar\mu_1^s=0\\ \bar\mu_2^s=1\\ \bar\mu_3^s=0$$`  
+
+same as normal  
+
+`$$\text{Ex.Kurt}=\bar\mu_4^s-3 = \frac{6}{v-4}&gt;0$$`  
+
+where `\(v\)` is the degree of freedom parameter  
+
+---
+
+* **Sample estimation**  
+
+`$$\bar{x}=\sum^T_{t=1}\frac{x_t}{T}$$`  
+
+`$$s^2=\frac{1}{T-1}\sum^T_{t=1}(x_t-\bar{x})^2 \\ s=\sqrt{s^2}$$`  
+
+`$$SK=\frac{1}{T}\sum^T_{t=1}\left(\frac{r_t-\bar{r}}{s}\right)^3$$`
+
+`$$KT=\frac{1}{T}\sum^T_{t=1}\left(\frac{r_t-\bar{r}}{s}\right)^4\\ \text{E-KT} = KT - 3$$`
+
+---
+
+##Distribution
+
+###Joint Distribution  
+
+Multivariate random variables allow relationship between two or more random quantities to be modeled and studied.  
+
+`$$\mathbf{X}=\left(\begin{array}{c}  X_1 \\  X_2 \\ \vdots \\ X_n\end{array}\right)$$`
+
+---
+
+A multicariate random variable `\(\mathbf{X}\)` is called continous if its range is countably infinite and there exists a non-negative-valued function `\(f(x_1,\ldots,x_n)\)` defined for all `\((x_1,\ldots,x_n)' \in \mathbb{R}^n\)` such that for any event `\(B\subset R(X)\)`, we have 
+
+`$$\Pr(B)=\int\cdots\int_{(x_1,\ldots,x_n\in B)} f(x_1,\ldots,x_n)dx_1\ldots dx_n \ge 0 \\ f(x_1,\ldots,x_n)=0 \text{ for all }(x_1,\ldots,x_n)'\not\in R(X)\\  \Pr(\Omega)=\int\cdots\int_{(x_1,\ldots,x_n\in \Omega)} f(x_1,\ldots,x_n)dx_1\ldots dx_n =1$$`  
+
+The function `\(f(.)\)` is called the __multivariate probability density function (pdf)__.  
+
+---
+
+Let `\(X_1\)` and `\(X_2\)` be individually standard normal. Than `\(\mathbf{X}=(X_1,X_2)'\)` is __bivariate standard normal__, with correlation `\(\rho\)`, if and only if   
+
+`$$f(x_1, x_2)=\frac{1}{2\pi\sqrt{1-\rho^2}}e^{-\frac{(x_1+x_2)^2-2\rho x_1x_2}{2\sqrt{1-\rho^2}}}$$`  
+
+--
+
+Let `\(X_1\sim N(\mu_1,\sigma_1^2)\)` and `\(X_2\sim N(\mu_2,\sigma_2^2)\)` be individually normal. Then `\(\mathbf{X}=(X_1,X_2)'\)` is __bivariate normal__, with correlation `\(\rho\)`, if and only if   
+
+`$$f(x_1, x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2\sqrt{1-\rho^2}}\left[\frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}\right]}$$`  
+
+--
+
+If `\(\mathbf{X}=(X_1,X_2)'\)` is bivariate normal, then both `\(X_1\)` and `\(X_2\)` must be normal.  
+
+
+---
+
+
+###Marginal Distribution
+
+If we have joint distribution of `\(\mathbf{X}\)`, we can dudece the distribution of any subset of `\(\mathbf{X}\)`.  
+
+The marginal disteibution requires _integrating out the variables which are not of interest_.  
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` has joint pdf `\(f(x_1, x_2)\)`.  
+
+The __marginal pdf__ of `\(X_1\)` is given by  
+
+`$$f(x_1)=\int^\infty_{-\infty}f(x_1,x_2)dx_2$$`
+
+The __marginal pdf__ of `\(X_2\)` is given by  
+
+`$$f(x_2)=\int^\infty_{-\infty}f(x_1,x_2)dx_1$$`
+
+---
+
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` be bivariate normal, with correlation `\(\rho\)`, with  
+
+`$$f(x_1, x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2\sqrt{1-\rho^2}}\left[\frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}\right]}$$`  
+
+Then the marginal distributions for `\(X_1\)` and `\(X_2\)` are `\(X_1\sim N(\mu_1,\sigma_1^2)\)` and `\(X_2\sim N(\mu_2,\sigma_2^2)\)`.
+
+--
+
+* **Independence of Joint RVs**  
+
+If event `\(A\)` and `\(B\)` are independent  
+
+`$$\Pr(A\cap B)=\Pr(A)\Pr(B)$$`
+
+Random variable `\(X_1\)` and `\(X_2\)` are independent if and only if  
+
+`$$f(x_1, x_2)=f_1(x_1)f_2(x_2)$$`
+
+---
+
+###Condition Distributions  
+
+Let `\(R_m = \mathbb{E}[r_t]\)` denote the expected return on a stock and let `\(R_f = \mathbb{E}[B_t]\)` denote the expected return on a risk-free asset Bt, say a short-term treasury bond.  
+
+All of modern finance is interested in explaining the behavior of `\(R_m − R_f\)`, the __excess returns__.  
+
+We may want to model the excess returns conditional on `\(R_f\)`.  
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` be bivariate normal, with correlation `\(\rho\)`, with `\(X_1\sim N(\mu_1,\sigma_1^2)\)` and `\(X_2\sim N(\mu_2,\sigma_2^2)\)`.  The __conditional pdf__ of `\(X_1\)` given `\(X_2\in B\)`, with  
+
+`$$\Pr(X_2\in B)=\int_B f_2(x_2)dx_2&gt;0$$`  
+
+is  
+
+`$$f(x_1|X_2\in B)=\frac{\int_B f(x_1, x_2)dx_2}{\int_B\int^\infty_{-\infty}f(x_1, x_2)dx_1dx_2} = \frac{\int_B f(x_1, x_2)dx_2}{\int_Bf_2(x_2)dx_2}$$`
+
+---
+
+If `\(B\)` is a single point, for `\(B=\{b\}\)` and `\(f_2(b)&gt;0\)`,  
+
+`$$f(x_1|X_2=b)=\frac{f(x_1,b)}{f_2(b)}$$`
+
+--
+
+If `\(X_1\)` and `\(X_2\)` are independent, we have the conditional distribution if `\(X_1\)`, given `\(X_2=b\)` :  
+
+`$$f(x_1|X_2=b)=\frac{f(x_1,b)}{f_2(b)}=\frac{f_1(x_1)f_2(b)}{f_2(b)}=f_1(x_1)$$`
+
+If variables are independent, the conditional distribution is the marginal distribution
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` be bivariate normal  
+
+`$$\mathbf{X}\sim \mathcal{N}\left(\left(\begin{array}{C}\mu_1\\ \mu_2\end{array}\right), \left[\begin{array}{cc}\sigma^2_{11} &amp; \sigma_{12}\\ \sigma_{12} &amp; \sigma^2_{22}\end{array}\right]\right)$$`
+
+Then the conditional distribution of `\(X_1\)` given `\(X_2=x_2\)` is also normally distribution. For `\(\rho=\frac{\sigma_{12}}{\sqrt{\sigma^2_{11}\sigma^2_{22}}}\)`,  
+
+`$$f(x_1|X_2=x_2) = \mathcal{N}\left(\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(x_2-\mu_2),\sigma^2_{11}(1-\rho^2)\right)$$`   
+
+---
+
+###Conditional Expections  
+
+Instead of using the marginal density in the standard expections, we use the __conditional density__.  
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` with pdf `\(f(x_1, x_2)\)`. Let `\(\mathrm{g}(X_1)\)` be some function of `\(X_1\)`. Then, for marginal density `\(f_2(x_2) &gt;0\)`, the conditional expectation of `\(\mathrm{g}(X_1)\)` given `\(X_2=x_2\)` is  
+
+`$$\begin{aligned} \mathbb{E}[\mathrm{g}(X_1)|X_2=x_2]&amp;=\int^\infty_{-\infty}\mathrm{g}(x_1)f(x_1|X_2=x_2)dx_1 \\ 
+&amp;=\int^\infty_{-\infty}\mathrm{g}(x_1)\frac{f(x_1,x_2)}{f_2(x_2)}dx_1\end{aligned}$$`
+
+a function of `\(X_2\)`  
+
+---
+
+* **Simple linear regression**  
+
+`$$\mathbf{Y}=\beta_0+\beta_1\mathbf{Z}+\mathbf{\epsilon}$$`  
+
+`$$\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{z}$$`
+
+`$$\hat{\beta}_1=\frac{\sum^n_{i=1}(z_i-\bar{z})(y_i-\bar{y})}{\sum^n_{i=1}(x_i-\bar{z})^2}=\frac{\hat\sigma_{12}}{\hat\sigma^2_z}$$`
+
+--
+
+`$$\begin{aligned}\hat{y}_i &amp;= \hat\beta_0+\hat\beta_1z_i \\ &amp;= \bar{y}+\hat\beta_1(z_i-\bar{z})\\ &amp;= \hat\mu_y +\frac{\hat\sigma_{12}}{\hat\sigma_z}(z_i-\hat\mu_x)\\ &amp;=\hat\mu_y+\hat\rho\frac{\hat\sigma_y}{\hat\sigma_z}(z_i-\hat\mu_x), \ \ \hat\rho=\frac{\hat\sigma_{yz}}{\sqrt{\hat\sigma^2_y\hat\sigma^2_z}} \end{aligned}$$`  
+
+--
+
+A simple linear regression model is the same as if we had just assumed that `\(Y\)` and `\(Z\)` were bivariate normal.  
+
+---
+
+* **Law of Iterated Expectations (L.I.E.)**
+
+The order of taking expectations does not matter  
+
+`$$\mathbb{E}[\mathrm{g}(X_1)]=\mathbb{E}[\mathbb{E}[\mathrm{g}(X_1)|X_2=x_2]]$$`
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` be bivariate normal  
+
+`$$\mathbf{X}\sim \mathcal{N}\left(\left(\begin{array}{C}\mu_1\\ \mu_2\end{array}\right), \left[\begin{array}{cc}\sigma^2_{11} &amp; \sigma_{12}\\ \sigma_{12} &amp; \sigma^2_{22}\end{array}\right]\right)$$`
+
+`$$f(x_1|X_2) = \mathcal{N}\left(\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(X_2-\mu_2),\sigma^2_{11}(1-\rho^2)\right)$$`   
+
+`$$\begin{aligned}\mathbb{E}[X_1]&amp;=\mathbb{E}[\mathbb{E}[X_1|X_2]]\\ &amp;= \mathbb{E} \left[\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(X_2-\mu_2) \right]\\ &amp;=\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}\mathbb{E}(X_2-\mu_2)\\ &amp;=\mu_1 \end{aligned}$$`
+
+---
+
+`$$\begin{aligned}\mathbb{E}[X_1X_2] &amp;=\mathbb{E}[\mathbb{E}[X_1X_2|X_2]]\\ &amp;= \mathbb{E}[X_2\mathbb{E}[X_1|X_2]]\\ &amp;=\mathbb{E}\left[X_2\left(\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(X_2-\mu_2)\right)\right]\\ &amp;=\mu_1\mu_2+\rho\frac{\sigma_{11}}{\sigma_{22}}\mathbb{E}[(X_2-\mu_2)^2]\\ &amp;=\mu_1\mu_2 + \sigma_{12}  \end{aligned}$$`
+
+`$$\begin{aligned}Cov(X_1,X_2) &amp;=\mathbb{E}[X_1X_2]-\mu_1\mu_2\\ &amp;= \sigma_{12}  \end{aligned}$$`
+
+--
+
+* **Random walk**  
+
+Let `\(\epsilon_t, t\ge1\)` denote a time series of i.i.d. random variables with mean 0 and variance 1. A common model for the price of a stock is the "random walk".  
+
+`$$P_t=P_{t-1}+\epsilon_t$$`  
+
+Let$P_0=0$ and `\(\mathbb{E}[\epsilon_t]=0\)`, then  
+
+`$$\mathbb{e}[P_t|P_{t-1}]=\mathbb{E}[P_{t-1}|P_{t-1}] +\mathbb{E}[\epsilon_t|P_{t-1}]=P_{t-1}$$`  
+
+---
+
+* **Conditional variance**
+
+The variance of random variable `\(Y\)`, conditional on `\(X\)` is given by  
+
+`$$Var(Y|X)=\mathbb{E}[(Y-\mathbb{E}[Y|X])^2|X]$$`  
+
+* **Law of Total Variance**  
+
+`$$Var(Y)=\mathbb{E}[Var(Y|X)]+Var(\mathbb{E}[Y|X])$$`
+
+--
+
+Let `\(\mathbf{X}=(X_1,X_2)'\)` be bivariate normal  
+
+`$$\mathbf{X}\sim \mathcal{N}\left(\left(\begin{array}{C}\mu_1\\ \mu_2\end{array}\right), \left[\begin{array}{cc}\sigma^2_{11} &amp; \sigma_{12}\\ \sigma_{12} &amp; \sigma^2_{22}\end{array}\right]\right)$$`
+
+`$$f(x_1|X_2) = \mathcal{N}\left(\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(X_2-\mu_2),\sigma^2_{11}(1-\rho^2)\right)$$`   
+
+`$$\begin{aligned}\mathbb{V}[X_1] &amp;= \mathbb{E}[\mathbb{V}[X_1|X_2]]+\mathbb{V}[\mathbb{E}[X_1|X_2]]\\ &amp;=\sigma^2_{11}(1-\rho^2)+\mathbb{V}\left[\mu_1+\rho\frac{\sigma_{11}}{\sigma_{22}}(X_2-\mu_2) \right]\\ &amp;=\sigma^2_{11}(1-\rho^2)+\rho^2\sigma^2_{11}\\ &amp;=\sigma^2_{11} \end{aligned}$$`
+
+---
+
+* **Conditional Moments**  
+
+For each integer `\(k\)`, the `\(k\)`-th conditional moment of `\(Y\)` given `\(X\)`, is  
+
+`$$\mathbb{E}[Y^k|X]$$`
+
+---
+
+#Part 1  Asset Pricing
+
+##Returns  
+
+**Simple return** : from time `\(t-1\)` to `\(t\)` 
+
+Simple gross return 
+
+`$$1+ R_t =\frac{P_t}{P_{t-1}}$$` 
+
+Simple net return 
+
+`$$R_t =\frac{P_t}{P_{t-1}}-1=\frac{P_t-P_{t-1}}{P_{t-1}}$$`
+
+
+
+---
+
+**Log return** : The natural logarithm of the simple gross return is called the log return
+
+`$$r_t=\ln{(1+R_t)}=\ln{\frac{P_t}{P_{t-1}}}=\ln{P_t}-\ln{P_{t-1}}$$`
+
+For small `\(R_t\)` , `\(r_t=\ln{(1+R_t)} \approx R_t\)`
+
+--
+
+Log returns are approximately equal to net returns because if x is small, then `\(\log(1+x)\approx x\)`.  
+
+The `\(k\)`-period log return is  
+
+`$$\begin{aligned}r_t(k) &amp;= \log(1+R_t(k))\\ &amp;=\log((1+R_t)\cdots(1+R_{t-k+1}))\\ &amp;= \log(1+R_t)+\cdots+\log(1+R_{t-k-1})\\ &amp;=r_t+\cdots+r_{r-k-1}   \end{aligned}$$`
+
+---
+
+* **Risk**  
+
+Risk is the chance that the return on an asset will differ from its expected return `\(\mathbb{E}[r_t]\)`.  
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-1-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-1-2.png" width="45%" height="45%" /&gt;
+
+---
+
+* **Standardization**  
+
+`$$r\sim \mathcal{N}(\mu, \sigma^2)$$`  
+
+`$$\Pr(r&lt;0)=\Pr\left(\frac{r-\mu}{\sigma}&lt;-\frac\mu\sigma \right) = \Pr\left(z&lt;-\frac\mu\sigma\right)$$`
+
+```
+say mean 0.10, variance 0.16?
+```
+
+---
+
+* **Risk Aversion**  
+
+When exposed to uncertaninty, __risk aversion__ is the behavior of individuals or investors attempting to lower uncertainty.  
+
+--
+
+This implies that in order for you to hold a more risky asset, you must be compensated with the possibility of a higher return.
+
+* **Risk and Return**  
+
+The __Risk-Return trade-off (RRT)__ states that, to bear higher rish, an investor must be compensated with the _possibility_ of a higher return. This is often succinctly stated as: there is a positive relationship between risk and expected return.  
+
+--
+
+If information on past returns was informative about the behavior of future returns, this could be used to help us mitigate the risk of investing in certain assets.
+
+---
+
+##Classical Models of Returns
+
+* **The Normal Model of Returns**  
+
+`$$R_t\sim i.i.d.\mathcal{N}(\mu,\sigma^2)$$`
+
+--
+
+Problems:  
+
+ - Normal random variables can take any value  
+ - Losses are generally bounded  
+ - Stock prices can only be so large and can never be negative  
+
+---
+
+* **Log-Normal Returns**  
+
+`$$r_t=\log(1+R_t)\sim i.i.d.\mathcal{N}(\mu, \sigma^2)$$`
+
+It follows that the simple gross returns `\((1+R_t)\)` is log normally distributed.  
+
+--
+
+Lognormal returns admit a general formula for the `\(k\)`-th period returns  
+
+`\(\log(1+R_t(k))\)` is the sum of `\(k\)` independent normal random variables `\(\mathcal{N}(\mu, \sigma^2)\)`
+
+`$$\log(1+R_t(k))\sim \mathcal{N}(k\cdot \mu, k\cdot \sigma^2)$$`  
+
+`$$\Pr(\log(1+R_t(k))&lt;x) = \Phi\left(\frac{\log(x)-k\mu}{\sqrt{k\sigma^2}} \right)$$`
+
+---
+
+* **Testing for Normality of log returns**  
+
+1. Compareing moments 
+
+2. qqplot
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-2-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-2-2.png" width="45%" height="45%" /&gt;
+
+---
+
+* **Random Walk Model**
+
+The mean and variance of a __random walk__, conditional on `\(P_0\)`, are  
+
+`$$\mathbb{E}[P_t|P_0]=P_0 +\mu\cdot t$$`  
+
+`$$\mathbb{V}[P_t|P_0] = \sigma^2\cdot t$$`
+
+--
+
+`\(\mu\)` is call the drift and determines the general direction of the random walk.  
+
+`\(\sigma\)` is the volatility and determines how much the random walk fluctuates about the mean `\(\mathbb{E}[P_0] + \mu \cdot t\)`
+
+Most price follow random walks: not predictiable but follow a (short term) trend.  
+
+---
+
+* **Geometric Random Walks**  
+
+`$$\begin{aligned}\log(1+R_t(k))&amp;=r_1+\cdots+r_{t-k-1}\\ \frac{P_t}{P_{t-k}} = 1+R_t(k) &amp;= e^{r_1+\cdots+r_{t-k-1}} \end{aligned}$$`  
+
+--
+
+taking `\(k=t\)` yields  
+
+`$$P_t=P_0e^{r_1+\cdots+r_{t-k-1}}$$`
+
+--
+
+__Geometric random walk__: log returns are i.i.d. normal with mean `\(\mu\)` and variance `\(\sigma^2\)` (parameters)  
+
+The price process `\(\{P_t:t=1,2,\ldots\}\)` is said to follow the exponential of a random walk.  
+
+--
+
+The geometric random walk model implies that future price changes are independent of the past and therefore not possible to predict.  
+
+ - Positive trend  
+ - Future deviations from this upward trend cannot be predicted
+
+---
+
+##Portfolios
+
+Random walk indicates at least on an individual level, predicting the behavior of returns is very difficult.  
+
+--
+
+* Diversification in econometrics - Averaging
+ 
+`$$E(\frac{1}{2}(X_1+X_2))=\frac{1}{2}(\mu +\mu) = \mu$$`  
+ 
+--
+
+`$$\begin{aligned}
+Var(\frac{1}{2}(X_1+X_2))&amp;=\frac{1}{4}Var(X_1) + \frac{1}{4}Var(X_2)\\ 
+&amp;=\frac{1}{4}(\sigma^2 +\sigma^2) = \sigma^2 /2
+\end{aligned}$$`
+
+--
+
+* Sampling and Distribution  
+
+
+
+Refer to [here](https://fya.netlify.com/mean_distribution_converge.pdf)
+
+
+---
+
+* **Portfolios**  
+
+A __portfolio__ is simply a collection of assets, such as stocks, bonds, etc.
+
+Portifolios allow investors to mitigate risk, to some extent.  
+
+--
+
+Goals  
+
+  1. maximize the expected return  
+  2. minimize risk  
+  
+
+Choosing the allocation of assets, weights, so that we simultaneously maximize expected returns, and minimize risk.  
+--
+
+Risk measure:  the standard deviation of the return on our portfolios.  
+
+--
+
+###Combining one Risky and one Riskless Asset  
+
+Return on a risky asset:  `\(R\)`   Expected value:  `\(\mu_R\)`  
+
+Return on a riskless asset (e.g. one-month U.S. treasury bill):  `\(R_f\)`  Expected value:  `\(\mu_f\)`  
+
+Finding a allocation rule (weight) that's optimal.  `\(w \in [0,1]\)`
+
+---
+
+* **Optimal Allocation**  
+
+ 1. Return on such a portfolio  
+ `$$R_p=wR+(1-w)R_f$$`  
+ 2. The expected return on the portfolio  
+ `$$E(R_p)=w\mu_R+(1-w)\mu_f$$`  
+ 3. The variance of the portfolio  
+ `$$V[R_p]=w^2\sigma^2_R+(1-w)^2\sigma^2_{R_f}$$`
+ 4. Riskless asset with no risk  `\(E[R_f]-\mu_f\)`  `\(V(R_f)= 0\)`  
+ `$$V[R_p]=w^2\sigma^2_R$$`  
+
+
+---
+
+Determine `\(w\)` by decide either the expected return or risk one wishes to take. i.e. Determine `\(E(R_p)\)` or `\(V(R_p)\)`  
+
+
+
+`$$w=\frac{\mu_{R_p}-\mu_f}{\mu_R-\mu_f}$$`  
+ 
+`\(\mu_R-\mu_f\)` is referred to as the _excess return_    
+
+`$$w=\frac{\sigma_{R_p}}{\sigma_R}$$`
+
+--
+
+`$$\begin{aligned}E(R_p)&amp;=w\mu_R+(1-w)\mu_f\\ &amp;=\frac{\sigma_{R_p}}{\sigma_R}\mu_R+(1-\frac{\sigma_{R_p}}{\sigma_R})\mu_f\\ &amp;= \mu_f +\frac{\sigma_{R_p}}{\sigma_R}(\mu_R-\mu_f)\end{aligned}$$` 
+
+---
+
+* **Conditional Market Line**  
+
+`$$\mu_{R_p} = E(R_p) = \mu_f +(\mu_R -\mu_f)\frac{\sigma_{R_p}}{\sigma_R}$$`
+
+When the risky asset R is the "market portfolio", the above equation is called __the capital market line__  
+
+The CML shows how `\(\mu_{R_p}\)` depends on `\(\sigma_{R_p}\)`  
+
+--
+
+Slope: `\(\frac{\mu_R-\mu_f}{\sigma_R}\)`  
+
+`\(\mu_R-\mu_f\)` can be interpreted as a "risk-premium" on asset R  
+
+The slope of the CML is the ratio of the risk-premium to the standard deviation of the market portfolio.  
+
+--
+
+For a 1-unit change in risk `\(\sigma_{R_p}\)`, changes in expected excess return: `\(E(R_p-\mu_f)-\mu_R-\mu_f\)`   
+
+
+--
+
+* **Sharp ratio**  
+
+Slope: `\(\frac{\mu_R-\mu_f}{\sigma_R}\)`  
+
+Measures the relative performance associated with investing.  
+
+---
+
+### Two Risky Assets  
+
+`$$R_p=wR_1+(1-w)R_2$$`  
+
+`$$E(R_j)=\mu_j,\ \ \ V(R_j)=\sigma^2_j, \ \ \ \sigma_{12}=Cov(R_1,R_2), \ \ \ \text{for} j=1,2$$`  
+
+Expected return  
+
+`$$\mu_{R_p}=E(R_p)=w\mu_{R_1}+(1-w)\mu_{R_2}$$`  
+
+The protfolios risk  
+
+`$$\begin{aligned} \sigma^2_{R_p}&amp;=w^2V(R_1)+(1-w)^2V(R_2)+2w(1-w)Cov(R_1, R_2)\\ &amp;=w^2\sigma_1^2 +(1-w)^2\sigma_2^2+2w(1-w)\sigma_{12} \end{aligned}$$`
+
+--
+
+Finding a `\(w\)` that minimizes risk  
+
+`$$\underset{w\in[0,1]}{\min}\sigma^2_{R_p}$$`  
+
+Solution (first-order condition)  
+
+`$$\hat w=\frac{\sigma^2_2-\sigma_{12}}{\sigma_1^2+\sigma_2^2-2\sigma_{12}}$$`  
+
+---
+
+`$$\begin{aligned} R_p&amp;=\hat wR_1+(1-\hat w)R_2\\ &amp;= R_2+(R_1-R_2)\hat w\\ &amp;=R_2+(R_1-R_2)\frac{\sigma^2_2-\sigma_{12}}{\sigma_1^2+\sigma_2^2-2\sigma_{12}} \end{aligned}$$`  
+
+`$$\begin{aligned}\mu_{R_p}&amp;=\hat w\mu_1+(1-\hat w)\mu_2\\ &amp;=\mu_2+(\mu_1-\mu_2)\hat w\\ &amp;=\mu_2+(\mu_1-\mu_2)\frac{\sigma^2_2-\sigma_{12}}{\sigma_1^2+\sigma_2^2-2\sigma_{12}} \end{aligned}$$`
+
+---
+
+`$$\mu_{R_p}=\mu_2+(\mu_1-\mu_2)\frac{\sigma^2_2-\sigma_{12}}{\sigma_1^2+\sigma_2^2-2\sigma_{12}}$$`
+
+* **Conditional Optimal Portfolio Allocation**  
+
+Define  
+
+`$$X=R_2-R_1\ \ \ \ \ \ \ \ \ \ \ \ \ Y=R_2$$`  
+
+`$$Cov(Y,X)=\sigma_2^2-\sigma_{12}$$`  
+
+`$$V(X) = \sigma_1^2+\sigma_2^2-2\sigma_{12}$$`  
+
+`$$\begin{aligned}\mu_{R_p}&amp;=\mu_2+(\mu_1-\mu_2)\frac{\sigma^2_2-\sigma_{12}}{\sigma_1^2+\sigma_2^2-2\sigma_{12}}\\ &amp;=\mu_y+\mu_x\frac{Cov(Y,X)}{Var(X)}\\ &amp;=\mu_y+\beta_1\mu_x \end{aligned}$$`
+
+---
+
+`$$\mu_{R_p}=\mu_y+\beta_1\mu_x$$`  
+
+* **Linear regression**  
+
+`$$Y=\beta_0+\beta_1X+\epsilon$$`  
+
+`$$\beta_0=\mu_y-\beta_1\mu_x=\mu_{R_p}=w\mu_1+(1-w)\mu_2$$`  
+
+
+`$$\beta_1=\frac{Cov(X,Y)}{Var(X)}=w$$`    
+
+--
+
+Restate the minimum variance portfolio optimization  
+
+`$$\begin{aligned}R_y&amp;=\mu_p+wR_x+\epsilon\\ &amp;=\beta_0+\beta_1R_x+\epsilon\\ R_2&amp;=\beta_0+\beta_1(R_2-R_1)+\epsilon\end{aligned}$$`
+
+"Outcome": Variable `\(R_2\)`  
+"Covariate": `\(R_2-R_1\)`  
+
+---
+
+* Example  
+
+`$$\widehat{R_{IBM}}=\underset{(6e-04)}{0.0011}+\underset{(0.0353)}{0.3336}(R_{IBM} - R_{GOOG})$$`
+
+
+```
+## 
+## Call:
+## lm(formula = ibmr ~ I(ibmr - googr))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.022239 -0.005330 -0.000987  0.003966  0.045570 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     0.0010807  0.0005805   1.862   0.0642 .  
+## I(ibmr - googr) 0.3336115  0.0352837   9.455   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.008183 on 197 degrees of freedom
+## Multiple R-squared:  0.3121,	Adjusted R-squared:  0.3087 
+## F-statistic:  89.4 on 1 and 197 DF,  p-value: &lt; 2.2e-16
+```
+
+
+---
+
+##Capital Asset Pricing Model  
+
+The CAPM model procides estimates of expected rates of return ono individual investments by comparing them against "the market": what is the "fair" rate of return on invested capital.  
+
+* **Notation**  
+
+`\(r_{it}\)`  return on an individual asset at time t  
+`\(r_{ft}\)`  return on a riskless asset at time t  (e.g. short-term treasury bond)
+`\(r_{mt}\)`  return on "the market" at time t, a weighted portfolio of all market activity (can be represented by e.g. Dow Jones Industrial Average, S&amp;P500)  
+
+--
+
+* **Beta risk**
+
+`$$\begin{aligned}\beta&amp;=\frac{E[(r_{it}-r_{ft}-(\mu_i-\mu_f))(r_{mt}-r_ft-(\mu_m-\mu_f))]}{V(r_{mt}-r_{ft})}\\ &amp;= \frac{Cov(r_{it}-r_{ft}, r_{mt}-r_{ft})}{V(r_{mt}-r_{ft})} \end{aligned}$$`  
+
+---
+
+* **CAPM**  
+
+The CAPM is a simple linear regression model  
+
+`$$(r_{it}-r_{ft})=\alpha+\beta(r_{mt}-r_{ft})+\epsilon_t$$`
+
+* **Security Characteristic Line**  
+
+Above regression line sometimes is called the __Security Characteristic Line__.  
+
+This line characterizes the performance of a given asset against that of the market at every point in time.  
+
+
+---
+
+
+###CAPM Interpretation
+
+* **BETA**
+
+We can classify individual stocks, or portfolios of stocks, according to their degree of beta risk `\(\beta\)`  
+
+`$$\begin{array}{rl}\text{Aggressive}&amp;\beta&gt;1\\ \text{Tracks the market}&amp; \beta=1\\ \text{Conservative}&amp;0&lt;\beta&lt;1\\ \text{Independent of the market}&amp;\beta=0\\ \text{Imperfect Hedge}&amp;-1&lt;\beta&lt;0\\ \text{Perfect Hedge}&amp; \beta=-1  \end{array}$$`
+
+--
+
+* **ALPHA**
+
+Besides `\(\beta\)`-risk, the CAPM captures an additional source of risk called `\(\alpha\)`-risk.  
+
+`\(\alpha\)`-risk refers to an assets ability to earn abnormal returns relative to the market return.   
+
+`$$\begin{array}{rl}\text{Inadequate Reward for assumed risk}&amp;\alpha&lt;0\\ \text{Adequate Reward for assumed risk}&amp; \alpha=1\\ \text{Excess Reward for assumed risk}&amp;\alpha&gt;0\end{array}$$`
+
+---
+
+* **CAPM Example**  
+
+`$$\widehat{(r_{IBM}-r_f)}=\underset{(7e-04)}{8e-04}+\underset{(0.1212)}{0.1774}(r_{m} - r_f)$$`
+
+
+```
+## 
+## Call:
+## lm(formula = I(ibmr - rf) ~ I(djr - rf))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.029657 -0.006416 -0.000731  0.005872  0.033101 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept) 0.0007901  0.0006960   1.135    0.258
+## I(djr - rf) 0.1774286  0.1212176   1.464    0.145
+## 
+## Residual standard error: 0.009813 on 197 degrees of freedom
+## Multiple R-squared:  0.01076,	Adjusted R-squared:  0.005737 
+## F-statistic: 2.142 on 1 and 197 DF,  p-value: 0.1449
+```
+
+---
+
+* **Risk**  
+
+CAPM decomposes risk into teo components: _systematic risk_ and _idiosyncratic risk_.  
+
+`$$\begin{aligned}E[(r_{it}-r_{ft})^2]&amp;=E[(\alpha+\beta(r_{mt}-r_{ft}))^2] +E[\epsilon^2_t]+\underset{=0}{\underbrace{2Cov(\epsilon_t, (\alpha+\beta(r_{mt}-r_{ft})))}}\\ &amp;=\underset{\text{Systematic Risk}}{\underbrace{E[(\alpha+\beta(r_{mt}-r_{ft}))^2]}} +\underset{\text{Idiosyncratic Risk}}{\underbrace{E[\epsilon^2_t]}} \end{aligned}$$`  
+
+--
+
+Systematic risk is also known as non-diversifiable risk.  
+
+Idiosyncratic risk represents the diversifiable risk.  
+
+Standard error of the regression `\(\hat\sigma_\epsilon\)` provides an estimate of the idiosyncratic risk of the asset.  
+
+Model `\(R^2\)` provides an estimate of the total risk that is due to systematic risk non-diversifiable, and `\(1-R^2\)` represents the proportion of idiosyncratic risk, which can not be diversified away.  
+
+---
+
+###Fama-French 3 Factor Model  
+
+Including two additional risk factors to explain investment returns (size and value).  
+
+* **Size**
+
+__Size__, or __SMB__ (small minus big) is the difference between the return on a portfolio of small stocks (in terms of _market capitalization_) and the return on a portfolio of big stocks (the performance of big stocks versus the of small stocks).  
+
+--
+
+__Market capitalization__ is the market value at a point in time of the shares outstanding. Market capitalization is equal to the share price times the number of shares outstanding.  
+
+--
+
+Incorporating SMB into the CAPM shows whether management was relying the small firm effect (investing in stocks with low market capitalization) to earn an abnormal return.  
+
+---
+
+* **Value**  
+
+__Value__, or __HML__ (high minus low) is the difference between the return on a portfolio of high book-to-market stocks and the return on a portfolio on a portfolio of small book-to-market stocks (the performance of "value" stocks relative to growth stocks)  
+
+--
+
+__Book-to-market__ ratio is defined as  
+
+`$$\text{B-to-M}=\frac{\text{book value of firm}}{\text{market value of firm}}$$`  
+
+Book value is calculated by looking at the firm's historical cost, or accounting value.  
+
+Market value is determined in the stock market through its market capitalization.  
+
+---
+
+* **Fema-French 3 Factor Model**  
+
+`$$r_{it}-r_{ft}=\alpha+\beta_1(r_{mt}-r_{ft})+\beta_2SMB_t+\beta_3HML_t+\epsilon_t$$`
+
+--
+
+__Interpretation__ for `\(\beta_2\)`: an estimated value greater than 0.5 signifies a portfolio composed mainly of small cap stocks, and a zero value signifies large cap stocks.  
+
+__Interpretation__ for `\(\beta_3\)`: an estimated value greater than 0.3 signifies a portfolio composed mainly of value stocks.  
+
+--
+
+Example  
+
+`$$\widehat{r_{it}-r_{ft}}=0.37+1.22(r_{mt}-r_{ft})+0.10SMB_t+0.73HML_t$$`
+
+--
+
+* **Multi-Factor CAPM**  
+
+Addtional factor called "Momentum"  
+
+* **Momentum**  
+
+__Momentum__ captures returns constructed bu buying stocks with high returns and selling stocks with low returns over the same period.  
+
+This factor captures hedging behavior of investors.  
+
+--
+
+`$$r_{it}-r_{ft}=\alpha+\beta_1(r_{mt}-r_{ft})+\beta_2SMB_t+\beta_3HML_t+\beta_4MOM_t+\epsilon_t$$`
+
+Can test significance.  
+
+---
+
+###Properties of CAPM regression model
+
+If the properties of the model are not satisfied, then the model will not be correct, inference will be misleading.  
+
+`$$\begin{aligned}E[\epsilon_t]&amp;=0\\ E[\epsilon^2_t]&amp;=\sigma^2_\epsilon\\ E[\epsilon_t\epsilon_{t-j}]&amp;=0\forall j\neq i\\ E[\epsilon_t(r_{mt}-r_{ft})]&amp;=0 \end{aligned}$$`
+
+---
+
+`\(E[\epsilon_t]=0\)`: the idiosyncratic risk has zero mean.  
+
+--
+
+`\(E[\epsilon^2_t]=\sigma^2_\epsilon\)`: the variance is constant across time.  
+  - homoskedasticity  
+  - may hold for low frequency data
+
+--
+
+`\(E[\epsilon_t\epsilon_{t-j}] =0\forall j\neq i\)`: uncorrelated through time  
+
+--
+
+`\(E[\epsilon_t(r_{mt}-r_{ft})] =0\)`: exogeneity  
+  - all systematic risk is explained by the market factor  
+  - required to decompose total risk  
+  
+--
+
+&gt;Condiser:  
+  1. Model fit  
+  2. Diagnostics for the independent variable  
+  3. Diagnostics for the disturbance term  
+
+
+---
+
+###Model Fit  
+
+If the model fits the data well, it should be the case that the model explain a significant portion of variation in the data.  
+
+`$$R^2=\frac{\text{Explained sum of squares}}{\text{Total sum of squares}}=\frac{SSE}{SST}=\frac{\sum^{T}_{t=1}(\bar{y}-\hat{\alpha}-\hat{\beta}x_t)^2}{\sum^T_{t=1}(y_t-\bar y_t)^2}$$`
+
+--
+
+For CAPM, `\(R^2\)` measures the proportion of total risk that is due to systematic risk.  
+
+`\(1-R^2\)` measures idiosyncratic risk.  
+
+---
+
+* **Adjusted R squared**  
+
+
+`$$\bar R^2=1-R^2\frac{T-1}{T-K-1}$$`  
+
+`\(\bar R^2\)` penalizes the model for adding regressors which do not explain variability in the dependent variable.  
+
+--
+
+The standard CAPM can explain around 70% of return variabilty  
+
+The three-factor CAPM may reach 90%  
+
+---
+
+###Test for significance 
+
+* **Single Parameter Tests**  
+
+`$$\begin{aligned}H_0&amp;:\beta_1=0[\text{Market factor is not priced}]\\ H_1&amp;:\beta_1\neq0[\text{Market factor is priced}] \end{aligned}$$`  
+
+--
+
+`$$\begin{aligned}T&amp;=\frac{\hat \beta-r}{s.e.(\hat\beta)}\\ s.e.(\hat\beta)&amp;=\sqrt{\frac{\hat\sigma^2_\epsilon}{\hat\sigma_x^2}\frac{1}{T}}\\ \hat\sigma^2_\epsilon&amp;=\frac{1}{T-1}\sum^T_{t=1}(x_t-\bar x_t)^2\\ \hat\sigma^2_\epsilon&amp;=\frac{1}{T-1}\sum^T_{t-1}\hat\epsilon_t^2 \end{aligned}$$`  
+
+--
+
+`$$\begin{aligned}T&amp;\overset{asy}\sim N\text{ under }H_0\\ T&amp;\sim t_{T-K-1}\text{ under }H_0\end{aligned}$$`
+
+---
+
+* **Joint Parameter Tests**  
+
+`$$\begin{aligned}H_0&amp;:\beta_2=\beta_3=\beta_4=0\\ H_1&amp;:\text{at least one is non-zero} \end{aligned}$$`  
+
+--
+
+`$$J=\frac{RSS_{CAPM}-RSS_{\text{multi-}CAPM}}{RSS_{\text{multi-}CAPM}/(T-K-1)}\sim\chi^2_{l}$$`  
+
+---
+
+###Diagnostics for the Disturbance Term  
+
+`$$\begin{aligned}E[\epsilon_t]&amp;=0\\ E[\epsilon^2_t]&amp;=\sigma^2_\epsilon\\ E[\epsilon_t\epsilon_{t-j}]&amp;=0\forall j\neq i\\ E[\epsilon_t(r_{mt}-r_{ft})]&amp;=0 \end{aligned}$$`
+
+--
+
+__Lagrange Multiplier (LM)__ tests are regression based tests. They come from a general framework and can be adapted to different situation.  
+
+--
+
+* **LM Tests**  
+
+If the model is correct, there should not be structures in the error term.  
+
+`$$\begin{aligned} E[\epsilon^2_t]=\sigma^2_\epsilon:\text{Homoskedasticity}\\ E[\epsilon_t\epsilon_{t-j}]=0\forall j\neq i:\text{No Autocorrelation}\\ E[\epsilon_t(r_{mt}-r_{ft})]=0:\text{Exogeneity} \end{aligned}$$`  
+
+`\(E[\epsilon_t]=0\)` is satisfied by definitin of the CAPM.  
+
+---
+
+* **Homoskedasticity**
+
+`$$\begin{aligned}H_0&amp;:\sigma_\epsilon^2\text{ is constant}[\text{Homoskedasticity}]\\ H_1&amp;:\sigma_\epsilon^2\text{ is not constant}[\text{Heteroskedasticity}] \end{aligned}$$`  
+
+If heteroskedasticity, standard errors are not correct: significant tests are not reliable, conclusion for `\(\beta\)` and `\(\alpha\)` incorrect.  
+
+--
+
+* **Whits's test**  
+
+Auxiliary regression  
+
+`$$\hat\epsilon^2_t=\gamma_0+\gamma_1x_t+\gamma_2x^2_t+v_t$$`  
+
+`$$\begin{aligned}H_0&amp;:\gamma_1=\gamma_2=0\\ H_1&amp;:\text{at least one is non-zero} \end{aligned}$$`  
+
+`$$W=T\cdot R^2 \overset{asy}{\sim}\chi^2_2$$`
+
+---
+
+* **Testing for ARCH**  
+
+__Autoregressive conditional heteroskedasiticity (ARCH)__: large volatility are followed by periods of large volatility (volatility clustering).  
+
+--
+
+Auxiliary regression  
+
+`$$\hat\epsilon^2_t=\gamma_0+\gamma_1\hat\epsilon^2_{t-1}+\gamma_2\hat\epsilon^2_{t-2}+\cdots+\gamma_p\hat\epsilon^2_{t-p}+v_t$$`  
+
+`$$\begin{aligned}H_0&amp;:\gamma_1=\gamma_2=\cdots=\gamma_p=0[\text{No ARCH}]\\ H_1&amp;:\text{at least one is non-zero[ARCH]} \end{aligned}$$`  
+
+`$$ARCH(p)=R^2\cdot T\overset{asy}{\sim}\chi^2_p$$`
+
+--
+
+ARCH implies there exists some persistent behavior in the volatility of returns that can be modelled.  
+
+---
+
+* **Test for Autocorrelation**  
+
+If autocorrelation in error, standard errors are not correct: significant tests are not reliable, conclusion for `\(\beta\)` and `\(\alpha\)` incorrect. 
+
+Auxiliary regression  
+
+`$$\begin{aligned}\hat\epsilon_t=&amp;\gamma_0+\gamma_1x_{1t}+\cdots+\gamma_kx^2_{kt}\\ &amp;+\rho_1\hat\epsilon_{t-1}+\rho_2\hat\epsilon_{t-2}+\cdots+\rho_p\hat\epsilon_{t-p}+v_t\end{aligned}$$`  
+
+`$$\begin{aligned}H_0&amp;:\rho_1=\rho_2=\cdots=\rho_p=0\\ H_1&amp;:\text{at least one is non-zero} \end{aligned}$$`  
+
+`$$AR(p)=T\cdot R^2 \overset{asy}{\sim}\chi^2_p$$`
+
+---
+
+
+* **HAC error**
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}[\mathbf{X}'Var(\mathbf{u}|\mathbf{x})\mathbf{X}](\mathbf{X'X})^{-1}$$`
+
+With Homo
+
+`$$Var(\mathbf{u}|\mathbf{X})=\sigma^2 \mathbf{I_n} \Rightarrow Var(\mathbf{\hat{\beta}}|\mathbf{X})=\sigma^2(\mathbf{X'X})^{-1}$$`
+
+--
+
+With HTSK 
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+--
+
+With HTSK and serial correlation
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'n\mathbf{\Lambda}_n \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+`\(\mathbf{\Lambda}_n\)` is an estimator of the long run variance of `\(\mathbf{u}\)`  
+
+---
+
+* **Engodeneity**  
+
+If `\(x_t\)` is endogenous, the OLS estimation coefficients are __biased and inconsistent__.  
+
+--
+
+`$$E[\epsilon_t(r_{mt}-r_{ft})]=0$$`  
+
+implication: the error term in any time period t is uncorrelated with each of the regressors in all time periods, past, present, and future.  
+`$$Corr(u_t,x_{11})=\cdots=Corr(u_t,x_{T1})=Corr(u_t,x_{1k})=\cdots=Corr(u_t,x_{Tk})=0$$`
+
+Only restrict correlation between error terms and regressors, but not regressors themselves or errors themselves.
+
+---
+
+##Efficient Market Hypothesis  
+
+__EMH__ implies 
+
+ - The current price of an asset reflects all information available in the market  
+
+--
+
+ - The current price provides no information regarding future asset movements  
+
+--
+
+ - Future returns are completely unpredictable, given information on past returns  
+
+--
+
+ - Traders can not systematically use newly arriving information to make a profit  
+ - Conditional on all previous information, returns are completely random   
+
+--
+
+In a word, you can't beat the market.
+
+---
+
+* **Notation**  
+
+`\(y_t\)` the variable of interest (returns or prices or whatever)  
+
+`\(\mathcal{F}_{t-1}\)` information available to date
+
+* **Example in CAPM**
+
+`$$y_t=R_{it}-R_{ft}$$`  
+
+`\(\epsilon_t\)` represents idiosyncratic risk
+
+`$$E[y_t|\mathcal{F}_{t-1}]=\alpha+\beta(R_{it}-R_{ft})$$`
+
+---
+
+* **Random Walk**  
+
+`$$y_t=\mu+\epsilon_t$$`  
+
+Example  
+
+`\(y_t\)` log-returns  
+ - `\(\epsilon\sim N(0,1)\)` EMH satisfied  
+ - `\(\epsilon\sim t_v\)` EMH satisfied  
+
+`\(y_t=P_t\)`  
+ - `\(E[y_t|\mathcal{F}_{t-1}]=P_t-1\)`  
+
+---
+
+* **White Noise**
+
+`\(e\sim WN(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`  
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(Cov(e_t, e_{t-j})=0 \forall j\neq0\)` (no linear relationship)  
+
+If it's also normally distributed -- Gaussian white noise
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-3-1.png" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+If we assume the error term is white noise, we can test the EMH  
+
+ - return predictability  
+ 
+ - variance of asset returns over different time horizon
+
+--
+
+If markets are efficient, them the variance of asset returns over different time horizons should roughly increase with their horizon.  
+
+The variance of `\(n\)` period returns should simply be `\(n\)` times the variance of the 1-period return.  
+
+
+
+---
+
+###Return Predictability  
+
+
+Mesure return predictability through serial dependence.  
+
+--
+
+__Autocorrelation function (ACF)__: measure of sample serial dependence  
+
+`$$\hat\gamma(k)=\frac{\sum^T_{t-k+1}(r_t-\bar r)(r_{t-k}-\bar r)}{\sum^T_{t=1}(r_t-\bar r)^2}$$`  
+
+`$$\gamma(k)=\frac{Cov(r_t, r_{t-k})}{V(r_t)}$$`
+
+--
+
+No correlation implies no predictability and EMH satisfied.  
+
+---
+
+* **Stationary Time Series**  
+
+A univariate time series is an ordered squance of random variables indexed by time. (Infinite number of realizations) `\(\{y_t:t=\cdots -2, -1, 0, 1, 2, \cdots \}\)`  
+
+**Weakly Stationary** (covariance stationary, second-order stationary)
+
+&gt; a) `\(E(y_i) =\mu &lt; \infty \ \ for\  all\ t\)`   
+  b) `\(Var(y_t)= E[(y_t-\mu)^2]=\gamma_0&lt;\infty\ \ for\ t\)`  
+  c) `\(Cov(y_t)= E[(y_t-\mu)(y_{t-j}-\mu)]=\gamma_j &lt; \infty\)`  
+  
+Its first and second moments are both finite and time invariant.  
+The covariance depends only on the time interval separating them and not on time itself) 
+
+--
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-4-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-4-2.png" width="45%" height="45%" /&gt;
+
+
+---
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-5-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-5-2.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-5-3.png" width="45%" height="45%" /&gt;&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-5-4.png" width="45%" height="45%" /&gt;
+
+---
+
+* **Single Test**
+
+If `\({y_t}\)` is a stationary, when the sample size `\(T\)` is large, `\(\hat\gamma(k)\)` should be approximately normal  
+
+`\(\hat\gamma(k)\sim N(0,1/T)\)` and `\(\sqrt{T}\hat\gamma(k)\sim N(0,1)\)`  
+
+
+`$$\begin{aligned}H_0&amp;:\gamma(k)=0\\ H_1&amp;:\gamma(k)\neq0 \end{aligned}$$` 
+
+--
+
+* **Test for more orders**  
+
+Auxiliary regression
+
+`$$\hat{\epsilon}_t=\gamma_0 +\gamma_1\hat{\epsilon}_{t-1}+\cdots+\gamma_k\hat{\epsilon}_{t-k} +v_t$$`
+
+`$$\begin{aligned}H_0 &amp;: \gamma_1=\gamma_2=\cdots=\gamma_k=0\\ H_1 &amp;: \gamma_j \neq 0\ \text{for at least one }\ j=1, 2, 3, \cdots , k\end{aligned}$$`
+
+`$$AR(k)=T\cdot R^2 \overset{asy}\sim \chi_k^2 \text{ under } H_0$$`
+
+---
+
+###Variance Ratio  
+
+To determnine predictability by comparing variance of asset returns over different time horizon
+
+`$$\begin{aligned}s^2_1&amp;=\frac1T\sum^T_{t=1}(r_t-\bar r)^2\\ s^2_n&amp;=\frac1T\sum^T_{t=1}(r_{n,t}-\bar r_n)^2\\ \end{aligned}$$`
+
+--
+
+
+If no autocorrelation  
+
+`$$VR_n=\frac{s^2_n}{n\cdot s^2_1}\approx1$$`  
+
+--
+
+`$$VR_n=\left\{\begin{array}{cc}=1 &amp; [\text{No autorr.}]\\ &gt;1&amp;+\text{autorr.}\\ &lt;1&amp;-\text{autorr.} \end{array}\right.$$`
+
+The assumption that variance of returns are the same is part of stationarity.  
+
+
+---
+
+###Autocorrelation  
+
+Onle linear relationship  
+
+--
+
+`$$\hat\gamma^2(k)=\frac{\sum^T_{t-k+1}(r^2_t-\bar r^2)(r^2_{t-k}-\bar r^2)}{\sum^T_{t=1}(r^2_t-\bar r^2)^2}$$`  
+
+measures correlation between the variance of returns at time `\(t\)`, and the variance of returns at time `\(t-k\)`  
+
+--
+
+While _mean_ returns exhibit little to no predictability, it is possible that _the variance of returns_ exhibit predictability.  
+
+Not in the region of EMH.  
+
+--
+
+Apply to other moments and functions.  
+
+---
+
+##Modeling Predictavle Returns
+
+When EMH is not satified, we can try to predict returns.  
+
+We want to model the dynamics of returns and use them to generate forecast distribution ( _Conditional distributions_ ).  
+
+
+--
+
+###AR processes   
+
+* **AR(1) process**
+
+`$$y_t=c+\phi_1y_{t-1}+\epsilon_t$$`  
+
+where `\(\epsilon_t\sim WN(0,\sigma^2_\epsilon)\)` and `\(V(\epsilon_t|\mathcal{F}_{t-1})=V(\epsilon_t)\)`  
+
+--
+
+An AR(1) process is __covariance (weakly) stationary__ if `\(|\phi_1|&lt;1\)`  
+
+
+
+---
+
+
+* **Conditional Mean**
+
+
+`$$E(y_t|\mathcal{F}_{t-1})=E[c+\phi_1y_{t-1}+\epsilon|\mathcal{F}_{t-1}] = c+\phi_1y_{t-1}$$`  
+  
+  
+* **One-step ahead point forecast**  
+
+`$$\widehat{E}(y_{t+1}|\mathcal{F}_{t-1})=\hat c+\hat \phi_1 y_t$$`  
+
+--
+
+`$$(\hat c, \hat\phi_1)=\arg \min\sum^{T-1}_{t=1}(y_{t+1}-c-\phi_1y_t )^2$$`  
+
+---
+
+* **Conditional Variance**  
+
+`$$\begin{aligned}V(y_t|\mathcal{F}_{t-1})&amp;= V(c+\phi_1y_{t-1}+\epsilon_t|\mathcal{F}_{t-1})\\ &amp;=V(c+\phi_1y_{t-1}|\mathcal{F}_{t-1})+V(\epsilon_t|\mathcal{F}_{t-1})\\ &amp;=0 +V(\epsilon_t|\mathcal{F}_{t-1})\\ &amp;=V(\epsilon_t)=\sigma^2_\epsilon \end{aligned}$$`  
+
+--
+
+* **One step ahead forecast variance**  
+
+`$$\widehat{V}(y_{t+1}|\mathcal{F}_t)=\hat\sigma^2_\epsilon= \frac{\sum^{T-1}_{t=1}(y_{t+1}-\hat c- \hat\phi_1y_t)^2}{T-2}$$`
+
+This the estimated variance of the regression of `\(y_{t+1}\)` on a constant `\(c\)` and the regressor `\(y_t\)`  
+
+
+
+---
+
+* **Two-step ahead forecast**
+
+`$$\begin{aligned}E(y_{t+2}|\mathcal{F}_t)&amp;=E[c+\phi_1y_{t+1}+\epsilon_{t+2}|\mathcal{F}_t]\\ &amp;=c+\phi_1E[y_{t+1}|\mathcal{F}_t]+E[\epsilon_{t+2}|\mathcal{F}_t]\\ &amp;=c+\phi_1(c+\phi_1y_{t-1})\\ &amp;=c(1+\phi_1)+\phi^2_1y_t \end{aligned}$$`  
+
+--
+
+* **Three-step ahead forecast**  
+
+`$$\begin{aligned}E(y_{t+3}|\mathcal{F}_t)&amp;=E[c+\phi_1y_{t+2}+\epsilon_{t+3}|\mathcal{F}_t]\\ &amp;=c+\phi_1E[y_{t+2}|\mathcal{F}_t]+E[\epsilon_{t+3}|\mathcal{F}_t]\\ &amp;=c+\phi_1(c(1+\phi_1)+\phi^2_1y_t)\\ &amp;=c(1+\phi_1+\phi_1^2)+\phi^3_1y_t \end{aligned}$$`  
+
+etc...
+
+---
+
+Taking __many steps ahead__ to the limit we have  
+
+`$$\begin{aligned}\underset{h\rightarrow\infty}{\lim}E(y_{t+h}|\mathcal{F}_t)&amp;=\underset{h\rightarrow\infty}{\lim}c(1+\phi_1+\cdots+\phi_1^h)+\underset{h\rightarrow\infty}{\lim}\phi_1^hy_t\\ &amp;=\underset{\text{geometric series}}{\underbrace{c\sum^\infty_{h=0}\phi_1^h}}+y_t\left(\underset{h\rightarrow\infty}{\lim}\phi_1^h\right)\\ &amp;=\frac{c}{(1-\phi_1)} \end{aligned}$$`  
+
+Geometric series
+
+`$$a\sum^{n-1}_{k=0}r^k=a(\frac{1-r^n}{1-r})$$`
+
+--
+
+For stationary models, this many steps ahead conditional expectation converges to the unconditional mean.  
+
+---
+
+* **Unconditional mean**  
+
+`$$\begin{aligned}E(y_t)&amp;=E(c+\phi_1y_{t-1}+\epsilon_t)\\ &amp;=c+\phi_1E[y_{t-1}]+E[\epsilon_{t}]\\ &amp;=c+\phi_1E[y_{t}]+E[\epsilon_{t}]\ \ (\text{Stationarity in }y_t) \\ \Rightarrow  E(y_t)&amp;=\frac c{1-\phi_1}=\underset{h\rightarrow\infty}{\lim}E(y_{t+h}|\mathcal{F}_t) \end{aligned}$$`
+
+
+--
+
+* **Unconditional (long-run) Variance**  
+
+`$$\begin{aligned}V(y_t)&amp;=Var(c+\phi_1y_{t-1}+\epsilon_t)\\ &amp;=\phi_1^2Var(y_{t-1})+\sigma^2_\epsilon\ \ (\text{Assuming }Cov(y_{t-1}, \epsilon_t)=0)\\ &amp;=\phi_1^2Var(y_{t})+\sigma^2_\epsilon\ \ (\text{Stationarity in }y_t) \\ \Rightarrow  Var(y_t)&amp;=\frac{\sigma^2_\epsilon}{(1-\phi_1^2)}\neq \sigma^2_\epsilon=V(y_t|\mathcal{F}_{t-1}) \end{aligned}$$`
+
+--
+
+`$$V(y_t)&gt;V(y_t|\mathcal{F}_{t-1})$$`  
+
+Use of information will lead to less uncertainty.  
+
+---
+
+* **Unconditional population autocorrelations**  
+
+`$$Corr(y_t, y_{t-1})=\gamma(k)=\phi_1^k\text{ for }k=\ldots-1, 0, 1, 2, \ldots$$`
+
+`\(|\phi_1|\)` is a measure of 'persistence'  
+
+--
+
+* **AR(p) processes**  
+
+A time series `\(y_t\)` for `\(t=\{\ldots-1, 0, 1, 2, \ldots\}\)` is an __AR(p) process__ if  
+
+`$$y_t=c+\phi_1y_{t-1}+\phi_2y_{t-2}+\ldots+\phi_py_{t-p}+\epsilon_t$$`  
+
+where `\(\epsilon_t\sim WN(0,\sigma^2_\epsilon)\)` and `\(V(\epsilon_t|\mathcal{F}_{t-1})=V(\epsilon_t)\)`  
+
+---
+
+For stationary AR(p) processes  
+
+* **Unconditional mean**  
+
+`$$E[y_t]=\frac{c}{(1-\phi_1-\ldots-\phi_p)}$$`  
+
+* **Unconditional variance**
+
+`$$V(y_t)=\frac{\sigma^2_\epsilon}{\left(1-\sum^{i=p}_{i=1}\phi_i\rho_i\right)}$$`
+
+--
+
+* For AR(1)
+
+`$$E(y_t)=\frac c{1-\phi_1}$$`
+
+
+`$$Var(y_t)=\frac{\sigma^2_\epsilon}{(1-\phi_1^2)}$$`
+
+---
+
+* **Comments**  
+
+Forecasts based on well-specified AR models are consistent (i.e. bias is negligible in large samples)   
+
+Need to choose `\(p\)`  
+
+ - include enough lags to ensure that there is no left over serial correlation in the residuals.  
+ 
+We can interpret `\(\epsilon_t\)` as 'news' (unpredictable market forces)  
+
+---
+
+###Parametric Forecasting Strategy  
+
+* **Returns**
+
+Decide AR(p) model for _returns_  
+
+ (1) Estimated conditional mean `\(\hat E [r_{T+1}|\mathcal{F}_t]\)`
+
+ (2) Estimated error variance `\(\hat V(\epsilon_{T+1})\)`  
+
+--
+
+ (3) Assume a normal distribution for errors `\(\epsilon_{T+1}\sim N (0,\hat\sigma^2_\epsilon)\)`  
+
+--
+
+ (4) Probabilities and Quantiles as needed  
+ 
+ `$$\begin{aligned}Pr(r_{T+1}&lt;q|\mathcal{F}_t)&amp;=Pr(r_{T+1}-\hat E [r_{T+1}|\mathcal{F}_t]&lt;q-\hat E[r_{T+1}|\mathcal{F}_t]|\mathcal{F_t})\\ &amp;=Pr(\epsilon_{T+1}&lt;q-\hat E[r_{T+1}|\mathcal{F}_t]) \\ &amp;=Pr(\frac{\epsilon_{T+1}}{\hat\sigma_\epsilon}&lt;\frac{q-\hat E[r_{T+1}|\mathcal{F}_t]}{\hat\sigma_\epsilon})\\ &amp;=Pr(z&lt;\frac{q-\hat E[r_{T+1}|\mathcal{F}_t]}{\hat\sigma_\epsilon}) \end{aligned}$$`
+
+---
+
+* **Prices**  
+
+Given the __price__ `\(P_T\)` and assuming `\(r_{T+1}|\mathcal{F}_t\sim\mathbf{Normal}\)`  
+
+Implies the conditional distribution for `\(P_{T+1}|\mathcal{F}_t\)` is __lognormal__  
+
+`$$\begin{aligned}Pr(P_{T+1}\leq q|\mathcal{F}_t) &amp;= Pr(P_Te^{r_{T+1}}\leq q|\mathcal{F}_t )\\ &amp;=Pr(r_{T+1}\leq \ln\left(\frac{q}{P_t}\right)|\mathcal{F}_t)\\ &amp;=Pr\left(z\leq\frac{\ln\left(\frac{q}{P_t}\right)-\hat E[r_{T+1}|\mathcal{F}_t]}{\hat\sigma_\epsilon}\right) \end{aligned}$$`
+
+--
+
+* **Test Normality - Jarque-Bera test**  
+
+`$$\begin{aligned}H_0&amp;:\text{Residuals are normal}\\ H_1&amp;:\text{Residuals are not normal} \end{aligned}$$`  
+
+`$$JB\sim \chi^2_2 \text{ under } H_0$$`
+
+
+
+---
+
+###Non-parametric Forecasting Strategy  
+
+* **Returns**  
+
+Decide AR(p) model for _returns_  
+
+ (1) Estimated conditional mean `\(\hat E [r_{T+1}|\mathcal{F}_t]\)`
+
+ (2) Estimated error variance `\(\hat V(\epsilon_{T+1})\)`  
+
+--
+
+ (3) Use the empirical distribution (histogram) of the fitted  residuals  `\(\hat\epsilon_t=r_t- \hat e[r_t|\mathcal{F}_{t-1}],\text{ for }t=(p+1), (p+2),\ldots, T\)`
+
+ (4) Probabilities and Quantiles as needed  
+ 
+ `$$\begin{aligned}\hat{Pr}(r_{T+1}\leq q |\mathcal{F}_t)&amp;=\frac1{T-p}\sum^T_{t=p+1}1(\hat\epsilon_t \leq q-\hat{E}[r_{T+1}|\mathcal{F}_t]|\mathcal{F}_t)\\ &amp;=\text{relative proportion of } \hat\epsilon_t \text{'s that satisfy inequality} \end{aligned}$$`
+ 
+---
+
+#Part 2 Modeling Volatility  
+
+When EMH is satisfied  
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-6-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+Mean returns are much smaller than the standard deviation of returns.  
+
+---
+
+Our model for returns is   
+
+`$$r_t=E[r_t|\mathcal{F}_{t-1}]+\epsilon_t$$`  
+
+with `\(\epsilon_t\sim WN(0, \sigma^2_\epsilon)\)`  
+
+&gt; In AR(p) model  
+
+&gt; `$$E[r_t|\mathcal{F}_{t-1}]=c+\phi_1r_t+\phi_2r_{t-1}+\cdots+\phi_pr_{t-(p-1)}$$`
+
+&gt; with `\(V(\epsilon_t|\mathcal{F}_{t-1})=\sigma^2_\epsilon\)`  
+
+We will look at modeling the conditional variance as  
+
+`$$V(\epsilon_t|\mathcal{F}_{t-1})= g(\mathcal{F}_{t-1})$$`  
+
+---
+
+##Volatility  
+
+__Volatility__ is a characterization of risk associated with an asset.  (usually measured by the _standard deviation_)
+
+If volatility is high then asset prices are changing more repidly than when volatility is low.  
+
+--
+
+Interested in __conditional standard deviations__, associated with relatively high frequency returns.  
+
+--
+
+To compare volatility from returns over different frequencies (and at different times) `\(\Rightarrow\)` scale estimated volatility to an __annual__ frequency.  
+
+__Annualized volatility__ is a scaled volatility measure obtained from higher frequency returns but scaled to reflect the period of one year.  
+
+`$$\sqrt{252}\sigma_t$$`
+
+`\(\sigma_t\)` is the daily volatility. 252 trading days in a year.  
+
+Ignore correlation.  
+
+---
+
+* **Testing for time varying volatility**  
+
+ - Plots of `\(\hat\epsilon_t^2\)` against time (time varying)  
+ - Autocorrelations for `\(\hat\epsilon^2_t\)` (depends on its past)  
+ 
+--
+
+`$$r_t=\mu_r+\epsilon_t$$`  
+
+with `\(\epsilon_t\sim WN\)`  
+
+If serial correlation in `\(\epsilon^2_t\)`, constant volatility models (e.g. CAPM) will be inadequate.  
+
+If test shows serially correlation, some AR model maybe useful to model the conditional variance.
+
+---
+
+
+* **An LM test for ARCH(1)**  
+
+__Autoregressive conditional heteroskedasiticity (ARCH)__: large volatility are followed by periods of large volatility (volatility clustering).  
+
+--
+
+If the true model is  
+
+`$$y_t=x_t^\prime\beta+\epsilon_t$$`   
+
+with   
+
+`$$\epsilon_t^2=\sigma^2+\rho_1\epsilon^2_{t-1}+u_t$$`
+
+but we estimate  
+
+`$$y_t=x_t^\prime\beta+\epsilon_t$$`   
+
+Then there will be a dynamic pattern remaining in the squared residuals.  
+
+---
+
+`$$\begin{aligned}H_0&amp;:\rho_1=0\\ H_1&amp;:\rho_1\neq0 \end{aligned}$$`
+
+ 1. Regression `\(y_t=x_t^\prime\beta+\epsilon_t\)`  
+ 
+ `$$y_t=x_t^\prime\beta+\epsilon_t$$`
+ 
+--
+
+ 2. Auxiliary regression  
+ 
+ `$$\hat\epsilon^2_t=\gamma_0+\gamma_1\hat\epsilon^2_{t-1}+u_t$$`  
+
+--
+
+ 3. Distribution  
+ 
+ `$$R^2\cdot T{\sim}\chi^2_1$$`
+
+---
+
+* **An LM test for ARCH(q)**  
+
+If the true model is  
+
+`$$y_t=x_t^\prime\beta+\epsilon_t$$`   
+
+with   
+
+`$$\epsilon_t^2=\sigma_0^2+\rho_1\epsilon^2_{t-1}+\rho_2\epsilon^2_{t-2}+\ldots+\rho_q\epsilon^2_{t-q}+u_t$$`
+
+but we estimate  
+
+`$$y_t=x_t^\prime\beta+\epsilon_t$$`   
+
+Then there will be a dynamic pattern remaining in the squared residuals.  
+
+---
+
+`$$\begin{aligned}H_0&amp;:\rho_1=\rho_2=\cdots=\rho_1=0\\ H_1&amp;:\text{ at least one } \rho_k\neq0, \text{ for }k=1,2,\ldots,q  \end{aligned}$$`
+
+ 1. Regression `\(y_t=x_t^\prime\beta+\epsilon_t\)`  
+ 
+ `$$y_t=x_t^\prime\beta+\epsilon_t$$`
+ 
+--
+
+ 2. Auxiliary regression  
+ 
+ `$$\hat\epsilon^2_t=\gamma_0+\gamma_1\hat\epsilon^2_{t-1}+\gamma_2\hat\epsilon^2_{t-2}+\cdots+\gamma_q\hat\epsilon^2_{t-q}+u_t$$`   
+
+--
+
+ 3. Distribution  
+ 
+ `$$R^2\cdot T{\sim}\chi^2_q$$`
+
+--
+
+A rejection of `\(H_0\)` in these tests suggests that volatility is time varying and predictable. This leads to an ARCH model of volatility.  
+
+---
+
+* **Example**  
+
+
+ 
+ `$$\Delta GOOG_t=\underset{(5\times10^{-4})}{7\times 10^{-4}} + \underset{(0.0316)}{0.0389}\Delta GOOG_{t-1}+\epsilon_t$$`
+
+--
+
+Auxiliary regression  
+ 
+ `$$\hat\epsilon^2_t=\underset{(3\times10^{-05})}{2\times10^{-04}}+\underset{(0.03166)}{0.04372}\hat\epsilon^2_{t-1}+u_t$$`  
+
+`$$R^2=0.001911\ \ \ \ \ \  \ T=998$$`
+
+--
+
+`$$LM=R^2\cdot T{\sim}\chi^2_1\text{ under }H_0$$`
+
+`$$LM_{calc}=R^2\cdot T=0.001911\times998=1.91&lt;3.84=LM_{crit}$$`  
+
+Do not reject `\(H_0\)`
+
+---
+
+##ARCH Models  
+
+`$$r_t=E[r_t|\mathcal{F}_{t-1}]+\epsilon_t$$`  
+
+__ARCH models__ specify  
+
+`$$\epsilon_t=u_t\sigma_t$$`  
+
+where `\(u_t\sim i.i.d.(0,1)\)` and `\(\sigma^2_t=V(\epsilon_t|\mathcal{F}_{t-1})=g(\epsilon_{t-1}^2,\epsilon_{t-1}^2,\ldots)\)`  
+
+Such models are referred to as being __conditionally heteroskedastic__.  
+
+--
+
+The __news process__ `\(\{\epsilon_t\}\)` is driven by underlying __shocks__ `\(u_t\)`, and it is common to assume that `\(u_t\sim i.i.d.N(0,1)\)`
+
+--
+
+Implies
+
+`$$\frac{\epsilon_t}{\sigma_t}\overset{iid}\sim N(0,1)\  \ \ \ \ \ \ \ \   \ \ \epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma_t^2)$$`  
+
+`\(\left\{u_t=\frac{\epsilon_t}{\sigma_t}\right\}\)` is often called the __standardised news__, and `\(\frac{\hat\epsilon_t}{\hat\sigma_t}\)` the __standardised residual__  
+
+---
+
+Often don't care about `\(E[r_t|\mathcal{F}_{t-1}]\)`  
+
+Often take  
+
+`$$\begin{aligned}r_t&amp;=\epsilon_t\\ &amp;=u_t\sigma_t\\ &amp;\equiv u_t\sqrt{g(\epsilon^2_{t-1}, \epsilon^2_{t-1}, \ldots, \epsilon^2_{t-k})} \end{aligned}$$`
+
+--
+
+* **Common ARCH Model**  
+
+An ARCH(q) model assumes that `\(E(\epsilon_t|\mathcal{F}_{t-1})=0\)`
+
+`$$\sigma^2_t=V(\epsilon_t|\mathcal{F}_{t-1})=\alpha_0+\alpha_1\epsilon^2_{t-1}+\alpha_2\epsilon^2_{t-1}+\ldots+\alpha_q\epsilon_{t-1}^2$$`
+
+Assume `\(\alpha_i&gt;0\)` to ensure `\(\sigma^2_t&gt;0\)`  
+
+Assume `\(\sum^q_{i=1}\alpha_i&lt;1\)` to ensure the unconditional variance is well defined.  
+
+Persistence is often measured by `\(\sum^q_{i=1}\alpha_i&lt;1\)`.  
+
+--
+
+If `\(\alpha_1=\ldots=\alpha_q=0\)` then `\(\sigma^2_t=\alpha_0\)` and the model reverts to a standard constant volatility model.  
+
+The conditional variance ($\sigma^2_t$) is often called `\(h_t\)`.  
+
+---
+
+* **Properties of datagenerated by an ARCH(1) model**  
+
+`\(\epsilon_t=u_t\sigma_t\)`   `\(u_t\sim i.i.d.(0,1)\)`  
+
+`$$\sigma^2_t=\alpha_0 +\alpha_1 \epsilon_{t-1}^2$$`  
+
+This (non-constant) conditional variance model generates __volatility clustering__.  
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-8-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **ARCH and Stylized Facts**  
+
+ 1. Heavy tails (positive excess kurtosis)  
+ 2. Asymmetry (negative skewness)  
+ 3. Lack of persistent in levels of returns  
+ 4. Volatility clustering  
+
+--
+
+* **Law of Iterated Expectations (L.I.E.)**
+
+The order of taking expectations does not matter  
+
+`$$\mathbb{E}[X_t]=\mathbb{E}[\mathbb{E}[X_t|\mathcal{F}_{t-1}]]$$`
+
+* **Law of Total Variance**  
+
+`$$Var(X_t)=\mathbb{E}[Var(X_t|\mathcal{F}_{t-1})]+Var(\mathbb{E}[X_t|\mathcal{F}_{t-1}])$$`
+
+---
+
+###Unconditional moments of the ARCH(1) model   
+
+* **Unconditional mean**  
+
+`$$E(\epsilon_t)=0$$`  
+
+--
+
+&gt; __Proof__  
+&gt; By the L.I.E  
+
+&gt; `$$E(\epsilon_t)=E[E(\epsilon_t|\mathcal{F}_{t-1})]$$`  
+
+&gt; and since `\(\epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma^2_t)\)` it follows that `\(E(\epsilon_t|\mathcal{F}_{t-1})=0\)`  
+
+---
+
+* **Unconditional covarance**  
+
+`$$Cov(\epsilon_t, \epsilon_{t-k})=0\forall k\geq1$$`  
+
+--
+
+&gt; __Proof__  
+&gt; By definition of covariance (and stationarity of `\({\epsilon_t}\)`)  
+
+&gt; `$$\begin{aligned}Cov(\epsilon_t, \epsilon_{t-k} ) &amp;=E[(\epsilon_t-E(\epsilon_t))(\epsilon_{t-k}-E(\epsilon_{t-k}))]\\ &amp;=E[\epsilon_t\epsilon_{t-k}] \end{aligned}$$`
+
+&gt; We know `\(E(\epsilon_t)=E(\epsilon_{t-k})=0\)`. 
+&gt; By L.I.E.  
+
+&gt; `$$E[\epsilon_t\epsilon_{t-k}]=E[E[\epsilon_t\epsilon_{t-k}|\mathcal{F}_{t-1}]]=E[\epsilon_{t-k}E[\epsilon_t|\mathcal{F}_{t-1}]]$$`
+
+&gt; And `\(E(\epsilon_t|\mathcal{F}_{t-1})=0\)`
+
+---
+
+* **Unconditional variance**  
+
+`$$V(\epsilon_t)=\frac{\alpha_0}{(1-\alpha_1)}$$`  
+
+--
+
+
+&gt; __Proof__  
+
+&gt; `\(E(\epsilon_t)=0\)` then `\(V(\epsilon_t)=E(\epsilon^2_t)\)`  
+
+&gt; By L.I.E.  
+
+&gt; `$$\mathbb{E}[\epsilon_t^2]=\mathbb{E}[\mathbb{E}[\epsilon_t^2|\mathcal{F}_{t-1}]]$$`  
+
+&gt; `\(\epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma^2_t)\)` then `\(\sigma_t^2=V(\epsilon_t|\mathcal{F}_{t-1})=E(\epsilon^2_t|\mathcal{F}_{t-1})\)`  
+
+&gt; `$$\begin{aligned}V(\epsilon_t)&amp;=E(\epsilon^2_t)=\mathbb{E}[\mathbb{E}[\epsilon_t^2|\mathcal{F}_{t-1}]]\\ &amp;=\sigma_t^2= \alpha_0 +\alpha_1 E(\epsilon_{t-1}^2)\\ &amp;=\alpha_0 +\alpha_1 V(\epsilon_{t-1})\\ &amp;=\alpha_0 +\alpha_1 V(\epsilon_{t})\ \ (stationary)\\ \Rightarrow V(\epsilon_t)&amp;=\frac{\alpha_0}{(1-\alpha_1)}\end{aligned}$$`  
+
+---
+
+* **Unconditional third moment**  
+
+If we assume `\(u_i\overset{iid}{\sim}N(0,1)\)`  then  
+
+`$$E(\epsilon^3_t)=0$$`  
+
+--
+
+&gt; __Proof__  
+
+&gt; By L.I.E.  
+
+&gt; `$$\mathbb{E}[\epsilon_t^3]=\mathbb{E}[\mathbb{E}[\epsilon_t^3|\mathcal{F}_{t-1}]]$$` 
+
+&gt; `$$\begin{aligned}E(\epsilon^3_t)&amp;={E}[{E}[\sigma_t^3u_t^3|\mathcal{F}_{t-1}]]\\  &amp;={E}\sigma_t^3[{E}[u_t^3|\mathcal{F}_{t-1}]]\end{aligned}$$`
+
+&gt; `\(u_t\sim N(0,1)\)`
+
+
+---
+
+* **Unconditional fourth moment**  
+
+`$$E(\epsilon^4_t)=\frac{3\alpha_0^2(1+\alpha_1)}{(1-3\alpha^2_1)(1-\alpha_1)}$$`  
+
+and so __kurtosis__ for `\(\epsilon_t\)` is 
+
+`$$\kappa=\frac{3(1-\alpha_1^2)}{1-3\alpha^2_1}&gt;3$$`  
+
+__Lemma__  
+
+If `\(X\sim N (0,\sigma^2)\)`, then  
+
+`$$\mu_{2s}=E\left[(X-\mu)^{2s} \right]=\frac{\sigma^{2s}(2s)!}{2^ss!}$$`
+
+so `\(\mu_4=\frac{\sigma^4(4!)}{4\cdot2!}=\frac{\sigma^4(1\times2\times3\times4)}{4(1\times2)}=3\sigma^4\)`  
+
+--
+
+__Proof__
+
+By L.I.E.  
+
+`$$\begin{aligned}E(\epsilon^4_t)&amp;=E[E[\epsilon^4_t|\mathcal{F}_{t-1}]]\\ &amp;=E[\sigma^4_tE[u^4_t|\mathcal{F}_{t-1}]]  \end{aligned}$$`
+
+---
+
+Then, since `\(u_t|\mathcal{F}_{t-1}\sim N(0,1)\)`, from the lemma we have  
+
+`$$E[u_t^4|\mathcal{F}_{t-1}]=3$$`  
+
+and so  
+
+`$$E(\epsilon^4_t)=E[\sigma^4_t\times3]=3E[(\sigma_t^2)^2]$$`  
+
+--
+
+Since `\(\sigma^2_t=\alpha_0+\alpha_1\epsilon^2_{t-1}\)`  
+
+`$$\begin{aligned}E(\epsilon_t^4)&amp;=3E[(\alpha_0+\alpha_1\epsilon_{t-1}^2)(\alpha_0+\alpha_1\epsilon^2_{t-1})]\\ &amp;=3E[\alpha_0^2+2\alpha_0\alpha_1\epsilon^2_{t-1}+\alpha_1^2\epsilon^4_{t-1}]\\ &amp;=3\alpha_0^2+6\alpha_0\alpha_1E[\epsilon^2_{t-1}] +3\alpha_1^2E[\epsilon^4_{t-1}] \end{aligned}$$`
+
+Since stationary `\(E(\epsilon^4_{t-1})=E(\epsilon^4_{t})\)` and `\(E(\epsilon^2_{t-1})=E(\epsilon^2_{t})=V(\epsilon_t)\)`  
+
+Substituting in `\(V(\epsilon_t)=\frac{\alpha_0}{1-\alpha_1}\)`  
+
+`$$\begin{aligned} E(\epsilon^4_t)&amp;=3\alpha_0^2+\frac{6\alpha_0^2\alpha_1}{(1-\alpha_1)}+3\alpha_1^2E(\epsilon^4_t)\\ &amp;=\frac{3\alpha_0^2(1+\alpha_1)}{(1-3\alpha^2_1)(1-\alpha_1)} \end{aligned}$$`  
+
+---
+
+* **Kurtosis**  
+
+`$$\begin{aligned}\kappa&amp;=\frac{E(\epsilon^4_t)}{[E(\epsilon^2_t)]^2}=\frac{[3\alpha_0^2(1+\alpha_1)]}{(1-3\alpha_1^2)(1-\alpha_1)}\times\frac{(1-\alpha_1)^2}{\alpha_0^2}\\ &amp;=\frac{[3(1+\alpha_1)]}{(1-3\alpha_1^2)}\times\frac{(1-\alpha_1)}{1}\\ &amp;=3\times\frac{(1-\alpha^2_1)}{(1-3\alpha^2_1)}\end{aligned}$$`  
+
+Must be that `\(\kappa&gt;0\)`. Requires `\(3\alpha^2_1&lt;1\)` for fourth moment to exist.  
+
+For$0&lt;\alpha_1&lt;\sqrt{1/3}$  
+
+`$$(1-\alpha_1^2)&gt;(1-3\alpha^2_1)$$`  
+
+`$$\frac{(1-\alpha^2_1)}{(1-3\alpha^2_1)}&gt;1$$`
+
+`$$\kappa=3\times\frac{(1-\alpha^2_1)}{(1-3\alpha^2_1)}&gt;3$$`
+
+Not Normal  
+
+---
+
+The unconditional distribution of the `\({\epsilon_t}\)` from an ARCH model __cannot be a normal distribution__ because there is __too much kurtosis__.  
+
+ - Returns are not normal  
+ - Tails are too thick  
+ - Can use a conditional normal random variable to model returns  
+
+--
+
+ARCH(1) Model allows us to capture two important stylized facts of returns data:  
+
+ (1) Returns have thick tails, i.e. not normal  
+ 
+ (2) Risk (or volatility) is time-varying and autoregressive, i.e. returns display ARCH-like behavior.  
+
+
+---
+
+###News Impact Curve  
+
+The __news impact curve (NIC)__ is a plot of `\(\sigma_t^2\)` (vertical) against `\(\epsilon_{t-1}\)` (horizontal), holding all else (in the past) constant.  
+
+NIC plot summarises how the current volatility is influenced by the __last period's news__, according to the model.  
+
+
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-9-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+`\(\sigma^2_t\)` is a __nondecreasing__ function of the __magnitude__ of past news (i.e. `\(|\epsilon_{t-1}|\)`)  
+
+The NIC for the ARCH(1) is __symmetric__ about `\(\epsilon_{t-1}=0\)`, indicating that the sign of the news does not matter. (not the resonable)  
+
+--
+
+`\(\alpha_1\)` determines the extent to which past news is reflected in current volatility.  
+
+`\(\alpha_0\)` determines the __vertical position__ of the NIC  
+
+---
+
+###Estimation
+
+* **Simple Estimation of ARCH - OLS**  
+
+`$$E[r_t^2|\mathcal{F}_{t-1}]=\alpha_0 +\alpha_1r^2_{t-1}$$`  
+
+Define `\(y_t=r_t^2\)`  
+
+`$$y_t=\alpha_0+\alpha_1y_{t-1} + v_t$$`  
+
+`$$\underset{\alpha_0, \alpha_1}{\min}\sum^T_{t=2}(y_t-\alpha_0-\alpha_1y_{t-1})^2$$`
+
+---
+
+* **Estimation of an ARCH model - GLS**  
+
+OLS does not provide efficient estimators.  
+
+Can correct using GLS.  
+
+ 1. Obtain OLS estimates `\(\hat\alpha_0,\hat\alpha_1\)`  
+ 
+ 2. Compute `\(f_t=\hat a_0+\hat a_1y_{t-1}\)`  
+
+--
+
+ 3. Regress `\([(y_t/f_t)-1]\)` on `\(1/f_t\)` and `\((y_{t-1}/f_t)\)` (to obtain `\(\bar a_0, \bar a_1\)`)  
+ 4. The GLS estimator is given by  
+
+`$$\left(\begin{array}{c}\hat{\hat a}_0\\ \hat{\hat a}_1\end{array}\right)=\left(\begin{array}{c}\hat a_0+\bar a_0\\ \hat a_1+\bar a_1\end{array}\right)$$`
+
+---
+
+* **Estimation of an ARCH model - MLE**  
+
+`$$LL=-\frac T2\ln(2\pi)-\frac12\sum^T_{t=1}\ln\sigma^2_t-\frac12\sum^T_{t=1}\frac{(r_t-c-\phi_1r_{t-1})^2}{\sigma^2_t}$$`  
+
+with  
+
+`$$\sigma^2_t=\alpha_0+\alpha_1(r_{t-1}-c-\phi_1r_{t-2})^2$$`
+
+The form of this LL comes from the AR(1)-ARCH(1) specification and the assumption that `\(u_t\overset{iid}\sim N(0,1)\)`
+
+--
+
+We need to choose `\(c\)`, `\(\phi_1\)`, `\(\alpha_0\)` and `\(\alpha_1\)` to maximise the LL.  
+
+Our GLS estimator is asymptotically equivalent to MLE based on Gaussuan errors.  
+
+---
+
+###Forecasting: an AR(1)-ARCH(1) model  
+
+
+
+
+Fitted model  
+
+`$$r_t=\underset{(0.0003919)}{0.001}+\underset{(0.03712)}{0.01402}r_{t-1}+\epsilon_t$$`  
+
+with  
+
+`$$\epsilon_t=\sigma_tu_t$$`  
+
+`$$\sigma^2_t=\underset{(0.000009047)}{0.000137}+\underset{(0.07686)}{0.4478}\epsilon^2_{t-1}$$`
+
+`\(N=999\)` daily frequency
+
+--
+
+Forecast next day `\(r_{1000}\)`
+
+We have `\(r_{999}=0.005064\)`, `\(P_{999}=813.67\)`, `\(\hat\epsilon_{999}=0.0040430193\)`  
+
+---
+
+`\(r_{999}=0.005064\)`, `\(P_{999}=813.67\)`, `\(\hat\epsilon_{999}=0.004043\)`  
+
+--
+
+Conditional mean:
+
+`$$\begin{aligned}\hat E[r_{1000}|\mathcal{f}_{999}]&amp;=0.001+0.01402\times0.005064\\ &amp;=0.001070997 \end{aligned}$$`
+
+--
+
+Conditional variance:  
+
+`$$\begin{aligned}\hat V[r_{1000}|\mathcal{F}_{999}]&amp;=\hat V[\epsilon_{1000}|\mathcal{F}_{999}]\\ &amp;=0.000137+0.4478\times0.004043\\ &amp;=0.001947455 \end{aligned}$$`
+
+--
+
+Volatility:  
+
+`$$\hat\sigma_{1000|\mathcal{F}_{999}}=\sqrt{0.001947455}=0.04412998$$`
+
+---
+
+`\(u_t\sim N(0,1)\)`, `\(\epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma^2_t)\)`  `\(\Rightarrow r_t\sim N\)`  
+
+--
+
+Prediction interval:  
+
+`$$0.001070997\pm1.96\times0.04412998$$`  
+
+`$$[-0.08542376,0.08756576]$$`
+
+Note that our prediction interval would have been wider if we had not used our ARCH model for predicting variance.  
+
+--
+
+Prediction interval for `\(P_1000\)`:  
+
+`$$[813.67e^{-0.08542376},\ 813.67e^{0.08756576}]$$`
+
+---
+
+**Diagnostics for an ARCH model**  
+
+Based on standardized residuals `\(\hat u_t=\frac{\hat \epsilon_t}{\hat\sigma_t}\)`  
+
+ - ACF plot  
+ 
+ - PACF plot  
+ 
+ - Simple test  
+ 
+ - BG test  
+
+--
+
+ - ARCH LM test to determine if serial correlation in `\(\hat u_t^2\)` remains
+
+If it does, include more ARCH terms.  
+
+---
+
+* **ARCH(q) Model**  
+
+`\(\epsilon_t=u_t\sigma_t\)`, `\(u_t\sim i.i.d.N(0,1)\)`  
+
+`$$\sigma^2_t=\alpha_0+\alpha_1\epsilon^2_{t-1}\ldots+\alpha_q\epsilon^2_{t-q}$$`  
+
+This model generates volatility clustering patterns and news impact curves that resemble those for ARCH(1) models.  
+
+--
+
+* Problems with ARCH modelling  
+
+Im many cases, we need `\(q\)` to be very large.  
+ - Can be fixed by GARCH
+
+The `\(\hat u_t\)` do not appear to have come from a normally distributed `\(u_t\)`  
+ - Can be fixed by changing the assumptions about `\(u_t\)`  (e.g. t-distribution) and with a different likelihood  
+
+---
+
+##GARCH Models  
+
+ARCH models have difficulty modelling the autocorrelation in the squared residuals.  
+
+GARCH models generalise ARCH models to include lags of `\(\sigma^2_t\)` in the conditional variance equation as well as lags of `\(\epsilon^2_t\)`, and this often alleviates this difficulty.  
+
+--
+
+GARCH(p,q)  
+
+`$$\sigma^2_t=\alpha_0+\alpha_1\epsilon^2_{t-1}+\ldots+\alpha_q\epsilon^2_{t-q}\ \ \ +\beta_1\sigma^2_{t-1}+\ldots+\beta_p\sigma^2_{t-p}$$`
+
+Assume all `\(\alpha_i&gt;0\)` and `\(\beta_j&gt;0\)` to ensure that `\(\sigma^2_t&gt;0\)`  
+
+Assume `\(\sum^{i=q}_{i=1}\alpha_i+\sum^{j=p}_{j=1}\beta_j&lt;1\)` to ensure that `\(V(\epsilon_t)&gt;0\)`  
+
+--
+
+The `\(\alpha_i\)` and `\(\beta_j\)` determine how past news affects current volatility and this persistence is often measured by `\(\gamma=\sum^{i=q}_{i=1}\alpha_i+\sum^{j=p}_{j=1}\beta_j\)`  
+
+If `\(\alpha_0\)` is the only non-zero parameter then we have constant volatility.  
+
+---
+
+* **Conditional moments of GARCH(p,q) errors**  
+
+`\(\epsilon_t=u_t\sigma_t\)`, `\(u_t\sim N(0,1)\)`, `\(\frac{\epsilon_t}{\sigma_t}\sim N(0,1)\)`, `\(\epsilon_t|\mathcal{F}_{t-1}\sim N（0,\sigma^2_t)\)`  
+
+ - `$$E(\epsilon_t|\mathcal{F}_{t-1})=0$$`  
+ - `$$V(\epsilon_t|\mathcal{F}_{t-1})=\sigma_t^2=\alpha_0+\sum^q_{i=1}\beta_j\sigma^2_{t-j}$$`  
+ - `$$Cov(\epsilon_t,\epsilon_{t-k}|\mathcal{F}_{t-1})=0\forall k &gt;1$$`  
+ - The skewness of `\(\epsilon_t|\mathcal{F}_{t-1}\)` is zero  
+ - The kurtosis of `\(\epsilon_t|\mathcal{F}_{t-1}\)` is 3  
+
+
+--
+
+`$$Cov(\epsilon_t,\epsilon_{t-k}|\mathcal{F}_{t-1})=E(\epsilon_t,\epsilon_{t-k}|\mathcal{F}_{t-1})=\epsilon_{t-k}E(\epsilon_t|\mathcal{F}_{t-1})=0$$`  
+
+---
+
+###Unconditional moments of the GARCH(p,q) errors  
+
+
+* **Unconditional mean**  
+
+`$$E(\epsilon_t)=0$$`  
+
+--
+
+&gt; __Proof__  
+&gt; By the L.I.E  
+
+&gt; `$$E(\epsilon_t)=E[E(\epsilon_t|\mathcal{F}_{t-1})]$$`  
+
+&gt; and since `\(\epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma^2_t)\)` it follows that `\(E(\epsilon_t|\mathcal{F}_{t-1})=0\)`  
+
+---
+
+* **Unconditional covarance**  
+
+`$$Cov(\epsilon_t, \epsilon_{t-k})=0\forall k\geq1$$`  
+
+--
+
+&gt; __Proof__  
+&gt; By definition of covariance (and stationarity of `\({\epsilon_t}\)`)  
+
+&gt; `$$\begin{aligned}Cov(\epsilon_t, \epsilon_{t-k} ) &amp;=E[(\epsilon_t-E(\epsilon_t))(\epsilon_{t-k}-E(\epsilon_{t-k}))]\\ &amp;=E[\epsilon_t\epsilon_{t-k}] \end{aligned}$$`
+
+&gt; We know `\(E(\epsilon_t)=E(\epsilon_{t-k})=0\)`. 
+&gt; By L.I.E.  
+
+&gt; `$$E[\epsilon_t\epsilon_{t-k}]=E[E[\epsilon_t\epsilon_{t-k}|\mathcal{F}_{t-1}]]=E[\epsilon_{t-k}E[\epsilon_t|\mathcal{F}_{t-1}]]$$`
+
+&gt; And `\(E(\epsilon_t|\mathcal{F}_{t-1})=0\)`
+
+---
+
+* **Unconditional variance**  
+
+`$$V(\epsilon_t)=\frac{\alpha_0}{(1-\sum^{i=q}_{i=1}\alpha_i-\sum^{j=p}_{j=1}\beta_j)}$$`  
+
+--
+
+
+&gt; __Proof__  
+
+&gt; `\(E(\epsilon_t)=0\)` then `\(V(\epsilon_t)=E(\epsilon^2_t)\)`  
+
+&gt; By L.I.E.  
+
+&gt; `$$\mathbb{E}[\epsilon_t^2]=\mathbb{E}[\mathbb{E}[\epsilon_t^2|\mathcal{F}_{t-1}]]$$`  
+
+&gt; `\(\epsilon_t|\mathcal{F}_{t-1}\sim N(0,\sigma^2_t)\)` then `\(\sigma_t^2=V(\epsilon_t|\mathcal{F}_{t-1})=E(\epsilon^2_t|\mathcal{F}_{t-1})\)`  
+
+&gt; `$$\begin{aligned}V(\epsilon_t)&amp;=E(\epsilon^2_t)=\mathbb{E}[\mathbb{E}[\epsilon_t^2|\mathcal{F}_{t-1}]]\\ &amp;=\sigma_t^2= {\alpha_0}+{\sum^{i=q}_{i=1}\alpha_iE(\epsilon^2_{t-i})+\sum^{j=p}_{j=1}\beta_jE(\sigma^2_{t-j})}\\  &amp;=\alpha_0 + V(\epsilon_{t})\left[{\sum^{i=q}_{i=1}\alpha_i+\sum^{j=p}_{j=1}\beta_j}\right]\ \ (stationary)\\ \Rightarrow V(\epsilon_t)&amp;=\frac{\alpha_0}{(1-\sum^{i=q}_{i=1}\alpha_i-\sum^{j=p}_{j=1}\beta_j)}\end{aligned}$$`  
+
+---
+
+* **Unconditional third moment**  
+
+If we assume `\(u_i\overset{iid}{\sim}N(0,1)\)`  then  
+
+`$$E(\epsilon^3_t)=0$$`  
+
+--
+
+&gt; __Proof__  
+
+&gt; By L.I.E.  
+
+&gt; `$$\mathbb{E}[\epsilon_t^3]=\mathbb{E}[\mathbb{E}[\epsilon_t^3|\mathcal{F}_{t-1}]]$$` 
+
+&gt; `$$\begin{aligned}E(\epsilon^3_t)&amp;={E}[{E}[\sigma_t^3u_t^3|\mathcal{F}_{t-1}]]\\ &amp;={E}\sigma_t^3[{E}[u_t^3|\mathcal{F}_{t-1}]]\end{aligned}$$`
+
+&gt; `\(u_t\sim N(0,1)\)`
+
+
+---
+
+* **Kurtosis**  
+
+It can be shown that kurtosis `\(\kappa&gt;3\)` (proof not supplied)  
+
+Should be true since when `\(\beta=0\)` we get ARCH(1) which has `\(\kappa&gt;3\)`  
+
+--
+
+Conditions needed to ensure `\(\sigma^2_t&gt;0\)`  
+ - `\(\alpha_0&gt;0\)`  
+ - `\(\alpha_i\ge0\)`  
+ - `\(\beta_j\ge0\)`  
+
+--
+
+For GARCH(1,1)  
+
+`$$\epsilon_t=\sigma_tu_t,\ \ \ \sigma^2_t=\alpha_0+\alpha_1\epsilon^2_{t-1}+\beta_1\sigma_{t-1}^2$$`
+
+Conditions needed to ensure `\(\sigma^2_t&gt;0\)`  
+ - `\(\alpha_0&gt;0\)`  
+ - `\(\alpha_1\ge0\)`  
+ - `\(\beta_1\ge0\)` 
+
+
+---
+
+* **Connection to AR and ARMA**  
+
+ARCH(p) was an AR(p) in squares  
+
+Can view GARCH(p,q) as ARMA(p,q) in squares  
+
+--
+
+For GARCH(1,1) model: Assuming `\(E[\epsilon_t^4]&lt;\infty\)`  
+
+ - Define `\(\eta_t=\sigma^2_t(u^2_t-1)\)`  
+ - Define `\(y_t=\epsilon^2_t\)`  
+ - Then, `\(y_t=\alpha_0+(\alpha_1+\beta_1)y_{t-1}-\beta_1\eta_{t-1}+\eta_t\)`   
+
+--
+
+&gt; __Proof__  
+
+&gt; `\(y_t-\eta_t=\sigma^2_t\)`  
+
+&gt; `$$\begin{aligned}y_t-\eta_t&amp;=\alpha_0+\alpha_1y_{t-1}+\beta_1\sigma^2_{t-1}\\ &amp;=\alpha_0 +\alpha_1y_{t-1}+\beta_1(y_{t-1}-\eta_{t-1})\\ &amp; =\alpha_0+(\alpha_1+\beta_1)y_{t-1}-\beta_1\eta_{t-1} \end{aligned}$$`
+
+
+---
+
+###News Impact curves for GARCH models  
+
+
+The __news impact curve (NIC)__ is a plot of `\(\sigma_t^2\)` (vertical) against `\(\epsilon_{t-1}\)` (horizontal), holding all else (in the past) constant.  
+
+For a GARCH(1,1) model the NIC is given by  
+
+`$$NIC(\epsilon_{t-1})=\alpha_0+\frac{\beta_1\alpha_0}{(1-\alpha_1-\beta_1)}+\alpha_1\epsilon^2_{t-1}$$`  
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-12-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+
+
+`\(\hat\alpha_1\ll\hat\beta_1\)` is typical of GARCH(1,1) models  
+
+---
+
+* **Multi-step forecasting of GARCH(1,1) volatility**  
+
+
+
+
+`$$\begin{aligned}E(\sigma^2_{t+1})&amp;=\alpha_0+\alpha_1(\hat\epsilon_1)^2+\beta_1\sigma^2_t\\ E(\sigma^2_{t+2})&amp;=\alpha_0+\alpha_1E(\epsilon_{t+1}^2)+\beta_1E(\sigma^2_{t+1})\\ &amp;= \alpha_0+\alpha_1E(u_{t+1}^2)E(\sigma_{t+1}^2)+\beta_1E(\sigma^2_{t+1})\\ &amp;=\alpha_0+(\alpha_1+\beta_1)E(\sigma^2_{t+1})\\ E(\sigma^2_{t+3})&amp;= \alpha_0+(\alpha_1+\beta_1)E(\sigma^2_{t+2})\\ &amp;= \alpha_0+(\alpha_1+\beta_1)[\alpha_0+(\alpha_1+\beta_1)E(\sigma^2_{t+1})]\\ &amp;= \alpha_0[1+(\alpha_1+\beta_1)](\alpha_1+\beta_1)^2E(\sigma^2_{t+1})\\ &amp;\vdots\\ E(\hat\sigma^2_{t+k})&amp;=\frac{\alpha_0\left[1-(\alpha_1+\beta_1)^{k-1}\right]}{1-(\alpha_1+\beta_1)}+(\alpha_1+\beta_1)^{k-1}E(\sigma^2_{t+1})\\ &amp;\rightarrow \frac{\alpha_0}{1-(\alpha_1+\beta_1)}\text{ as }k\rightarrow \infty\ ( \text{i.e. unconditional }\sigma^2_\epsilon)  \end{aligned}$$`
+
+---
+
+###Comparing ARCH/GARCH Models  
+
+* **Likelihood Ratio test**  
+
+ARCH(p) models are nested in GARCH(p,q) models  
+ 
+ - `\(\beta_1=\cdots=\beta_q=0\Longrightarrow\)` ARCH(p)  
+ - Can jointly test for significance of `\(\beta_j\)`s  
+
+--
+
+If the ARCH specification in question is nested in the GARCH model, can use  
+
+`$$\text{LR}=2\times\left(\text{LL}(\hat\theta_G)-\text{LL}(\hat\theta_A)\right)\overset{asy}{\sim}\chi^2_q$$`
+
+LL$(\hat\theta_G)$: likelihood from GARCH model  
+LL$(\hat\theta_A)$: likelihood from ARCH model  
+
+
+---
+
+##Asymmetric GARCH models  
+
+Standard ARCH/GARCH models hace symmetric impacts of good and bad news  
+
+--
+
+* **Leverage effect**  
+
+Leverage is the ratio of a firm's debt to its equity `\(L=D/E\)`  
+
+A good shock `\(\epsilon_t\Rightarrow P\uparrow\Rightarrow E\uparrow\Rightarrow L\downarrow\Rightarrow\)` lower risk  
+A bad shock `\(\epsilon_t\Rightarrow P\downarrow\Rightarrow E\downarrow\Rightarrow L\uparrow\Rightarrow\)` higher risk   
+
+--
+
+A bad shock of size `\(s\)` has a bigger % effect than a good shock of size `\(s\)` because `\(s\)` contrubutes to the denominator of `\(L\)`
+
+--
+
+ - Exchange: Uncertainties that arise from appreciation are less than those arising from depreciation  
+ - Economy might react more to + inflation shocks (than - shocks)  
+ - A rise in interest rats might have greater effect than a fall  
+
+---
+
+* **Test for Volatility Asymmetry**  
+
+Can be tested using LM tests based on the squard standardised residuals `\(\hat u_t^2\)`  
+
+`$$H_0:\text{Volatility is symmetric with  respect to positive or negative shocks}$$`  
+
+Define dummies `\(S^+_t\)` and `\(S^-_t\)` by `\(S^+_t=1\)` if `\(\epsilon_t\ge1\)` and `\(S^-_t=1\)` if `\(\epsilon_t\le1\)`
+
+--
+
+Auxilliary regression  
+
+`$$\hat u^2_t=\phi_0+\phi_1S^-_{t-1}+\xi_t$$`  
+
+`$$T\cdot R^2\sim\chi^2_1\text{ under } H_0$$`  
+
+Prejection of `\(H_0\)` would suggest that we need a new model that gives rise to an asymmetric news impact curve.  
+
+---
+
+Other LM type tests include  
+
+ - `\(\hat u_t^2=\phi_0+\phi_1S^-_{t-1}\epsilon_{t-1}+\xi_t\)` (negative size test)  
+
+`\(\phi_1&lt;0\Rightarrow\)` neg shocks raise volatility by more and how much more depends on the size of the shocks (t-test on `\(\hat\phi_1\)`)  
+
+
+--
+
+ - `\(\hat u_t^2=\phi_0+\phi_1S^+_{t-1}\epsilon_{t-1}+\xi_t\)` (positive size test)   
+
+`\(\phi_1&gt;0\Rightarrow\)` pos shocks raise volatility by more and how much more depends on the size of the shocks (t-test on `\(\hat\phi_1\)`)  
+
+---  
+
+Both
+
+`$$T\cdot R^2\sim\chi^2_1$$`
+
+---
+
+Joint null hypothesis  
+
+`$$\hat u_t^2=\phi_0+\phi_1S^-_{t-1}+\phi_2S^-_{t-1}\epsilon_{t-1}+\phi_3S^+_{t-1}\epsilon_{t-1}+\xi_t$$`
+
+`$$H_0:\text{ no volatility asymmetry }$$`  
+
+`$$T\cdot R^2\sim\chi^2_3$$`
+
+--
+
+There is strong evidence of volatility asymmetry in stock markets, but less evidence of this in other asset markets.  
+
+---
+
+* **Exponential GARCH or EGARCH model**  
+
+`$$\ln\sigma^2_t=\alpha_0+\alpha_1(|u_{t-1}|-E[|u_{t-1}|])+\gamma u_{t-1}+\beta_1\ln\sigma^2_{t-1}$$`  
+
+
+--
+
+If `\(\gamma\)` is negative, bad news has a larger impact than good news, and negative `\(u_{t-1}\)` will increase volatility.  
+
+We use logs, so that we avoid the restriction that `\(\alpha_i,\beta_i\ge0\)`  
+
+---
+
+###News impact curves for various asymmetry model  
+
+* **GJR-GARCH model**
+
+`$$\sigma^2_t=\alpha_0+\alpha_1\epsilon^2_{t-1}+\alpha^-_1(S^-_1\epsilon^2_{t-1})+\beta\sigma^2_{t-1}$$`  
+
+NIC  
+
+`$$\sigma^2_t=\left\{\begin{array}{ll}A+\alpha_1\epsilon^2_{t-1}&amp; \text{for } \epsilon_{t-1}&gt;0\\ A+(\alpha_1+\alpha_1^-)\epsilon^2_{t-1}&amp; \text{else}\end{array} \right.$$`
+
+`$$A=\alpha_0+\beta\sigma^2$$`  
+
+`$$\sigma^2=\alpha_0/[1-(\alpha_1+\alpha_1^-/2)-\beta_1]$$`  
+
+In this case of GJR-GARCH model the curve has its minimum at `\(\epsilon_{t-1}\)`  
+
+---
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-13-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **EGARCH model**  
+
+`$$\ln\sigma^2_t=\alpha_0+\alpha_1(|u_{t-1}|-E[|u_{t-1}|])+\gamma u_{t-1}+\beta_1\ln\sigma^2_{t-1}$$`   
+
+`\(u_{t-1}=\epsilon_t/\sigma_t\)`  
+
+NIC  
+
+`$$\sigma^2_t=\left\{\begin{array}{ll}A\exp\left[\frac{\gamma+\alpha_1}{\sigma}\epsilon^2_{t-1}\right]&amp; \text{for } \epsilon_{t-1}&gt;0\\ A\exp\left[\frac{\gamma-\alpha_1}{\sigma}\epsilon^2_{t-1}\right]&amp; \text{else}\end{array} \right.$$`
+
+`$$A(=\sigma^2)^{\beta_1}\exp[\alpha_0]$$`  
+
+`$$\sigma^2=\exp\left([\alpha_0-\alpha_1\sqrt{2/\pi}]/(1-\beta_1)\right)\text{ if }u_t\sim N(0,1)$$`  
+
+---
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-14-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;img src="ETC3460_slides_S1_2018_files/figure-html/unnamed-chunk-15-1.png" width="45%" height="45%" style="display: block; margin: auto;" /&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"includes": {
+"in_header": "mylatexpackage.sty"
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
