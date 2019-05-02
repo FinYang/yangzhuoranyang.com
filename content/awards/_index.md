@@ -22,6 +22,8 @@ caption = ""
 
 * 2018 Monash University Medal for Undergraduate Academic Excellence
 
+* 2018 Monash Business School Dean's Honour
+
 * 2018 Monash Business School Student Excellence Award in recognition of exceptional academic excellence in:  
 
   - Business analytics
@@ -36,3 +38,7 @@ caption = ""
   - Statistical Thinking
   - Principles of Econometrics
   - Contingencies in insurance and pensions
+  
+* 2016 Henan University Undergraduate Scholarship 
+
+* 2016 Henan University Outstanding Student Award
