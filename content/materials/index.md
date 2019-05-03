@@ -18,6 +18,14 @@ caption = ""
 
 If you can't access any of the materials, let me know by leaving a comment or sending me an email in the contact section.
 
+---
+
+## _Semester 1 2019_
+
+### ETC2410 Introduction to Econometrics
+ - [**Slides**](ETC2410_slides_S1_2019.html) 
+
+---
 
 ## _Semester 2 2018_  
 
@@ -66,6 +74,7 @@ If you can't access any of the materials, let me know by leaving a comment or se
  - [**Slides**](ETC2410_slides.html) 
  - [sem 1 & 2 2016 exam topics summary](Past exam topics_Fin_ACIC.pdf)
  
+---
 
 ## Useful links
  - [Univariate Distribution Relationships](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)

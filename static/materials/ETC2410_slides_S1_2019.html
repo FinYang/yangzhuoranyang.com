@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>ETC2410</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Fin" />
+    <link href="ETC2410_slides_S1_2019_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="ETC2410_slides_S1_2019_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ETC2410
+### Fin
+### Semester 1 2019
+
+---
+
+
+
+
+###Week 1
+
+* Stages of empirical analysis
+
+1. Understanding the problem
+2. Formulating an appropriate conceptual model to tackle the problem
+3. Collecting appropriate data
+4. Looking at the data (Descriptive Analytics)
+5. Estimating the model, making inference, predictions and policy presciptions as appropriate
+6. Evaluation, learning and improving each of the previous steps, and iterating until the problem is solved 
+
+--
+
+```
+e.g.
+What elements will affect earnings?
+
+```
+
+---
+
+* Converting an economic model to a statistical model  
+
+ - conomic theory describes the systematic part - `\(f (i)\)`
+ - `\(e\)` is the nonsystematic, random error component that we know is present, but cannot be observed
+ - Adding random errors converts our economic model into a statistical one that gives us a basis for statistical inference
+ 
+--
+* Experimental and Non-experimental data  
+
+--
+
+ __Non-experimental__ data are not accumulated through controlled experiments on individuals, firms, or segments of the economy.  
+ (observational data, retrospective data)  
+ 
+--
+ 
+ __Experimental__ data are often collected in laboratory environments in the natural sciences, but they are much more difficult to obtain in the social sciences.  
+
+--
+
+```
+What data we want to collect about wage?
+```
+
+---
+
+---
+
+* Predictive analytics (no causality) and Prescriptive analytics (causal)
+
+--
+
+__Predictive__ analytics: using some variables to predict a target variable without any requirement of causality
+
+--
+
+__Prescriptive__ analytics to measure the causal relationship between variables, to prescribe how to achieve a desired change in the target variable by manipulating the cause.
+
+--
+
+We can always use multiple regression for prediction.  
+We can sometimes use multiple regression to tease out causal relationships
+
+--
+
+```
+Which one is for analyzing wage?
+```
+
+
+---
+
+
+
+* Cross-sectional, Time-series, Panel or Longitudinal data, Pooled
+ 
+--
+
+A __Cross-sectional__ data set consists of a sample of individuals, households, firms, cities, states, contries, or a variety of other units, _taken at a given point in time_.  
+
+--
+
+A __Time Series__ data set consists of observations on a variable or several variables _over time_.  
+
+--
+
+A __Pooled__ data set combine data (on multiple variable) from _different individuals_ over time.  
+
+--
+
+A __Panel or Longitudinal__ data set consists of a time series for _each_ cross-sectional member in the data set.
+
+--
+
+```
+Which one is for wage related data?
+```
+
+---
+
+* **What time series data can do, but cross-section cannot:**  
+
+ - Forecast future values of a variable  
+ - Estimate the dynamic causal effect of one variable `\(x\)` (estimate the causal effect on y, over several time periods, of a change in `\(x\)` today. e.g. tax on alcohol)  
+
+--
+
+1.  Forecast future values of a variable:  
+eg. stock prices, consumer price index, gross domestic product, annual homicide rates one or several days /months /quarters / years ahead.  
+
+--
+
+2.  Estimate the dynamic causal effect of one variable x on another variable y:   
+eg. estimate the effect on alcohol consumption of an increase in the tax on alcohol, both initially and subsequently as consumers adjust to the new tax.  
+
+--
+
+```
+wage?
+```
+
+---
+
+
+* **Cross-sectional data, time series data, panel data**  
+ Panel data: can be used to address questions that cannot be adequately addressed using either cross-section or time series data.
+ 
+--
+ 
+ - **Univariate time series**: A time series data set consisting of observations on a single variable.  
+ - **Multivariate time series**: A time series data set consisting of observations on several variables.  
+ 
+--
+ 
+* Notation  
+`\(y_t\)` : the value of the time series in time period t.  
+`\(T\)` : sample size  
+
+---
+
+
+
+* **Properties**
+
+
+
+  1. Observations on time series data are ordered.
+  
+--
+   
+  2. Time series data is generally characterized by some form of temporal dependence.  
+  
+--
+  
+  Because of temporal dependence, it is implaisible to assume that the random variable `\(y_t\)` and `\(y_{t-1}\)` are i.i.d.  
+      The strength of temporal dependence can differ between time series. When the dependence is strong the time series is called _persistent_.
+
+---
+
+* Notation  
+
+cross section analysis:  
+
+`$$y_i = \beta_0 +\beta_1 x_{i1} +\beta_2x_{i2} + \ldots +\beta_kx_{ik} +u_i\ , \ \  \ i = 1, 2,\ldots, n$$`
+
+--
+
+time series analysis:  
+
+`$$y_t = \beta_0 +\beta_1 x_{t1} +\beta_2x_{t2} + \ldots +\beta_kx_{tk} +u_t\ , \ \  \ t = 1, 2,\ldots, n$$`
+
+---
+
+* A general statistical model can be written as: 
+
+`$$y=f(x)+e$$`
+
+Where y denotes the random variablewe want to predict or analyze; x is the variable that are related or can explain some behaviour of y; random error e accounts for the many factors that affect y that we have omitted from this simple model
+
+
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-1-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-1-2.png" width="45%" height="45%" /&gt;
+
+--
+
+```
+Write a general model form for wage.
+```
+
+
+
+---
+
+* Simple Linear Regression  
+A complete model for a random variable is a model of its probability distribution. We model the conditional distribution of y given x, a model for `\(E(y|x)\)`.  
+
+`$$\begin{array}{c|c}
+y &amp;x \\
+\hline Dependent\ \ Variable &amp; Independent\ \ Variable\\ 
+Response\ \ Variable &amp; Control\ \  Variable\\ 
+Explained\ \ Variable &amp; Explanatory\ \  Variable\\ 
+Predicted\ \  Variable &amp; Predictor\ \  Variable\\ 
+Regressand &amp; Regressor\\ 
+\end{array}$$`
+
+
+* Population and Sample format
+    + Population 
+        - `\(E(y|x)=\beta_0 + \beta_1 x\)`
+    + Sample Estimation
+        - `\(\hat{y} = \widehat{E(y|x)} = \hat{\beta_0} + \hat{\beta_1}x\)`  
+
+* **Law of Probability**  
+If A and B are mutually exclusice events then `\(P(A\;or\; B)=P(A)+P(B)\)`  
+If A and B are two events, then `\(P(A|B)=\frac{P(A\;and\;B)}{P(B)}\)`    
+  
+---
+ 
+ * ***Model***
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-2-1.png" width="45%" height="45%" /&gt;&lt;img src="homoscedasticity.png" width="45%" height="45%" /&gt;
+ `\(E(y|x)=\beta_0 + \beta_1 x\)`  
+ `\(y=\beta_0 + \beta_1 x +u\)` where `\(u\)` is a random variable with `\(E(u)=0\)` and `\(E(u|x)=0\)`  
+
+--
+
+```
+E(wage|educ) = a + b educ
+
+wage = a + b educ + u
+
+```
+
+---
+
+
+###Week 2
+
+* Random variable
+
+A __random variable__ is a rule that assigns a numerical outcome to an event in each possible state of the world.  
+
+--
+
+ - A __discrete random variable__ has a finite number of distinct outcomes. For example, rolling a die is a random variable with 6 distinct outcomes.  
+ 
+--
+ 
+ - A __continuous random variable__ can take a continuum of values within some interval. For example, rainfall in Melbourne in May can be any number in the range from 0.00 to 200.00 mm.
+
+--
+
+```
+Find some examples for both.
+```
+
+---
+
+
+
+* discrete random variable
+
+The probability density function (pdf) for a discrete random variable X is a function f with f(xi) = pi, i = 1, 2, . . . , m and f(x) = 0 for all other x.
+
+`$$P(X=x)=\begin{cases}
+P(X=1) &amp; x=1\\
+P(X=0) &amp; x=0\\
+\end{cases}$$`
+
+--
+
+
+`$$P(X=1) = p_1,\ P(X=x_2) = p_2, \ \ldots , P(X=x_m) = p_m$$`
+
+--
+
+* Properties 
+
+--
+
+`$$\sum^m_{i=1} p_i = p_1+p_2+\cdots +p_m= 1$$`
+
+--
+
+`$$0\leq p \leq 1$$`
+
+---
+
+* continuous random variable  
+
+The probability density function (pdf) for a continuous random variable X is a function f such that `\(P(a \leq X \leq b)\)` is the area under the pdf between `\(a\)` and `\(b\)`  
+
+The total area under the pdf is equal to 1.
+
+--
+
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* Expected value 
+
+`$$E(X)=p_1x_1 +p_2x_2+\cdots+p_Mx_m=\sum^m_{i=1}p_ix_i$$`
+
+`$$E(X) = \int^\infty_{-\infty} xf(x)dx$$`
+
+--
+
+* median, mode
+
+--
+
+* Variance  
+
+`$$\sigma^2_X=Var(X)=E(X-\mu_x)^2$$`  
+
+Variance is a measure of spread of the distribution of X around its mean.
+
+If X is an action with different possible outcomes, then Var(X) gives an indication of _riskiness_ of that action.  
+
+--
+
+* Standard deviation   
+
+$$\sigma_X=sd(X)=\sqrt{E(X-\mu_x)^2} $$
+
+In finance, standard deviation is called the _volatility_ in X.  
+The advantage of standard deviation over variance is that it has the same units as X.
+
+---
+
+* Properties of the Expected Value  
+
+--
+
+1. For any constant `\(c\)`, `\(E(c)=c\)`.  
+
+--
+2. For any constants `\(a\)` and `\(b\)`,  
+
+`$$E(aX+b) = aE(X) +b$$`  
+
+--
+3. Expected value is a linear operator, meaning that expected value of sum of several variables is the sum of their expected values:  
+
+`$$E(X+Y+Z)=E(X)+E(Y)+E(Z)$$`
+
+--
+
+`$$E(a +bX+cY+dZ)=a+bE(X)+cE(Y)+dE(Z)$$`  
+
+--
+`$$E(X^2)\neq (E(X))^2$$`  
+
+--
+`$$E(\log X)\neq \log{(E(X))}$$`  
+
+--
+`$$Var(X) = E(X^2) - \mu^2$$`
+
+---
+
+
+
+
+
+`$$\begin{aligned}
+\mathrm{Population\ \ parameter} &amp;\ \ \ \ |\ \ \ \ \mathrm{its\ \ estimater}\\
+\mu_y = E(y) &amp;\ \ \ \ |\ \ \ \bar{y}=\frac{1}{n}\sum_{i=1}^{n}{y_i}\\
+\sigma_y^2=E(y-\mu_y)^2 &amp;\ \ \ \ |\ \ \ \ s_y^2=\hat{\sigma}_y^2=\frac{1}{n-1}\sum_{i=1}^n{(y_i-\hat{y})^2}\\
+\sigma_y=\sqrt{\sigma_y^2} &amp;\ \ \ \ |\ \ \ \ \hat{\sigma_y}=\sqrt{\hat{\sigma}_y^2}\\
+\sigma_{xy}=E(x-\mu_x)(y-\mu_y) &amp;\ \ \ \ |\ \ \ \ \hat{\sigma}_{xy}= \frac{1}{n-1}\sum^n_{i=1}{(x_i- \bar{x})(y_i-\bar{y})}\\
+\rho_{xy}=\frac{\sigma_{xy}}{\sigma_x\sigma_y}&amp;\ \ \ \ |\ \ \ \ \hat{\rho}_{xy}=\frac{\hat{\sigma}_{xy}}{\hat{\sigma}_x \hat{\sigma}_y}\\
+E(y|x)=\beta_0 + \beta_1 x &amp;\ \ \ \ |\ \ \ \ \hat{\beta}_1 = \frac{\hat{\sigma}_{xy}}{\hat{\sigma}_x^2}\qquad \hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}
+\end{aligned}$$`
+
+
+--
+
+```
+What do they measure in different contexts?  
+
+```
+
+---
+
+* Diversification in econometrics - Averaging
+ 
+ `$$E(\frac{1}{2}(X_1+X_2))=\frac{1}{2}(\mu +\mu) = \mu$$`  
+ 
+--
+
+`$$\begin{aligned}
+Var(\frac{1}{2}(X_1+X_2))&amp;=\frac{1}{4}Var(X_1) + \frac{1}{4}Var(X_2)\\ 
+&amp;=\frac{1}{4}(\sigma^2 +\sigma^2) = \sigma^2 /2
+\end{aligned}$$`
+
+---
+
+* Sampling and Distribution  
+
+
+
+Refer to [here](https://yangzhuoranyang.com/materials/mean_distribution_converge.pdf)
+
+---
+
+
+
+* **Law of Probability**  
+
+1. Probability of any event is a number between 0 and 1. The probabilities of all possible outcomes of a random variable add up to 1  
+
+2. If A and B are mutually exclusice events then `\(P(A\;or\; B)=P(A)+P(B)\)`  
+
+3. If A and B are two events, then `\(P(A|B)=\frac{P(A\;and\;B)}{P(B)}\)`  
+
+--
+
+`$$\begin{array}{c|c|c|c|c}
+y x &amp;1&amp;2&amp;3&amp;marginal\ f_y \\ 
+\hline 
+1 &amp; 0.40 &amp;0.24&amp;0.04&amp;\\  
+\hline
+2 &amp; 0 &amp; 0.16&amp; 0.16&amp;\\ 
+\hline
+marginal\ f_x &amp;&amp;&amp;&amp;\\ 
+\end{array}$$`
+
+--
+
+```
+P(y = 1|x = 1) = ?
+p(y = 2|x = 2) = ?
+```
+
+---
+
+`$$\begin{array}{c|c|c|c|c}
+y x &amp;1&amp;2&amp;3&amp;marginal\ f_y \\ 
+\hline 
+1 &amp; 0.40 &amp;0.24&amp;0.04&amp;\\  
+\hline
+2 &amp; 0 &amp; 0.16&amp; 0.16&amp;\\ 
+\hline
+marginal\ f_x &amp;&amp;&amp;&amp;\\ 
+\end{array}$$`
+
+`$$P(y=1|x=1)=\frac{P(AB)}{P(B)} =\frac{P(y=1\ \&amp;\ x=1)}{p(x=1)}= \frac{0.4}{0.4} = 1$$`
+
+`$$P(y=2|x=1)=\frac{P(AB)}{P(B)} =\frac{P(y=2\ \&amp;\ x=1)}{p(x=1)}= \frac{0}{0.4} = 0$$`
+
+--
+
+`$$P(y=1|x=2)=$$`
+
+`$$P(y=2|x=2)=$$`
+`$$P(y=1|x=3)=$$`
+
+`$$P(y=2|x=3)=$$`
+
+--
+
+```
+Expected value?
+```
+
+---
+
+`$$\begin{array}{c|c|c|c|c}
+y x &amp;1&amp;2&amp;3&amp;marginal\ f_y \\ 
+\hline 
+1 &amp; 0.40 &amp;0.24&amp;0.04&amp;\\  
+\hline
+2 &amp; 0 &amp; 0.16&amp; 0.16&amp;\\ 
+\hline
+marginal\ f_x &amp;&amp;&amp;&amp;\\ 
+\end{array}$$`
+
+`$$\begin{aligned}P(y=1|x=1)= 1\ \ \ \ &amp; \ \ \ \ P(y=2|x=1)= 0\\ 
+P(y=1|x=2)= 0.6\ \ \ \ &amp; \ \ \ \ P(y=2|x=2)= 0.4\\  
+P(y=1|x=3)= 0.2\ \ \ \ &amp; \ \ \ \ P(y=2|x=3)= 0.8
+\end{aligned}$$`
+
+--
+
+`$$E(y|x=1)=1 \times P(y=1|x=1) + 2 \times P(y=2|x=1) = 1$$`
+`$$E(y|x=2)=$$`
+`$$E(y|x=3)=$$`
+
+--
+
+`$$E(y|x=2)=1.4$$`
+`$$E(y|x=3)=1.8$$`
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"includes": {
+"in_header": "mylatexpackage.sty"
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
