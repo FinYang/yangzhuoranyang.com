@@ -23,8 +23,12 @@ If you can't access any of the materials, let me know by leaving a comment or se
 ## _Semester 1 2019_
 
 ### ETC2410 Introduction to Econometrics
+ - [Simple linear regression OLS estimator derivation](OLS_derivation.pdf)
+ - [2D and 3D graphic demonstration for OLS](OLS_slides.html)
+    + [Graph for fitting a plane in a multiple linear model](Fitting a plane_Dan.png)-thanks to Dan
  - [**Slides**](ETC2410_slides_S1_2019.html) 
-
+ - [Sampling distribution](mean_distribution_converge.pdf) 
+ 
 ---
 
 ## _Semester 2 2018_  
@@ -33,7 +37,7 @@ If you can't access any of the materials, let me know by leaving a comment or se
 
  - [Simple linear regression OLS estimator derivation](OLS_derivation.pdf)
  - [2D and 3D graphic demonstration for OLS](OLS_slides.html)
-    + [Graph for fitting a plane in a multiple linear model](/Fitting a plane_Dan.png)-thanks to Dan
+    + [Graph for fitting a plane in a multiple linear model](Fitting a plane_Dan.png)-thanks to Dan
  - [**Slides**](ETC2410_slides_S2_2018.html)   
  - [Sampling distribution](mean_distribution_converge.pdf)  
  - [Practice Question](Practice_Question_S2_2018.html)
