@@ -28,4 +28,4 @@ The R packages I've contributed. All of them are on GitHub and some of them are 
 * [compenginets](https://pkg.robjhyndman.com/compenginets/): Time series data from CompEngine database.
 
 ## Stochastic process  
-* [stocon](https://github.com/FinYang/stocon): Stochastic constrained optimization. (developing)
+* [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing)
