@@ -30,7 +30,7 @@ selected = false
 #   E.g. `projects = ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-projects = ["internal-project"]
+projects = []
 
 # Tags (optional).
 #   Set `tags = []` for no tags, or use the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
@@ -48,7 +48,7 @@ tags = ["Dimension Reduction", "Portfolio Selection", "Stochastic Control"]
 url_pdf = "talks/stocon_pre1.pdf"
 url_slides = ""
 url_video = ""
-url_code = ""
+url_code = "https://pkg.yangzhuoranyang.com/stocon/"
 
 # Does the content use math formatting?
 math = true
@@ -62,6 +62,26 @@ math = true
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
   focal_point = "Right"
+  
+  
+# links:
+# - icon: github
+#   icon_pack: fab
+#   url: https://github.com/FinYang/stocon
+# - icon: book
+#   icon_pack: fas
+#   name: Package stocon
+#   url: https://pkg.yangzhuoranyang.com/stocon/
+
+# links: 
+# - icon: twitter 
+#   icon_pack: fab 
+#   name: Follow 
+#   url: https://twitter.com/georgecushen
+
+# <iframe src="https://docs.google.com/viewerng/viewer?url=https://github.com/FinYang/yangzhuoranyang.com/raw/master/static/talks/stocon_pre1.pdf&embedded=true" width="640" height="480"></iframe>
 +++
 
-<iframe src="https://docs.google.com/viewerng/viewer?url=https://github.com/FinYang/yangzhuoranyang.com/raw/master/static/talks/stocon_pre1.pdf" width="640" height="480"></iframe>
+
+<iframe src="https://drive.google.com/viewerng/
+viewer?embedded=true&url=https://yangzhuoranyang.com/talks/stocon_pre1.pdf" width="800" height="600" frameborder="0"></iframe>
