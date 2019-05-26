@@ -67,6 +67,12 @@ What data we want to collect about wage?
 
 ---
 
+
+
+
+
+
+
 ---
 
 * Predictive analytics (no causality) and Prescriptive analytics (causal)
@@ -1115,6 +1121,7 @@ dependes on the number of assault alredy happened.
 ```
 Maximum or minimum?
 ```
+
 ---
 
 * **Transforming non-stationary series to stationary seies**
@@ -1257,6 +1264,206 @@ Ignoring estimation uncertainty, 95% prediction interval for `\(y_i\)` :
 ## Multiple R-squared:  0.643,	Adjusted R-squared:  0.6356 
 ## F-statistic: 86.45 on 1 and 48 DF,  p-value: 2.596e-12
 ```
+
+---
+
+###Week 7
+
+* **Dummy variable**
+
+A binary vaiable is a 0-1 variable whose value for observation i is 1 if that observation belongs to a category and 0 otherwise. e.g. `\(male_i= \begin{cases} 1, &amp; \text{if}\  i\  \text{is male}\ \\ 0, &amp; \text{otherwise} \end{cases}\)`
+
+--
+
+e.g. `$$\begin{aligned}E(wage_i|female_i, educ_i)&amp;=\beta_0 +\delta_0 female_i + \beta_1 educ_i\\  E(wage_i|female_i=0, educ_i)&amp;=\beta_0+\beta_1 educ_i\\   E(wage_i|female_i=1, educ_i)&amp;=(\beta_0+\delta_0)+\beta_1 educ_i\end{aligned}$$`
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+e.g. `$$\begin{aligned}E(wage_i|female_i, educ_i)&amp;=\beta_0 +\delta_0 female_i + \beta_1 educ_im + \delta_1 female_i \times educ_i\\ E(wage_i|female_i=0, educ_i)&amp;=\beta_0+\beta_1 educ_i\\  E(wage_i|female_i=1, educ_i)&amp;=(\beta_0+\delta_0)+(\beta_1+\delta_1) educ_i\end{aligned}$$`
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+
+The hypothesis of no difference in expected wage between men and women:  
+`$$H_0:\delta_0=\delta_1=0\qquad H_1:\text{At least one of the two is not zero}$$`
+
+
+---
+
+* **Multicollinearity**
+
+ - Because of high correlation between `\(X_1\)` (FEMALE) and `\(X_1 \times X_2\)` (FEMALE `\(\times\)` EDUC) (for instance), data tells us that although there is strong evidence that expacted wage for men and women is not the same, it is hard to determine if the intercept is different or the slope. 
+
+ - While perfect collinearity causes problems for the OLS estimator, multicollinearity does not affect any of the properties of OLS. It only makes it different to ascertain the contribution of each one x in a group of multicollinear x's to explaining y.
+
+--
+
+* **Dummy variable trap** : use all dummy variables in a regression.
+
+ - "base" or "benchmark" category - the omitted category
+
+ - Changing the benchmark category should not matter qualitatively.
+
+--
+
+```
+More than one dummy?
+```
+
+---
+
+* **A more accurate estimate of `\(\Delta log(y)\)` given `\(\Delta x =1\)` **
+
+Often use `\(d\log{(y)}=\frac{1}{y}dy\)` ( `\(100\beta_1\  \text{as the}\ \% \Delta\)`)
+
+A better measure of `\(\% \Delta y\)` as `\(x_1\)` increases by 1 is `\(100(e^{\beta_1}-1)\)`
+
+ - Reasoning:  
+
+We are looking for `\(\frac{(\hat{y}_{after}-\hat{y}_{before})}{\hat{y}_{before}}\)`  
+
+In the log-level model, we are getting `\(\widehat{\log{(y)}}_{after}-\widehat{\log{(y)}}_{before}=\beta_1\)`  
+
+Exponentiating and subtracting one gives `\(\frac{(\hat{y}_{after}-\hat{y}_{before})}{\hat{y}_{before}}=e^{\beta_1}-1\)`
+
+For `\(-0.10&lt;\beta_1&lt;0.10\)`, this does not make much difference.  
+
+In practice, given estimation uncertainty, such approximation errors are understood and tolerated.
+
+---
+
+
+* **Seasonality**  
+
+Some time series exhibit certain cyclical/periodic behaviour. This is referred to as seasonality.  
+
+The procedure of removing seasonality is called **seasonal adjustment** .  
+
+--
+
+* **Eliminating seasonality**  
+
+ - Using seasonal differencing at where a pattern exists : `\(y_t =y_t-y_{t-i}\)` where `\(i\)` is the lag of pattern  
+ - Using dummy variables: `\(Qi_t=1\)` if t is the season with pattern i, and `\(Qi_t=0\)` if t is not. `\(y_t=\beta_0+\beta_1 Qi_t +e_t\)`  
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-16-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-16-2.png" width="45%" height="45%" /&gt;
+
+---
+
+###Week 8
+
+* **Doubting Homoskedasticity** 
+
+e.g. Variance of food consumption on poor and rich people
+
+e.g. Using average of group instead of individual, variance depends inversely on group size  
+
+e.g. In finance, unpredicted news increase the volatility of the market  
+
+When HTSK, the estimator is not BLUE with unreliable T and F test. Also, `\(Var(\hat{\beta})\neq \sigma^2 \mathbf{(X'X)}^{-1}\)`  
+
+Since `\(E(u_i|x_{i1}, \cdots, x_{ik})=0\)`, `\(Var(u_i|x_{i1}, \cdots, x_{ik})=E(u_i^2|x_{i1}, \cdots, x_{ik})\)`  
+
+---
+
+* **Breusch-Pagan test**  
+
+`$$y_i=\beta_0 +\beta_1 x_{i1} +\beta_2 x_{i2}+\cdots +\beta_k x_{ik} +u_i\ for\ i=1, \cdots , n$$`
+
+`$$\begin{aligned} H_0 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\sigma^2\ for\ i=1, \cdots , n\\ H_1 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\delta_0 + \delta_1 z_{i1} + \delta_2 z_{i2}+\cdots+\delta_q z_{iq} \\ &amp;\text{where}\ z_{i1}, z_{i2}, \cdots z_{iq}\  \text{are a subset of}\ x_{i1}, \cdots, x_{ik}\end{aligned}$$`
+
+In fact the z variables can include some variables that do not appear in the conditional mean, but may affect the variance.
+
+&gt; 1. Estimate the model by OLS as usual. Obtain `\(\hat{u}_i\)` for i=1, `\(\cdots\)` , n and square them. 
+2. Regress `\(\hat{u}_i^2\)` on a constant `\(z_{i1}, z_{i2}, \cdots z_{iq}\)` . Denote the `\(R^2\)` of this auxiliary regression by `\(R^2_{\hat{u}_i^2}\)`  
+3. Under `\(H_0\)` , the statistic `\(n\times R^2_{\hat{u}_i^2}\)` has a `\(\chi^2\)` distribution with q degrees of freedom in large samples. The satistic is called the Lagrange Multiplier (LM) statistic for HTSK.  
+4. Given the desired level of significance, we obtain the cv of the test from the `\(\chi^2\)` table, and reject `\(H_0\)` if the value of the test statistic is larger than the cv.
+   
+F-test is also useful ( `\(F_{q,\ n-q-1}\)` )
+
+---
+
+* **White Test**  
+
+`$$\begin{aligned} H_0 &amp;: E(u_i^2|x_{i1}, \cdots, x_{ik})=\sigma^2\ for\ i=1, \cdots , n\\ H_1 &amp;: \text{the variance is a smooth unknown function of}\ \ x_{i1}, \cdots, x_{ik} \end{aligned}$$`
+
+&gt;  Regress `\(\hat{u}_i^2\)` on a constant, `\(x_{i1}, \cdots, x_{ik}\)` , and all pairwise crooss products of `\(x_{i1}, \cdots, x_{ik}\)`.
+ 
+It has the power to dedect this general form of heteroskedasticity in large samples.  
+
+Test statistic `\(n\times R^2_{\hat{u}_i^2}\)`   
+Distribution `\(\chi^2\)` with degrees of freedom as the number of explanatory variables.  
+
+--
+
+* **Special case of White Test**  
+ In the general white test, `\(k+k(k+1)\)` regressors are too many.  
+ 
+Since `\(\hat{y}\)` is a function of all the `\(x\)` s, `\(\hat{y}^2\)` will be a function of the squares and crossproducts of all the `\(x\)` s. 
+
+Therefore, `\(\hat{y}\)` and `\(\hat{y}^2\)` can proxy for all of the `\(x\)` s' squares and crossproducts.  
+
+&gt; Regress the residuals squared on `\(\hat{y}\)` and `\(\hat{y}^2\)`
+
+---
+
+* **Solution for HTSK 1 -- Robust Standard Errors**  
+ Live with the second best. Find the usable standard error for t, F test.  
+ 
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}[\mathbf{X}'Var(\mathbf{u}|\mathbf{x})\mathbf{X}](\mathbf{X'X})^{-1}$$`
+
+With Homo
+
+`$$Var(\mathbf{u}|\mathbf{X})=\sigma^2 \mathbf{I_n} \Rightarrow Var(\mathbf{\hat{\beta}}|\mathbf{X})=\sigma^2(\mathbf{X'X})^{-1}$$`
+
+--
+
+With HTSK 
+`$$Var(\mathbf{u}|\mathbf{X})=\left[\begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right]$$`
+
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+---
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+`$$\widehat{Var}(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \hat{u}^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \hat{u}^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \hat{u}_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+which is a reliable estimator for `\(Var(\mathbf{\hat{\beta}}|\mathbf{X})\)` in large samples.  
+
+The square root of diagonal elements of this matrix are called White stansard error or Robust standard error, which are reliable for inference.
+
+---
+
+
+
+* **Solution for HTSK 2 -- Transforming the Model**  
+
+ - a. Logaristhmic transformation of y solve the problem when population model has `\(\log{(y)}\)` but we used y
+ 
+ - b. Weighted Least Squares (WLS): used when variance of each error is proportional to a known functuon of a single independent variable  
+ 
+---
+ 
+* **Weighted Least Squares (WLS)**
+
+`$$y_i=\beta_0 +\beta_1 x_{i1} +\beta_2 x_{i2}+\cdots +\beta_k x_{ik} +u_i\ for\ i=1, \cdots , n$$`
+
+`$$Var(u_i|x_{i1}, x_{i2}, \cdots , x_{ik})=\sigma^2 h_i$$`
+where `\(h_i\)` is a known function of one of `\(x\)` s, or a function of a variable `\(z\)` as long as 
+`$$E(u_i|x_{i1}, x_{i2}, \cdots , x_{ik}, z_i)=0$$`
+
+e.g. `\(h_i=x_i\)`, or `\(h_i=x_i^2\)`, or `\(h_i=\frac{1}{z_i}\)`  
+
+Multiplying both sides of model equation by `\(w_i=\frac{1}{\sqrt{h_i}}\)` eliminates HTSK:  
+weighted model 
+
+`$$(w_iy_i)=\beta_0w_i +\beta_1 (w_ix_{i1}) +\beta_2 (w_ix_{i2})+\cdots +\beta_k (w_ix_{ik}) +(w_iu_i)\ for\ i=1, \cdots , n$$`
+
+(no constant term) This estimator is called the *Weighted Least Squares (WLS)* estimator of `\(\beta\)`  
+
 
 ---
     </textarea>
