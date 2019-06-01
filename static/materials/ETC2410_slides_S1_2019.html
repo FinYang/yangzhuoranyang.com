@@ -1466,6 +1466,504 @@ weighted model
 
 
 ---
+
+
+
+###Week 9
+
+
+* **Inference in Time series**  
+Under some assumptions:
+
+&gt; **R1** B.L.U.E.
+
+&gt; **R2** can use t-test
+
+&gt; **R3** can use F-test
+
+
+---
+
+
+* **Assumptions**  
+
+ - **A1** The model is linear in Parameters `\(y_t=\beta_0+\beta_1x_{t1}+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)`  
+ 
+ - **A2** No perfect collinearity: None of the regressors can be expressed as an exact linear combination of the other regressors.  
+ 
+ - **A3** Zero conditional mean: For each time period t, `\(E(u_t|\mathbf{X})=0\)`  
+ 
+ - **A4** Homoskedasticity: For each timem period t, `\(Var(u_t|\mathbf{X})=Var(u_t)=\sigma^2\)`  
+ 
+ - **A6** No serial correlation: Conditional on X, the errors in two different time periods are uncorrelated. That is `\(Corr(u_t, u_s|\mathbf{X})=0\forall t\neq s\)`  
+ 
+ - **A5** Normality of the errors: The errors are independent of X and have identical and independent normal distributions, `\(u_t\sim n.i.d.(0,\sigma^2)\)`  
+ 
+---
+ 
+* **Theorem(1)**  
+When A1, A2, A3 hold, the OLS estimator `\(\hat{\beta}\)` is an unbiased estimator of `\(\beta\)` , `\(E(\hat{\beta})=\beta\)`  
+
+* **Theorem(2)**  
+When A1, A2, A3, A4, A6 hold, `\(\hat{\beta}\)` is the best linear unbiased estimator (BLUE) of `\(\beta\)` (Gauss-Markov Theorem)  
+
+* **Theorem(3)**  
+When A1 to A6 hold, the OLS estimator of `\(\beta\)` is normally distributed. Can be tested using t-test and F-test.  
+
+* **Theorem(4)**  
+When A1 to A6 hold, `\(Var(\hat{\beta}_j)=\frac{\sigma^2}{[SST_j(1-R^2_j)]}\quad j=1, 2, \cdots , k\)` , `\(\hat{\sigma}^2=\frac{SSR}{T-k-1}\)` is an unbaised estimator of the error variance `\(\sigma^2\)` , that is `\(E(\hat{\sigma}^2)=\sigma^2\)`  
+
+---
+
+**_A3_**  requires  **Strictly exogenous** `\(E(u_t|X_{s1}, X_{s2}, \cdots ,X_{sk})=0\forall s=1,2,\cdots , T\)`  
+implication: the error term in any time period t is uncorrelated with each of the regressors in all time periods, past, present, and future.  
+`$$Corr(u_t,x_{11})=\cdots=Corr(u_t,x_{T1})=Corr(u_t,x_{1k})=\cdots=Corr(u_t,x_{Tk})=0$$`
+
+**Contemporaneous exogeneity**: `\(E(u_t|\mathbf{X}_t)=E(u_t|X_{t1}, X_{t2}, \cdots ,X_{tk})=0\)`  
+implication:
+`$$Corr(u_t,x_{t1})=Corr(u_t,x_{t2})=\cdots=Corr(u_t,x_{tk})=0\qquad t=1, 2, \cdots , T$$`  
+
+**Violated** A3: when the model contains a lag of the dependent variables as a regressors (AR(p), ADL(p,q))
+
+A3 only restrict correlation between error terms and regressors, but not regressors themselves or errors themselves.
+
+---
+
+**_A4_** 's problem, heteroskedasticity is more common in cross-sectional, but can also arise in time series.  
+
+**_A6_** requires `\(Corr(u_t, u_s)=0 \forall t\neq s\)`  
+When violated, the errors are **sutocorrelated** or **serially correlated** , which is very common when omitted influences are correlated across time.  
+`$$\text{Positive first-order autocorrelation:  }\ Corr(u_t, u_{t-1})&gt;0$$`  
+
+**Consequences of violations** :  
+
+&gt; **C1**  The OLS estimator is no longer efficient.   
+
+&gt; **C2**  `\(t=\frac{\hat{\beta}_j}{se(\hat{\beta}_j)}\)` no longer has a t distribution, even asymptotically
+
+&gt; **C3**  `\(F\)` no longer has an F distribution, even asymptotically.  
+
+C2 and C3 are most serious.
+
+---
+
+* **Testing for Autocorrelation in the error term**  
+
+ - A simple test  
+ - Breusch-Godfrey test  
+ 
+ 
+
+---
+ 
+* **A test** for first-order autocorrelation with strictly exogenous regressors  
+
+`$$y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t$$`  
+
+`$$u_t=\rho u_{t-1}+e_t\ \text{where}\ |\rho|&lt;1\ \&amp;\ e_t\sim i.i.d.(0,\sigma^2_e)$$`  
+
+--
+
+Assuming `\(E(e_t|u_{t-1}, u_{t-2}, \cdots)=0\)` and `\(Var(e_t|u_{t-1})=Var(e_t)=\sigma^2_e\)`  
+
+`$$\begin{aligned}H_0 &amp;: \rho=0\\ H_1 &amp;: \rho \neq 0\text{    (or  } \rho &gt; 0 \text{ in one sided test)}\end{aligned}$$`
+
+&gt; **S1** Estimate `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` , obtain `\(\hat{u}_t\)`  
+
+&gt; **S2** Estimate `\(\hat{u}_t=\rho\hat{u}_{t-1}+e_t\)` , then under `\(H_0\)` `\(\frac{\hat{\rho}}{se\hat{\rho}}\overset{asy}{\sim}t(T-k-1)\)`  
+
+&gt; **S3** Reject `\(H_0\)` if `\(|t_{calc}|&gt;t_{crit}\)` ($t_{calc}&gt;t_{crit}$ if one sided test)
+
+--
+
+**Limitations** : 
+      1. Vaild only if the regressors are strictly exogenous  
+      2. Only for first-order autocorrelation  
+      3. An asymptotic test, may be unreliable in small samples  
+      
+---
+
+
+* **Breusch-Godfrey test**  
+
+If the error term in `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` is autocorrelated of order q then `\(u_t=\rho_1u_{t-1}+\rho_2u_{t-2}+\cdots +\rho_qu_{t-q}+e_t\)`  
+
+--
+
+`$$\begin{aligned}H_0 &amp;: \rho_1=\rho_2=\cdots=\rho_q=0\\ H_1 &amp;: \rho_j \neq 0\ \text{for at least one }\ j=1, 2, 3, \cdots , q\end{aligned}$$`
+
+&gt; **S1** Estimate `\(y_t=\beta_1+\beta_2x_{t2}+\cdots +\beta_kx_{tk}+u_t\)` , obtain `\(\hat{u}_t\)`  
+
+&gt; **S2** Estimate `\(\hat{u}_t=\alpha_1+\alpha_2x_{t2}+\cdots +\alpha_kx_{tk}\ \ +\rho_1\hat{u}_{t-1}+\cdots+\rho_q\hat{u}_{t-q} +e_t\)` , then under `\(H_0\)` `\(BG=(T-q)R^2_{\hat{u}}\overset{asy}{\sim}\chi^2(q)\)`  
+
+&gt; **S3** Reject `\(H_0\)` if `\(BG_{calc}&gt;BG_{crit}\)`  
+
+--
+
+**Note** :
+       1. Not require strict exogenous  
+       2. Can test higher order autocorrelation  
+       3. Also an asymptotic test  
+  
+--
+
+```
+F test?
+```
+
+---
+
+* **Example**  
+
+`$$\Delta GOOG_t = \log(GOOG_t)-\log(GOOG_{t-1})\ \ \text{for}\ \ t=2,3,\ldots,1000$$`
+
+--
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-17-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-17-2.png" width="45%" height="45%" /&gt;
+
+---
+
+`$$\Delta GOOG_t = \beta_0 + \beta_1\Delta GOOG_{t-1} +\beta_2\Delta GOOG_{t-2}+u_t$$`  
+
+`$$u_t=\rho_1u_{t-1} +\rho_2u_{t-2}+\rho_3u_{t-3}+\rho_4u_{t-4}+\rho_5u_{t-5}+e_t$$`  
+
+`$$H_0:\rho_1=\rho_2=\rho_3=\rho_4=\rho_5=0$$`  
+
+
+```
+## 
+## 	Breusch-Godfrey test for serial correlation of order up to 5
+## 
+## data:  .
+## LM test = 4.4929, df = 5, p-value = 0.4808
+```
+
+```
+## 
+## 	Breusch-Godfrey test for serial correlation of order up to 5
+## 
+## data:  .
+## LM test = 0.89541, df1 = 5, df2 = 989, p-value = 0.4834
+```
+
+--
+
+**Output from Eviews**
+
+&lt;img src="bgtest_e.g.jpg" width="45%" height="45%" /&gt;
+
+---
+
+
+* **Correcting for autocorrelation**  
+
+&gt; 1. Using HAC error (heteroskedasticity and autocorrelatuon consistent), also called serial correlation-robust standard error  
+
+--
+
+&gt; 2. Changing the specification of our model (e.g. adding additional lag of the dependent variable)  
+
+--
+
+&gt; 3. Feasible generalized least squares (FGLS) estimator - Making an assumption about the precise nature of the autocorrelation.  
+
+---
+
+* **HAC error**
+
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}[\mathbf{X}'Var(\mathbf{u}|\mathbf{x})\mathbf{X}](\mathbf{X'X})^{-1}$$`
+
+With Homo
+
+`$$Var(\mathbf{u}|\mathbf{X})=\sigma^2 \mathbf{I_n} \Rightarrow Var(\mathbf{\hat{\beta}}|\mathbf{X})=\sigma^2(\mathbf{X'X})^{-1}$$`
+
+--
+
+With HTSK 
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'\left(  \begin{array}{cccc} \sigma^2_1 &amp;0 &amp; \cdots &amp; 0 \\ 0 &amp; \sigma^2_2 &amp; \cdots &amp; 0\\ \vdots &amp;\vdots&amp;\ &amp;\vdots\\ 0 &amp; 0 &amp; \cdots &amp; \sigma_n^2\end{array}\right) \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+--
+
+With HTSK and serial correlation
+`$$Var(\mathbf{\hat{\beta}}|\mathbf{X})=(\mathbf{X'X})^{-1}\left[\mathbf{X}'n\mathbf{\Lambda}_n \mathbf{X}\right]  (\mathbf{X'X})^{-1}$$`
+
+`\(\mathbf{\Lambda}_n\)` is an estimator of the long run variance of `\(\mathbf{u}\)`  
+
+---
+
+* **Feasible generalized least squares (FGLS) estimator**  
+
+`$$\begin{aligned}y_t &amp;= \beta_0+\beta_1x_t+u_t\\ u_t &amp;= \rho u_{t-1} + e_t \quad e_t\sim i.i.d.(0,\sigma^2)   \end{aligned}$$`
+
+--
+
+
+`$$\begin{aligned}y_t &amp;= \beta_0+\beta_1x_t+ \rho u_{t-1} + e_t \\ &amp;= \beta_0 +\beta_1x_t+\rho(y_{t-1}-\beta_0-\beta_1x_{t-1})+e_t\\ &amp;= \beta_0(1-\rho)+\beta_1(x_t-\rho x_{t-1})+\rho y_{t-1} +e_t\\ (y_t-\rho y_{t-1}) &amp;= \beta_0(1-\rho) +\beta_1(x_t -\rho x_{t-1}) +e_t \end{aligned}$$`
+
+--
+
+Finding `\(\hat{\rho}\)`, `\(\hat{\beta_0}\)` and `\(\hat{\beta_1}\)` that minimise the sum of squared resuduals in the model.  
+
+1. Biased, but consistent  
+2. Asymptotically more efficient  
+3. Asymptotically vaild hypothesis tests based on the FGLS standard errors  
+
+---
+
+
+
+###Week 10
+
+* **Persistence**
+
+Economic and Financial time series typically display **autoregressive behavior**. That is, the value of the time series in the current period is correlated with past values of itself.  
+e.g. Habit persistence, Institutional arrangements  
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-20-1.png" width="45%" height="45%" /&gt;&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-20-2.png" width="45%" height="45%" /&gt;
+
+---
+
+
+When working with timeseries data, by collecting a random sample of observations, `\((y_1, y_2. \cdots , y_T)\)` , we are making random draws from each of there T probability distributions. Specific features of these distributions are of interest to us (eg. mwan, variance etc)  
+
+If we impose no restrictions on the sequence of these random variable, then we will have T means, `\((\mu_1, \mu_2, \cdots , \mu_T)\)` , T variances, `\((\sigma^2_1, \sigma^2_2, \cdots , \sigma^2_T)\)` and `\(T(T-1)/2\)` covariances to estimate, which leads to the necessity of introducing **Stationary Time Series**.
+
+--
+
+* **Stationary Time Series**  
+
+A univariate time series is an ordered squance of random variables indexed by time. (Infinite number of realizations) `\(\{y_t:t=\cdots -2, -1, 0, 1, 2, \cdots \}\)`  
+
+**Weakly Stationary** (covariance stationary, second-order stationary)
+
+&gt; a) `\(E(y_i) =\mu &lt; \infty \ \ for\  all\ t\)`   
+  b) `\(Var(y_t)= E[(y_t-\mu)^2]=\gamma_0&lt;\infty\ \ for\ t\)`  
+  c) `\(Cov(y_t)= E[(y_t-\mu)(y_{t-j}-\mu)]=\gamma_j &lt; \infty\)`  
+  
+Its first and second moments are both finite and time invariant.  
+The covariance depends only on the time interval separating them and not on time itself) 
+
+---
+
+* **White Noise**
+
+`\(e\sim WN(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`  
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(Cov(e_t, e_{t-j})=0 \forall j\neq0\)` (no linear relationship)  
+
+If it's also normally distributed -- Gaussian white noise
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-21-1.png" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **White Noise**
+
+`\(e\sim WN(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`  
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(Cov(e_t, e_{t-j})=0 \forall j\neq0\)` (no linear relationship)  
+
+If it's also normally distributed -- Gaussian white noise
+
+--
+
+* **I.I.D. -- Independentlly and Identically Distributed**  
+
+`\(e\sim i.i.d(0, \sigma^2)\)` if 
+
+&gt;  a) `\(E(e_t)=0\forall t\)`   
+   b) `\(Var(e_t)=\sigma \forall t\)`  
+   c) `\(e_t\)` and `\(e_{t-j}\)` and independent random variables `\(\forall j\)` and `\(\forall t\)` (stronger, norelationship, either linear or nonlinear)    
+
+Define `\(E_t(y_{t+j})=E(y_{t+j}|y_t, y_{t-1}, y_{t-2}, \cdots)\)`  
+
+Under independent assumption `\(E_t(y_{t+j})=E(y_{t+j})\forall j \geq 1\)`
+
+---
+
+* **Lag**
+
+`\(y_{t-j}\)` jth lag of y, the value of y in time period `\(t-j\)` (the value of j periods earlier)
+
+The change in the value of y in period t - the first difference of y - `\(\Delta y_t\)` 
+  - `\(\Delta y_t=y_t - y_{t-1}\)`
+  - `\(\Delta y_{t-1} = y_{t-1} - y_{t-2}\)`
+  - `\(\Delta y_{t-j}=y_{t-j}-y_{t-j-1}\)`
+
+Each time we lag a time series one period we lose an observation.
+
+Each time we difference a time series we lose an observation.
+
+---
+
+* **The stationary autoregresssive model**   
+
+`$$\text{AR(p) Model:} \ \ y_t=\varphi_0+\varphi_1y_{t-1}+\varphi_2y_{t-2}+\cdots +\varphi_py_{t-p}+u_t\ \ \ \ \ \text{where}\ u_t\sim WN(0,\sigma^2)$$`            
+
+linear regression model in which the dependent variable is `\(y_t\)` and the repressors are lags of `\(y_t\)`      
+
+In its general form this model has p lags of `\(y_t\)` on the right_hand side, and hence we call this a pth-order autoregression or AR(p) model.      
+
+--
+
+AR(1): 
+
+`$$y_t=\varphi_0+\varphi_1y_{t-1}+u_t$$`  
+
+AR(2):
+
+`$$y_t=\varphi_0+\varphi_1y_{t-1}+\varphi_2y_{t-2}+u_t$$`     
+
+---
+
+* **The AR(1) model**   
+
+`$$|\varphi_1|&lt;1$$`    
+
+&gt; P1 Mean of AR(1) model      
+
+`$$E(y_t)=\frac{\varphi_0}{1-\varphi_1}$$`      
+
+&gt; P2 Varinance of AR(1) model    
+
+`$$Var(y_t)=\frac{\sigma^2}{1-\varphi_1^2}$$`       
+
+&gt; P3 Autocovariance and autocorrelation of AR(1) model   
+
+`$$Cov(y_t,y_{t-j})=\gamma_j=\frac{\sigma^2}{1-\varphi_1^2}\varphi_1^j,\ \forall j \in \mathbb{N}$$`     
+
+`$$\rho_j=\frac{\gamma_j}{\gamma_0}=\varphi_1^j,\ \forall j \in \mathbb{N}$$`     
+
+---
+
+For a stationary AR(1) process the `\(Corr(y_t, t_{t-h})\rightarrow0\)` as `\(h\rightarrow \infty\)`  
+
+`$$\{\rho_1, \rho_2, \rho_3, \cdots\}=\{\varphi_1, \varphi_1^2, \varphi_1^3,\cdots\}$$`
+
+--
+
+The speed is determined by `\(|\varphi_1|\)`  
+
+  + For `\(0&lt;\varphi_1&lt;1\)`, they decay monotonically  
+  + For `\(-1&lt;\varphi_1&lt;0\)`, they oscilate  
+
+--
+
+
+* **The AR(2) model**      
+
+`$$y_t=\varphi_0+\varphi_1y_t-1+\varphi_2y_t-2+u_t \ \ \ \ \text{where}\ u_t\sim WN(0,\sigma^2)$$`
+
+&gt; P1 Mean of AR(2) model    
+
+`$$E(y_t)=\frac{\varphi_0}{1-\varphi_1-\varphi_2}$$`     
+
+&gt; P2 The correlation function of AR(2) model   
+
+`$$\rho_1 = \frac{\varphi_1}{1- \varphi_2} , \ and \  \rho_k = \varphi_1 \rho_{k-1}+ \varphi_2 \rho_{k-2},\ k \geq 2$$`       
+
+---
+
+* **Random walk**  
+
+`$$y_t=y_{t-1}+u_t\ \text{where}\ u_t\sim WN(0,\sigma^2)$$`
+
+A random walk (or unit root non-stationary time series) is a covariance non-stationary model.  
+
+Strong memory.
+
+Assume that the starting value of the random walk is at `\(t = 0\)` where `\(y_0 = 0\)` .
+
+`$$y_t=y_{t-1}+u_t=y_{t-2}+u_{t-1}+u_t=u_1+u_2+\cdots +u_{t-1}+u_t$$`
+
+--
+
+Mean:  
+`$$E(y_t)=E(u_1+u_2+\cdots +u_{t-1}+u_t)=0$$`
+
+--
+
+Variance:  
+`$$\begin{aligned}Var(y_t)&amp;=E(u_1+u_2+\cdots+u_{t-1}+u_t)^2\\ &amp;= E(u_1)^2+E(u_2)^2+\cdots +E(u_t)^2\\ &amp;=\sigma^2+\sigma^2+\cdots +\sigma^2=t\sigma^2\end{aligned}$$`
+
+---
+
+* **Properties of a unit root model**  
+
+1. A unit root process is not predictable  
+2. A unit root process is not mean-reverting (i.e. over time it drifts away from the mean)
+
+&lt;img src="ETC2410_slides_S1_2019_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **The autoregressive distributed lag (ARDL) model**  ARDL(p,q)
+
+    ARDL(1,1):  
+    
+`$$y_t=\beta_0+\beta_1 y_{t-1} +\beta_2x_t +\beta_3 x_{t-1} +u_t$$`
+
+--
+
+* Long-run effects  
+
+    long-run effect of a unit increase in x at time t = `\(\frac{\beta_1+\beta_2}{1-\beta_3}\)`  
+
+
+In general  
+
+long-run effect of a unit increase in x at time t = 
+
+`$$\frac{\text{sum of the coefficients }x_t\text{ and its lags}}{1-\text{sum of the coefficients of lags of }y_t}$$`
+
+--
+
+* Link to Unit roots  
+
+  `\(\beta_3 = 1\)` and then the long-run effect is infinite.
+
+---
+
+
+
+* **Trend**  
+
+ - **Positive time trend** : A time series which displays a strong tendency to *increase* over time.
+ 
+ - **Negative time trend** : A time series which displays a strong tendency to *decrease* over time.
+
+Time trends in economic time series are generally attributable to underlying economic or demographic factors affecting the time series.  
+
+ 
+
+* **Adding a deterministic function of `\(t\)` in the model**  
+
+
+`$$y_t=\alpha_0 + \alpha_1 t + e_t,\ \ t=1, 2, \cdots , T, \text{where}\ \ e_t\sim i.i.d.(0, \sigma^2)$$`  
+
+`\(\alpha_1 t\)` is called a **linear time trend** (a linear function of the variable t), and a **deterministic trend** (as opposed to a stochastic trend) (the value of t is known in each time period in advance of collecting any data)  
+
+---
+
+
+
+`$$y_t=\alpha_0 + \alpha_1 t + e_t,\ \ t=1, 2, \cdots , T, \text{where}\ \ e_t\sim i.i.d.(0, \sigma^2)$$`  
+
+`$$E(y_t)=\alpha_0+\alpha_1t$$`  
+
+`$$\begin{aligned} \Delta E(y_t) &amp;= E(y_t)-E(y_{t-1})\\ &amp;= [\alpha_0 +\alpha_0 t] -[\alpha_0 +\alpha_1(t-1)]\\ &amp;= \alpha_0 +\alpha_1 t-\alpha_0 -\alpha_1t +\alpha_1\\ &amp;=\alpha_1 \end{aligned}$$`
+
+Parameter `\(\alpha_1\)` measures the change in the expected or average value of the time series from one time period to the next
+
+
+
+`$$\alpha_1 &gt; 0 \Rightarrow E(y_t) \text{  is increasing over time}$$`  
+
+`$$\alpha_1 &lt; 0 \Rightarrow E(y_t) \text{  is decreasing over time}$$`
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
