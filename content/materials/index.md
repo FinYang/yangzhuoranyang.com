@@ -28,6 +28,7 @@ If you can't access any of the materials, let me know by leaving a comment or se
     + [Graph for fitting a plane in a multiple linear model](Fitting a plane_Dan.png)-thanks to Dan
  - [**Slides**](ETC2410_slides_S1_2019.html) 
  - [Sampling distribution](mean_distribution_converge.pdf) 
+ - [Practice Question](Practice_Question_S1_2019.html)
  
 ---
 

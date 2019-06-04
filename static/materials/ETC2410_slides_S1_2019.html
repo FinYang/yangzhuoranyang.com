@@ -1963,7 +1963,98 @@ Parameter `\(\alpha_1\)` measures the change in the expected or average value of
 
 `$$\alpha_1 &gt; 0 \Rightarrow E(y_t) \text{  is increasing over time}$$`  
 
-`$$\alpha_1 &lt; 0 \Rightarrow E(y_t) \text{  is decreasing over time}$$`
+`$$\alpha_1 &lt; 0 \Rightarrow E(y_t) \text{  is decreasing over time}$$`  
+
+---
+
+###Week 11
+
+
+* **Consistency** 
+
+Sometimes the random sampling assumption is not satisfied ( `\(E(\mathbf{u}|\mathbf{X})\neq 0\)` ) but errors are uncorrelated with regressors ( `\(E(u_i|x_{i1}, x_{i2}, \cdots , x_{ik})=0\)` ) e.g. time series data.
+
+OLS will not be unbiased, but consistant.
+
+--
+
+* **Asymptotic Normality** 
+
+Sometimes errors are not normally distributed.  
+
+The distribution of the OLS estimator will be approximatedly Normal in large samples.  
+
+---
+
+* **The Law of Large Numbers**  
+
+Sample averages converge to population means as `\(n\rightarrow \infty\)`  
+
+**Reasoning** : A single variable `\(y\)` with `\(E(y)=\mu\)` and `\(Var(y)=\sigma^2\)`  
+
+Taking `\(n\)` observations, sample average `\(\bar{y}\)`, `\(E(\bar{y})=\mu\)` and `\(Var(\bar{y})=\sigma^2/n\)`  
+
+As `\(n\rightarrow \infty\)` , `\(Var(\bar{y})\rightarrow 0\)` , the chance of `\(\bar{y}\)` being anything other than `\(\mu\)` goes to 0.
+
+--
+
+*Proof* for `\(Var(\bar{y})=\sigma^2/n\)` : 
+
+`$$\begin{aligned} Var(\bar{y}) &amp;= Var(\frac{1}{n}\sum^{n}_{i=1}y_i)=\frac{1}{n^2}Var(\sum^{n}_{i=1}y_i)\\ &amp;\overset{i.i.d.}{=} \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n}\end{aligned}$$`
+
+---
+
+* Convergence
+
+`\(\bar{y}\)` converges in probability to `\(\mu\)` i.e. `\(p\lim(\bar{y})=\mu\)` or `\(\bar{y}\xrightarrow{p}\mu\)`  
+
+If an estimator converges in probability to the population parameter that it estimates, we say that the estimator is **consistent**.
+
+--
+
+The sample mean is a consistent estimator of the population mean (LLN).
+
+ -  `\(E(\bar{y}^2)\neq \mu^2\)` , but `\(p\lim(\bar{y}^2)=\mu^2\)`  
+ -  `\(E(\frac{1}{\bar{y}})=?\)` , but `\(p\lim(\frac{1}{\bar{y}})=\frac{1}{\mu}\)`  provided `\(\mu\neq 0\)`  
+ -  `\(E(\frac{1}{\hat{\sigma}^2_y})=?\)` , but `\(p\lim(\frac{1}{\hat{\sigma}^2_y})=\frac{1}{Var(y)}\)`   
+ 
+(go through non-linear combinations and smooth functions as well)  
+
+--
+
+**Conclusion**: Even if we have non-random sample, i.e. `\(E(\mathbf{u}|\mathbf{X})\neq 0\)` , as long as `\(E(u_i)=0\)` and `\(u_i\)` is uncorrelated with `\(x_{i1}\)` to `\(x_{ik}\)` , then the OLS estimator is consistent.  
+
+---
+
+* **Central Limit Theorem**  
+
+The sum (or the average) of n Normal random variables is Normal.  
+
+--
+
+However,  
+
+ - The sum (or the average) of n Uniform random variables is Not Uniform.
+
+ - The sum (or the average) of n F random variables is Not F.  
+
+ - The sum (or the average) of n Bernouli random variables (1 with probability p and 0 with probability 1-p) is Not Bernouli.  
+
+--
+
+If n is large,  
+
+ - the sum (or the average) of n Uniform / F / Bernouli random variables is approximately Normal.  
+
+ - the sum (or the average) of n random variables from any distribution with a finite variance is approximately Normal.  
+
+--
+
+**Conclusion**: For any error distribution, as long as the sample size is large, the OLS estimator is approximately Normal, and we can base our statistical inference on the usual t and F tests (allow to use OLS even if the distribution of the dependent variable is far from Normal, and may even have spikes on some values, such as the spike at zero for the married women's work hours).
+
+---
+
+Refers to [here](https://yangzhuoranyang.com/materials/mean_distribution_converge.pdf) and [here](https://yangzhuoranyang.com/materials/hist_asy.pdf)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
