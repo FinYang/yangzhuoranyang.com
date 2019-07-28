@@ -338,7 +338,12 @@ enableGitInfo = false
     url = "https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf"
     weight = 7
     
-
+[[menu.main]]
+  name = "CheatSheet"
+  url = "/cheatsheet_for_now/"
+  weight = 8
+  
+  
 # Search.
 [params.search]
   # Search provider:
