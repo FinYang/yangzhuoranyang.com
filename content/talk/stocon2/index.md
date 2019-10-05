@@ -1,18 +1,18 @@
 +++
-title = "Dimension Reduction in Stochastic Optimal Control"
-date = 2019-05-14T19:12:00+10:00  # Schedule page publish date.
+title = "Dimension Reduction in Stochastic Optimal Control - 2nd"
+date = 2019-10-05T23:17:00+10:00  # Schedule page publish date.
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2019-05-15T12:15:00+10:00
-time_end = 2019-05-15T12:30:00+10:00
+time_start = 2019-10-07T10:00:00+10:00
+time_end = 2019-10-07T10:30:00+10:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Yangzhuoran Yang"]
 
 # Abstract and optional shortened version.
-abstract = "We introduce the general optimal stochastic control setting in the case of portfolio selection. We propose a two-step algorithm to solve the objective function. At the first step, we utilise the transformation from mean-variance portfolio selection to OLS regression, projecting the assets space into a single portfolio. Then we take the dimension-reduced control space into the single index dynamic programming problem which aims to solve a certain finite time horizon objective function."
+abstract = "We introduce the general optimal stochastic control setting in the case of portfolio selection. We implement an Optimal Control Projection Algorithm (OCPA) to solve the objective function while using projection, kernel estimation and solving for a solution in a single index context. In addition, we propose a lower bound of the value function which can be used to test the validity of the estimated sub-optimal. We compare the performance of OCPA and the popular EM algorithm using both the simulation and empirical study. In general, the OCPA is doable when the EM algorithm is not, and the OCPA is much faster and performs better when the EM algorithm is doable."
 
 # Name of event and optional event URL.
 event = "Monash Econometrics Honours Project"
@@ -45,7 +45,7 @@ tags = ["Dimension Reduction", "Portfolio Selection", "Stochastic Control"]
 # slides = "example-slides"
 
 # Links (optional).
-url_pdf = "talks/stocon_pre1.pdf"
+url_pdf = "talks/stocon_pre2.pdf"
 url_slides = ""
 url_video = ""
 url_code = "https://pkg.yangzhuoranyang.com/stocon/"
@@ -84,4 +84,4 @@ math = true
 
 
 <iframe src="https://drive.google.com/viewerng/
-viewer?embedded=true&url=https://yangzhuoranyang.com/talks/stocon_pre1.pdf" width="800" height="600" frameborder="0"></iframe>
+viewer?embedded=true&url=https://yangzhuoranyang.com/talks/stocon_pre2.pdf" width="800" height="600" frameborder="0"></iframe>

@@ -216,7 +216,7 @@ enableGitInfo = false
     #   0 = Simple
     #   1 = Detailed
     #   2 = Stream
-    post_format = 2
+    post_format = 1
 
     # Publication list format.
     #   0 = Simple
@@ -224,13 +224,13 @@ enableGitInfo = false
     #   2 = APA
     #   3 = MLA
     #   4 = Stream
-    publication_format = 4
+    publication_format = 1
 
     # Talk list format.
     #   0 = Simple
     #   1 = Detailed
     #   2 = Stream
-    talk_format = 2
+    talk_format = 1
 
   # Social/Academic Networking
   #
@@ -311,37 +311,42 @@ enableGitInfo = false
   weight = 2
 
 [[menu.main]]
+  name = "Projects"
+  url = "#projects"
+  weight = 3
+
+[[menu.main]]
   name = "Talks"
   url = "#talks"
-  weight = 3
+  weight = 4
 
 [[menu.main]]
   name = "Study Materials"
   url = "/materials/"
-  weight = 4
+  weight = 5
 
 [[menu.main]]
   name = "Awards"
   url = "/awards/"
-  weight = 5
+  weight = 6
 
 
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 6
+  weight = 7
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
  [[menu.main]]
     name = "CV"
     url = "https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf"
-    weight = 7
+    weight = 8
     
 [[menu.main]]
   name = "CheatSheet"
   url = "/cheatsheet_for_now/"
-  weight = 8
+  weight = 9
   
   
 # Search.
