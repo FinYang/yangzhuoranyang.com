@@ -1,7 +1,7 @@
 +++
 title = "Software"
 
-date = 2019-10-15T01:40:00+10:00
+date = 2019-10-15T01:40:00+11:00
 # lastmod = 2018-09-09T00:00:00
 
 # List format.
