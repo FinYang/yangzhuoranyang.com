@@ -18,9 +18,9 @@ caption = ""
 
 The R packages I've contributed. All of them are on GitHub and some of them are on CRAN.
 
-## Me being lazy
+## R Toolbox
 
-* [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): provides addins for inserting code and running code in a different manner, and functions to interact scripts with each other and to interact script with rmarkdown file.
+* [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
 
 
 ## Time series analysis packages  
@@ -31,6 +31,10 @@ The R packages I've contributed. All of them are on GitHub and some of them are 
 * [tscompdata](http://pkg.robjhyndman.com/tscompdata/): Time Series Competition Data   
 * [tsdl](https://pkg.yangzhuoranyang.com/tsdl/): Time Series Data Library
 * [compenginets](https://pkg.robjhyndman.com/compenginets/): Time series data from CompEngine database.
+
+## Demography package
+
+* [demography](https://github.com/robjhyndman/demography): Provides a large number of functions for handling demographic statistics, modelling and forecasting. In particular, it implements lifetable calculations; Lee-Carter modelling and variants; functional data analysis of mortality rates, fertility rates, net migration numbers; and stochastic population forecasting. [[CRAN](https://cloud.r-project.org/package=demography)] 
 
 ## Stochastic process  
 * [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing)
