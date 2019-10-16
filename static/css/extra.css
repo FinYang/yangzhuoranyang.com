@@ -10,4 +10,6 @@ pre {
 pre,code {
     color: black;
     background-color: #ecf0f1;
+    padding: 10px;
+    display: block;
 }
