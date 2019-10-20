@@ -1,8 +1,8 @@
 +++
 title = "Software"
 
-date = 2019-10-15T01:40:00+11:00
-# lastmod = 2018-09-09T00:00:00
+date = 2019-10-20T22:20:00+11:00
+# lastmod = 2019-10-15T01:40:00+11:00
 
 # List format.
 #   0 = Simple
@@ -18,10 +18,9 @@ caption = ""
 
 The R packages I've contributed. All of them are on GitHub and some of them are on CRAN.
 
-## R Toolbox
+## Non-parametric estimation
 
-* [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
-
+* [ycevo](https://github.com/FinYang/ycevo): Provides a range of functions to facilitate the non-parametric estimation of the discount rate, and yield curve, of CRSP Bond Data. (CRAN coming soon)
 
 ## Time series analysis packages  
 * [tsfeatures](https://pkg.robjhyndman.com/tsfeatures/): Time Series Feature Extraction. [[CRAN](https://cloud.r-project.org/package=tsfeatures)] 
@@ -38,3 +37,8 @@ The R packages I've contributed. All of them are on GitHub and some of them are 
 
 ## Stochastic process  
 * [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing)
+
+## R Toolbox
+
+* [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
+
