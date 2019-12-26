@@ -41,7 +41,7 @@ I did my Honours in Econometrics at Monash in 2019. The project I've been workin
 I have also done lab supervising for the unit of Business and economic statistics at Monash in 2019, and some private tutoring on Econometrics related courses for a few years. In 2020 I will be tutoring Applied Econometrics. 
 
 
-I am current working on some optimisation problem at ShanghaiTech SIST as a visiting student. If you haven't heard about it, it's a relatively new uni here in Shanghai, but it's really good.
+I am current working on some optimisation problem at ShanghaiTech SIST as a visiting student with [Professor Ziping Zhao](http://zzhaoae.student.ust.hk/). If you haven't heard about the uni, it's a relatively new uni here in Shanghai, and it's really good.
 
 I will be starting my PhD in hierarchical forecasting at Monash in 2020 with [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://research.monash.edu/en/persons/anastasios-panagiotelis). Hopefully all goes well.
 
