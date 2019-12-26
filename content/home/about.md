@@ -36,10 +36,14 @@ weight = 5
 My name is Yangzhuoran Yang, but usually I let people call me __Fin__ as that's easier if you don't speak Chinese.
 
 
-I am doing Honours in Econometrics at Monash. The project I've been working on is about portfolio selection in a stochastic control setting with [Dr Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo) and [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu). I am also working part-time for them and [Professor Rob J. Hyndman](https://robjhyndman.com/) as a research assistant. The works I've done are mostly related to R programming and data manipulation. You can find the software I have contributed on this site.
+I did my Honours in Econometrics at Monash in 2019. The project I've been working on is about portfolio selection in a stochastic control setting with [Dr Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo) and [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu). I am also working part-time for them as a research assistant. The works I've done are mostly related to R programming and data manipulation. You can find the software I have contributed on this site.
+
+I have also done lab supervising for the unit of Business and economic statistics at Monash in 2019, and some private tutoring on Econometrics related courses for a few years. In 2020 I will be tutoring Applied Econometrics. 
 
 
-Apart from that, I have also been doing lab supervising for ETC1000 Business and economic statistics at Monash this year, and some private tutoring on Econometrics related courses for a few years. I have a degree on Actuarial Science, but sadly I find Business analytics and Econometrics are more interesting to me.
+I am current working on some optimisation problem at ShanghaiTech SIST as a visiting student. If you haven't heard about it, it's a relatively new uni here in Shanghai, but it's really good.
+
+I will be starting my PhD in hierarchical forecasting at Monash in 2020 with [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://research.monash.edu/en/persons/anastasios-panagiotelis). Hopefully all goes well.
 
 
 
