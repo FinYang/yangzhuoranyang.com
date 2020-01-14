@@ -16,7 +16,11 @@ image = ""
 caption = ""
 +++
 
-The R packages I've contributed. All of them are on GitHub and some of them are on CRAN.
+The R packages/Shiny apps I've contributed. All of them are on GitHub and some of them are on CRAN.
+
+## Shiny app
+
+* [LazyBib](https://finyang.shinyapps.io/lazybib/): Provides a simple interface to process .bib file, replacing repetitive manual works such as deleting certain fields for all entries, change to abbreviated journal names, etc. [[GitHub](https://github.com/FinYang/LazyBib)]
 
 ## Non-parametric estimation
 
