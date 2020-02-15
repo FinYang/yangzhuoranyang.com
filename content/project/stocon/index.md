@@ -10,7 +10,7 @@ summary = "Optimal portfolio selection via dimensional reduction in a stochastic
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = ["Dimension Reduction", "Portfolio Selection", "Stochastic Control"]
+tags = ["dimension Reduction", "portfolio Selection", "stochastic optimization"]
 
 # Optional external URL for project (replaces project detail page).
 external_link = ""
