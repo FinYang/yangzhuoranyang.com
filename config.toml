@@ -13,7 +13,7 @@ title = "Yangzhuoran Yang"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2019"
+copyright = "&copy; 2020"
 
 theme = "hugo-academic"
 enableEmoji = true
@@ -65,7 +65,7 @@ enableGitInfo = false
   email = "Fin.Yang@monash.edu"
   address = "Menzies, 20 Chancellors Walk, Clayton, Vic, 3800, Australia"
   office_hours = ""
-  phone = "+61414060712"
+  phone = ""
   skype = ""
   telegram = ""
   keybase = ""  # Your keybase.io username.
@@ -106,13 +106,13 @@ enableGitInfo = false
   font = "default"
 
   # Description for social sharing and search engines. If undefined, author role is used in place.
-  description = ["Yangzhuoran Yang", "YangYangzhuoran", "杨杨卓然"]
+  description = ["Yangzhuoran Yang","Yangzhuoran Fin Yang", "YangYangzhuoran", "杨杨卓然"]
 
   # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
   sharing_image = "search"
 
   # Twitter username (without @). Used when a vistor shares your site on Twitter.
-  twitter = ""
+  twitter = "YangzhuoranY"
 
   # Diplay a logo in navigation bar rather than title (optional).
   #   To enable, place an image in `static/img/` and reference its filename below. To disable, set the value to "".
