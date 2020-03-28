@@ -18,13 +18,13 @@ caption = ""
 
 The R packages/Shiny apps I've contributed. All of them are on GitHub and some of them are on CRAN.
 
-## Shiny app
+## Regression Estimation
 
-* [LazyBib](https://finyang.shinyapps.io/lazybib/): Provides a simple interface to process .bib file, replacing repetitive manual works such as deleting certain fields for all entries, change to abbreviated journal names, etc. [[GitHub](https://github.com/FinYang/LazyBib)]
+* [RRRR](https://pkg.yangzhuoranyang.com/RRRR): Methods for estimating online robust reduced-rank regression. [[CRAN](https://CRAN.R-project.org/package=RRRR)]
 
 ## Non-parametric estimation
 
-* [ycevo](https://github.com/FinYang/ycevo): Provides a range of functions to facilitate the non-parametric estimation of the discount rate, and yield curve, of CRSP Bond Data. (CRAN coming soon)
+* [ycevo](https://github.com/bonsook/ycevo): Provides a range of functions to facilitate the non-parametric estimation of the discount rate, and yield curve, of CRSP Bond Data. (CRAN coming soon)
 
 ## Time series analysis packages  
 * [tsfeatures](https://pkg.robjhyndman.com/tsfeatures/): Time Series Feature Extraction. [[CRAN](https://cloud.r-project.org/package=tsfeatures)] 
@@ -46,3 +46,8 @@ The R packages/Shiny apps I've contributed. All of them are on GitHub and some o
 
 * [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
 
+* [lazybar](https://github.com/FinYang/lazybar): A simple Progress Bar showing estimated remaining time. Multiple forecast methods and user defined forecast method for the remaining time are supported. (developing)
+
+## Shiny app
+
+* [LazyBib](https://finyang.shinyapps.io/lazybib/): Provides a simple interface to process .bib file, replacing repetitive manual works such as deleting certain fields for all entries, change to abbreviated journal names, etc. [[GitHub](https://github.com/FinYang/LazyBib)]
