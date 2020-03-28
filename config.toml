@@ -326,12 +326,6 @@ enableGitInfo = false
   weight = 5
 
 [[menu.main]]
-  name = "Awards"
-  url = "/awards/"
-  weight = 6
-
-
-[[menu.main]]
   name = "Contact"
   url = "#contact"
   weight = 7
