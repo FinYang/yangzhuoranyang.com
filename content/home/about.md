@@ -11,12 +11,17 @@ weight = 5
 [interests]
   interests = [
     "Business Analytics",
+    "Forecasting",
     "Econometrics",
     "Computational Statistics"
   ]
 
 # List your qualifications (such as academic degrees).
 
+[[education.courses]]
+  course = "Doctor of Philosophy in Statistics"
+  institution = "Monash University"
+  year = 2023
 
 [[education.courses]]
   course = "Bachelor of Econometrics (Honours)"
