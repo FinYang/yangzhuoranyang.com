@@ -46,7 +46,7 @@ The R packages/Shiny apps I've contributed. All of them are on GitHub and some o
 
 * [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
 
-* [lazybar](https://github.com/FinYang/lazybar): A simple Progress Bar showing estimated remaining time. Multiple forecast methods and user defined forecast method for the remaining time are supported. (developing)
+* [lazybar](https://pkg.yangzhuoranyang.com/lazybar/): A simple Progress Bar showing estimated remaining time. Multiple forecast methods and user defined forecast method for the remaining time are supported. [[CRAN](https://CRAN.R-project.org/package=lazybar)]
 
 ## Shiny app
 
