@@ -24,7 +24,7 @@ external_link = ""
 slides = ""
 
 # Links (optional).
-url_pdf = ""
+url_pdf = "/papers/ORRRR.pdf"
 url_slides = ""
 url_video = ""
 url_code = "https://pkg.yangzhuoranyang.com/RRRR/"
