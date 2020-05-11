@@ -224,13 +224,13 @@ enableGitInfo = false
     #   2 = APA
     #   3 = MLA
     #   4 = Stream
-    publication_format = 1
+    publication_format = 2
 
     # Talk list format.
     #   0 = Simple
     #   1 = Detailed
     #   2 = Stream
-    talk_format = 1
+    talk_format = 2
 
   # Social/Academic Networking
   #
@@ -312,13 +312,13 @@ enableGitInfo = false
   weight = 2
 
 [[menu.main]]
+  name = "Talks"
+  url = "/talk/"
+  weight = 3
+  
+[[menu.main]]
   name = "Projects"
   url = "#projects"
-  weight = 3
-
-[[menu.main]]
-  name = "Talks"
-  url = "#talks"
   weight = 4
 
 [[menu.main]]

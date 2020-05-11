@@ -5,7 +5,7 @@ widget = "publications"
 active = true
 date = 2020-05-07T23:50:00+08:00
 
-title = "Recent Publications"
+title = "[Recent Publications](/publication/)"
 subtitle = ""
 
 # Order that this section will appear in.

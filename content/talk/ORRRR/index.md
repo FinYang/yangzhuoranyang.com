@@ -1,28 +1,28 @@
 +++
-title = "Dimension Reduction in Stochastic Optimal Control"
-date = 2019-05-14T19:12:00+10:00  # Schedule page publish date.
+title = "Online Robust Reduced-Rank Regression"
+date = 2020-05-11T22:10:00+08:00  # Schedule page publish date.
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2019-05-15T12:15:00+10:00
-time_end = 2019-05-15T12:30:00+10:00
+time_start = 2020-06-08
+# time_end = 2019-05-15T12:30:00+10:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Yangzhuoran Yang"]
+authors = ["Yangzhuoran Fin Yang, Ziping Zhao"]
 
 # Abstract and optional shortened version.
-abstract = "We introduce the general optimal stochastic control setting in the case of portfolio selection. We propose a two-step algorithm to solve the objective function. At the first step, we utilise the transformation from mean-variance portfolio selection to OLS regression, projecting the assets space into a single portfolio. Then we take the dimension-reduced control space into the single index dynamic programming problem which aims to solve a certain finite time horizon objective function."
+abstract = "The reduced-rank regression (RRR) model is widely used in data analytics where the response variables are believed to depend on a few linear combinations of the predictor variables, or when such linear combinations are of special interest. In this paper, we will address the RRR model estimation problem by considering two targets which are popular especially in big data applications: i) the estimation should be robust to heavytailed data distribution or outliers; ii) the estimation should be amenable to large-scale data sets or data streams. In this paper, we address the robustness via the robust maximum likelihood estimation procedure based on Cauchy distribution and a stochastic estimation procedure is further adopted to deal with the large-scale data sets. An efficient algorithm leveraging on the stochastic majorization minimization method is proposed for problem-solving. The proposed model and algorithm is validated numerically by comparing with the state-of-the-art methods."
 
 # Name of event and optional event URL.
-event = "Monash Econometrics Honours Project"
-# event_url = "https://example.org"
+event = "The Eleventh IEEE Sensor Array and Multichannel Signal Processing Workshop"
+event_url = "http://www.sam2020.cn/"
 
 # Location of event.
-location = "Melbourne, Australia"
+location = "Hangzhou, China"
 
 # Is this a selected talk? (true/false)
-selected = false
+selected = true
 
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
@@ -30,11 +30,11 @@ selected = false
 #   E.g. `projects = ["deep-learning"]` references 
 #   `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-projects = ["stocon"]
+projects = ["RRRR"]
 
 # Tags (optional).
 #   Set `tags = []` for no tags, or use the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
-tags = ["Dimension Reduction", "Portfolio Selection", "Stochastic Control"]
+tags = ["multivariate regression", "low-rank", "heavy-tails", "outliers", "stochastic optimisation", "majorisation minimisation", "large-scale optimisation", "adaptive algorithm"]
 
 # Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -45,10 +45,10 @@ tags = ["Dimension Reduction", "Portfolio Selection", "Stochastic Control"]
 # slides = "example-slides"
 
 # Links (optional).
-url_pdf = "talks/stocon_pre1.pdf"
+url_pdf = "https://github.com/FinYang/ORRRR-SAM2020/raw/master/ORRRR-SAM2020.pdf"
 url_slides = ""
 url_video = ""
-url_code = "https://pkg.yangzhuoranyang.com/stocon/"
+url_code = "https://pkg.yangzhuoranyang.com/RRRR/"
 
 # Does the content use math formatting?
 math = true
@@ -57,7 +57,7 @@ math = true
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 [image]
   # Caption (optional)
-  # caption = "Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)"
+  # caption = ""
 
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
@@ -84,4 +84,4 @@ math = true
 
 
 <iframe src="https://drive.google.com/viewerng/
-viewer?embedded=true&url=https://yangzhuoranyang.com/talks/stocon_pre1.pdf" width="800" height="600" frameborder="0"></iframe>
+viewer?embedded=true&url=https://github.com/FinYang/ORRRR-SAM2020/raw/master/ORRRR-SAM2020.pdf" width="800" height="600" frameborder="0"></iframe>

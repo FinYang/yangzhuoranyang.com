@@ -11,3 +11,8 @@ pre,code {
     padding: 10px;
     display: block;
 }
+
+.section-heading a {
+    color: #313131;
+    text-decoration: none;
+}
