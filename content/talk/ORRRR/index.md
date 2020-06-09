@@ -1,12 +1,12 @@
 +++
 title = "Online Robust Reduced-Rank Regression"
-date = 2020-05-11T22:10:00+08:00  # Schedule page publish date.
+date = 2020-06-09T11:10:00+08:00  # Schedule page publish date.
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2020-06-08
-# time_end = 2019-05-15T12:30:00+10:00
+time_start = 2020-06-09T14:45:00+08:00
+time_end = 2020-06-09T15:00:00+08:00
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Yangzhuoran Fin Yang, Ziping Zhao"]
@@ -45,9 +45,9 @@ tags = ["multivariate regression", "low-rank", "heavy-tails", "outliers", "stoch
 # slides = "example-slides"
 
 # Links (optional).
-url_pdf = "https://github.com/FinYang/ORRRR-SAM2020/raw/master/ORRRR-SAM2020.pdf"
+url_pdf = "talks/ORRRR_SAM2020.pdf"
 url_slides = ""
-url_video = ""
+url_video = "https://2020.sam-virtual.org/presentation/paper/online-robust-reduced-rank-regression"
 url_code = "https://pkg.yangzhuoranyang.com/RRRR/"
 
 # Does the content use math formatting?
@@ -84,4 +84,4 @@ math = true
 
 
 <iframe src="https://drive.google.com/viewerng/
-viewer?embedded=true&url=https://github.com/FinYang/ORRRR-SAM2020/raw/master/ORRRR-SAM2020.pdf" width="800" height="600" frameborder="0"></iframe>
+viewer?embedded=true&url=https://yangzhuoranyang.com/talks/ORRRR_SAM2020.pdf" width="800" height="600" frameborder="0"></iframe>
