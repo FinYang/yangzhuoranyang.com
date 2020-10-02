@@ -1,6 +1,10 @@
 # Configuration of Academic
 # Documentation: https://sourcethemes.com/academic/
 #
+
+### Hugo version 0.51
+
+
 # This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
 # Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
 
@@ -332,8 +336,8 @@ enableGitInfo = false
   weight = 4
 
 [[menu.main]]
-  name = "Study Materials"
-  url = "/materials/"
+  name = "Teaching"
+  url = "/teaching/"
   weight = 5
 
 [[menu.main]]
@@ -348,11 +352,11 @@ enableGitInfo = false
     url = "https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf"
     weight = 8
     
-[[menu.main]]
-  name = "CheatSheet"
-  url = "/cheatsheet_for_now/"
-  weight = 9
-  
+# [[menu.main]]
+#   name = "CheatSheet"
+#   url = "/cheatsheet_for_now/"
+#   weight = 9
+#   
   
 # Search.
 [params.search]

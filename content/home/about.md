@@ -48,7 +48,7 @@ I have done lab supervising for the unit of Business and economic statistics at 
 
 I have been doing my PhD remotely. It is in hierarchical forecasting at Monash with [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://research.monash.edu/en/persons/anastasios-panagiotelis). 
 
-I just worked on [some optimisation problem](/project/rrrr/) with [Professor Ziping Zhao](http://zipingzhao.github.io/) at [ShanghaiTech SIST](http://sist.shanghaitech.edu.cn/sist_en/). Now I'm just hanging around in Chengdu. Thought it wouldn't hurt to move around a little bit. I will be in Suzhou from October, tutoring Business statistics at [Southeast University–Monash University Joint Graduate School](https://www.monash.edu/suzhou).
+I just worked on [some optimisation problem](/project/rrrr/) with [Professor Ziping Zhao](http://zipingzhao.github.io/) at [ShanghaiTech SIST](http://sist.shanghaitech.edu.cn/sist_en/). Now I'm just hanging around in Chengdu. I am now in Suzhou, tutoring Business statistics at [Southeast University–Monash University Joint Graduate School](https://www.monash.edu/suzhou) for the November intake of Master of Business and Master of Banking and Finance. More information can be found [here](https://www.monash.edu/study/nov-intake-2020).
 
 
 
