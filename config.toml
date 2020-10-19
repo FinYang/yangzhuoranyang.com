@@ -110,7 +110,7 @@ enableGitInfo = false
   font = "default"
 
   # Description for social sharing and search engines. If undefined, author role is used in place.
-  description = ["Yangzhuoran Yang","Yangzhuoran Fin Yang", "YangYangzhuoran", "杨杨卓然"]
+  description = ["Yangzhuoran Fin Yang is a PhD student in Statistics at Monash University."]
 
   # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
   sharing_image = "search"
