@@ -17,11 +17,21 @@ caption = ""
 +++
 
 
-## _NOV12 2020_
+
+## _Semester 1 2022_
+
+### ETC3550: Applied forecasting
+
+[Handbook entry](https://handbook.monash.edu/current/units/ETC3550)
+
+---
+
+
+## _NOV12 2020_ and _Semester 1 2021_
 
 ### ETF5900: Business Statistics
 
-I will be teaching the tutorial of the unit for the November semester at [Monash Suzhou](https://www.monash.edu/suzhou) campus. The handbook can be found [here](https://handbook.monash.edu/2020/units/ETF5900). Information of the November intake can be found [here](https://www.monash.edu/study/nov-intake-2020).
+I tought the tutorial of the unit for the November semester at [Monash Suzhou](https://www.monash.edu/suzhou) campus. The handbook can be found [here](https://handbook.monash.edu/2020/units/ETF5900). Information of the November intake can be found [here](https://www.monash.edu/study/nov-intake-2020).
 
  
 ---
