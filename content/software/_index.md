@@ -16,7 +16,7 @@ image = ""
 caption = ""
 +++
 
-The R packages/Shiny apps I've contributed. All of them are on GitHub and some of them are on CRAN.
+The R packages/Shiny apps I've contributed to. All of them are on GitHub and some of them are on CRAN.
 
 ## Regression Estimation
 
