@@ -1,0 +1,40 @@
+---
+title: Yangzhuoran Yang
+toc: false
+about:
+  template: trestles
+  image: img/portrait.jpg
+  image-shape: round
+  links:
+    - text: "{{< fa envelope >}}"
+      href: mailto:Fin.Yang@monash.edu
+    - text: "{{< ai google-scholar >}}"
+      href: https://scholar.google.com/citations?user=keAhMnIAAAAJ
+    - text: "{{< fa brands github >}}"
+      href: https://github.com/FinYang
+    - text: "{{< ai orcid >}}"
+      href: https://orcid.org/0000-0002-1232-8017
+    - text: "{{< fa brands linkedin >}}"
+      href: https://www.linkedin.com/in/yangzhuoran-yang-693b87122/
+    - text: "{{< ai cv >}}"
+      href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
+---
+
+## Hi
+
+My name is Yangzhuoran Yang, but usually I let people call me **Fin** as that's easier if you don't speak Chinese.
+
+I did my Honours in Econometrics at Monash in 2019. The project I've been working on is about portfolio selection in a stochastic control setting with [Assoc Professor Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo) and [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu). I am also working part-time for them as a research assistant. The works I've done are mostly related to R programming and data manipulation. You can find the software I have contributed [here](/software/).
+
+I tutored Business statistics at [Southeast University--Monash University Joint Graduate School](https://www.monash.edu/suzhou) in Suzhou for the 2020 November intake and 2021 Semester 1 of Master of Business and Master of Banking and Finance.
+
+I took some time to work, practising amateur applied economics because of COVID, but now I am finally back in Melbourne to continue my PhD! It is in hierarchical forecasting at Monash with [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://anastasiospanagiotelis.netlify.app/).
+
+### Education
+
+- Doctor of Philosophy in Statistics | 2023
+    - Monash University
+- Bachelor of Econometrics (Honours) | 2019
+    - Monash University
+- Bachelor of Actuarial Science | 2018
+    - Monash University

@@ -1,0 +1,23 @@
+/* css styles */
+.badge {
+  border-radius: 15px;
+  opacity: .75;
+}
+
+.badge-blue,
+.badge-red,
+.badge-green {
+  color: #EDE3DA !important;
+}
+
+.badge-blue {
+  background: #4673B8;
+}
+
+.badge-red {
+  background: #BD666D;
+}
+
+.badge-green {
+  background: #2c9f42;
+}
