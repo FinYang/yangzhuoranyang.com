@@ -5,9 +5,8 @@
 
 ## Conversion
 
-- [ ] Home
+- [x] Home
    - [x] Header picture
-   - [ ] Move text on navbar to the centre
    - [x] Intro
    - [x] Research interest
    - [x] Icons

@@ -4,7 +4,7 @@ project:
     - "*.pdf"
 
 website:
-  title: "Yangzhuoran Yang"
+  title: "Yangzhuoran Fin Yang"
   favicon: img/icon-192.png
   site-url: "https://yangzhuoranyang.com"
   navbar:
