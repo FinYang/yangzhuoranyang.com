@@ -8,9 +8,9 @@
 - [ ] Home
    - [x] Header picture
    - [ ] Move text on navbar to the centre
-   - [ ] Intro
+   - [x] Intro
    - [x] Format Education
-   - [ ] Research interest
+   - [x] Research interest
    - [ ] Icons
 - [x] Publications
 - [x] Software

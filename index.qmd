@@ -54,13 +54,14 @@ about:
 
 ## Hi
 
-My name is Yangzhuoran Yang, but usually I let people call me **Fin** as that's easier if you don't speak Chinese.
+My name is Yangzhuoran Yang, but usually I let people call me **Fin** since that's easier if you don't speak Chinese.
 
-I did my Honours in Econometrics at Monash in 2019. The project I've been working on is about portfolio selection in a stochastic control setting with [Assoc Professor Bonsoo Koo](https://research.monash.edu/en/persons/bonsoo-koo) and [Dr Dan Zhu](https://research.monash.edu/en/persons/dan-zhu). I am also working part-time for them as a research assistant. The works I've done are mostly related to R programming and data manipulation. You can find the software I have contributed [here](/software/).
 
-I tutored Business statistics at [Southeast University--Monash University Joint Graduate School](https://www.monash.edu/suzhou) in Suzhou for the 2020 November intake and 2021 Semester 1 of Master of Business and Master of Banking and Finance.
+I am now close to finishing my PhD after a much-hated covid halt (during which I was practising amateur applied economics). My PhD is about using components in time series forecasting, under the supervision of [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://anastasiospanagiotelis.netlify.app/)
 
-I took some time to work, practising amateur applied economics because of COVID, but now I am finally back in Melbourne to continue my PhD! It is in hierarchical forecasting at Monash with [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://anastasiospanagiotelis.netlify.app/).
+Recently I have been thinking about the mismatch between the assumption of forecasting models and the DGP itself, and how this can be mitigated by the post-forecast adjustment process. In the long run, I hope to study more about methods and theories that assume less but still provide practical guidance for our understanding of time series forecasting. 
+
+I am a frequent [R package writer](/software/). I have also been [teaching](/teaching/) for a while (but now finally getting some break).
 
 ### Education
 
