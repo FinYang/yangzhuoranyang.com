@@ -64,9 +64,52 @@ I took some time to work, practising amateur applied economics because of COVID,
 
 ### Education
 
-- Doctor of Philosophy in Statistics | 2023
-    - Monash University
-- Bachelor of Econometrics (Honours) | 2019
-    - Monash University
-- Bachelor of Actuarial Science | 2018
-    - Monash University
+```{r}
+#| echo: false
+#| output: asis
+course <- c(
+  "Doctor of Philosophy in Statistics, 2024", 
+  "Bachelor of Commerce (Honours) in Econometrics, 2019", 
+  "Bachelor of Actuarial Science, 2018"
+) 
+institution <- "Monash University"
+
+cat(
+  paste(
+    r"(<ul class="ul-edu">)",
+    paste(
+      "<li>", 
+      sprintf(r"(
+<i class="fa-li fas fa-graduation-cap"></i>
+<div class="description">
+<p class="course">%s</p>
+<p class="institution">%s</p>
+</div>
+)", course, institution), 
+"</li>", sep = "", collapse = "\n"), 
+"</ul>", sep = "\n")
+)
+
+
+```
+
+
+```{css}
+/*| echo: false */
+.institution {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.ul-edu {
+  list-style: none;
+}
+ul.ul-edu li {
+  position: relative;
+}
+.course {
+  margin: 0px;
+}
+.institution {
+  margin: 0px;
+}
+```
