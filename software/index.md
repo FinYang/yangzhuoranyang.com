@@ -1,5 +1,5 @@
 ---
-pagetitle: "Yangzhuoran Yang - Software"
+pagetitle: "Yangzhuoran Fin Yang - Software"
 ---
 
 # Software

@@ -1,4 +1,5 @@
 ---
+pagetitle: "Yangzhuoran Fin Yang"
 title: |
     <p class="banner banner-title"> Hi </p>
     <p class="banner banner-text"> I'm Fin. Welcome to my site 🐟 </p>
