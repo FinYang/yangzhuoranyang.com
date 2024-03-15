@@ -19,8 +19,9 @@
    - [x] Link talk in publication page
    - [x] Link publication in talk page
 - [x] Teaching
-- [ ] Contact
-- [ ] CV
+- [] Contact
+   - [ ] form
+- [x] CV
 - [ ] Website search
 - [ ] Google analytics
 - [ ] giscus

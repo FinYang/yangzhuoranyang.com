@@ -20,6 +20,8 @@ website:
         text: Talks
       - href: teaching/index.md
         text: Teaching
+      - href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
+        text: CV
       # - href: contact/index.qmd
       #   text: Contact
         
