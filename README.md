@@ -10,7 +10,7 @@
    - [ ] Move text on navbar to the centre
    - [x] Intro
    - [x] Research interest
-   - [ ] Icons
+   - [x] Icons
 - [x] Publications
 - [x] Software
 - [x] Talks

@@ -27,6 +27,7 @@ about:
 ```{css}
 /*| echo: false */
 
+/* banner */
 .quarto-title-banner {
   padding: 3em 0; 
   background-image:
@@ -50,6 +51,21 @@ about:
   font-weight: 400;
   color: #fff;
 }
+
+/* icons */
+
+div.quarto-about-trestles .about-entity .about-link {
+  border: none;
+  font-size: 20pt;
+  padding: 3pt;
+  color: #3F555D;
+}
+
+div.quarto-about-trestles .about-entity .about-link:hover {
+  background-color: #3F555D;
+  color: #EDE3DA;
+}
+
 ```
 
 ## Hi
