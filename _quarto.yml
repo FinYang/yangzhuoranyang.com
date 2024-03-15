@@ -2,7 +2,7 @@ project:
   type: website
   resources: 
     - "*.pdf"
-
+    
 website:
   title: "Yangzhuoran Fin Yang"
   favicon: img/icon-192.png

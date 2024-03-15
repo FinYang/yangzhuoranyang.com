@@ -20,8 +20,8 @@
 - [] Contact
    - [ ] form
 - [x] CV
-- [ ] Website search
+- [x] Website search
 - [ ] Google analytics
 - [ ] giscus
-- [ ] Old teaching material
+- [x] Old teaching material
 
