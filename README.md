@@ -21,7 +21,7 @@
    - [ ] form
 - [x] CV
 - [x] Website search
-- [ ] Google analytics
+- [x] Google analytics
 - [ ] giscus
 - [x] Old teaching material
 
