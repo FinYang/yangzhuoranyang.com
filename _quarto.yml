@@ -35,3 +35,6 @@ format:
     toc: true
     backgroundcolor: "#EDE3DA"
     
+execute: 
+  freeze: auto
+    
