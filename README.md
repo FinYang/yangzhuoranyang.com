@@ -15,13 +15,14 @@
 - [x] Publications
 - [x] Software
 - [x] Talks
-- [ ] Projects
-   - [ ] Link talk in publication page
-   - [ ] Link publication in talk page
+- [x] Projects
+   - [x] Link talk in publication page
+   - [x] Link publication in talk page
 - [x] Teaching
 - [ ] Contact
 - [ ] CV
 - [ ] Website search
 - [ ] Google analytics
-- [ ] Footer
+- [ ] giscus
+- [ ] Old teaching material
 
