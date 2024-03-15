@@ -1,0 +1,18 @@
+---
+pagetitle: "Yangzhuoran Yang - Publications"
+listing:
+  contents: .
+  template: pubs.ejs
+  sort: "date desc"
+  categories: true
+  sort-ui: [date, title, author]
+  filter-ui: [date, title, author, details]
+  date-format: "YYYY"
+  page-size: 999
+sidebar: false
+toc: false
+page-layout: full
+title-block-banner: false
+---
+
+# Publications

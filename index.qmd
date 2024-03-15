@@ -1,0 +1,80 @@
+---
+title: |
+    <p class="banner banner-title"> Hi </p>
+    <p class="banner banner-text"> I'm Fin. Welcome to my site 🐟 </p>
+title-block-banner: true
+toc: false
+engine: knitr
+about:
+  template: trestles
+  image: img/portrait.jpg
+  image-shape: round
+  links:
+    - text: "{{< fa envelope >}}"
+      href: mailto:Fin.Yang@monash.edu
+    - text: "{{< ai google-scholar >}}"
+      href: https://scholar.google.com/citations?user=keAhMnIAAAAJ
+    - text: "{{< fa brands github >}}"
+      href: https://github.com/FinYang
+    - text: "{{< ai orcid >}}"
+      href: https://orcid.org/0000-0002-1232-8017
+    - text: "{{< fa brands linkedin >}}"
+      href: https://www.linkedin.com/in/yangzhuoran-yang-693b87122/
+    - text: "{{< ai cv >}}"
+      href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
+---
+
+```{css}
+/*| echo: false */
+
+/* banner */
+.quarto-title-banner {
+  padding: 3em 0; 
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
+    url('img/wide.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-title {
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+.banner-text {
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+.banner {
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  font-weight: 400;
+  color: #fff;
+}
+
+/* icons */
+
+div.quarto-about-trestles .about-entity .about-link {
+  border: none;
+  font-size: 20pt;
+  padding: 3pt;
+  color: #3F555D;
+}
+
+div.quarto-about-trestles .about-entity .about-link:hover {
+  background-color: #3F555D;
+  color: #EDE3DA;
+}
+
+```
+
+## Hi
+
+My name is Yangzhuoran Yang, but usually I let people call me **Fin** since that's easier if you don't speak Chinese.
+
+
+I am now close to finishing my PhD after a much-hated covid halt (during which I was practising amateur applied economics). My PhD is about using components in time series forecasting, under the supervision of [Professor Rob J. Hyndman](https://robjhyndman.com/), [Professor George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos), and [Assoc Professor Anastasios Panagiotelis](https://anastasiospanagiotelis.netlify.app/)
+
+Recently I have been thinking about the mismatch between the assumption of forecasting models and the DGP itself, and how this can be mitigated by the post-forecast adjustment process. In the long run, I hope to study more about methods and theories that assume less but still provide practical guidance for our understanding of time series forecasting. 
+
+I am a frequent [R package writer](/software/). I have also been [teaching](/teaching/) for a while (but now finally getting some break).

@@ -1,0 +1,37 @@
+project:
+  type: website
+  resources: 
+    - "*.pdf"
+    
+website:
+  title: "Yangzhuoran Fin Yang"
+  favicon: img/icon-192.png
+  site-url: "https://yangzhuoranyang.com"
+  google-analytics: G-W89QFE55QW
+  navbar:
+    background: "#3F555D"
+    right:
+      - href: index.qmd
+        text: Home
+      - href: publication/index.qmd
+        text: Publications
+      - href: software/index.md
+        text: Software
+      - href: talk/index.qmd
+        text: Talks
+      - href: teaching/index.md
+        text: Teaching
+      - href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
+        text: CV
+      # - href: contact/index.qmd
+      #   text: Contact
+        
+      
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    backgroundcolor: "#EDE3DA"
+    
