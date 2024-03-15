@@ -9,7 +9,6 @@
    - [x] Header picture
    - [ ] Move text on navbar to the centre
    - [x] Intro
-   - [x] Format Education
    - [x] Research interest
    - [ ] Icons
 - [x] Publications
