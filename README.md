@@ -6,7 +6,7 @@
 ## Conversion
 
 - [ ] Home
-   - [ ] Header picture
+   - [x] Header picture
    - [ ] Move text on navbar to the centre
    - [ ] Intro
    - [ ] Format Education
