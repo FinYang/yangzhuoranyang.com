@@ -31,6 +31,14 @@ $if(abstract)$
 $endif$
 
 
-$if(github)$<a href="http://github.com/$github$" class="badge badge badge-green"><i class="fa fa-github"></i>&nbsp;code</a>
+$if(github)$
+<a href="http://github.com/$github$" class="badge badge badge-green">&nbsp;<i class="bi bi-github"></i></a>
 $endif$
-<p>&nbsp;</p>
+
+$if(video)$
+<a href=$video$ class="badge badge-small badge-blue"><i class="fa fa-file-pdf-o"></i>&nbsp;Video</a><br>
+$endif$
+
+$if(pdf)$
+<a href=$pdf$ class="badge badge-small badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;PDF</a><br>
+$endif$
