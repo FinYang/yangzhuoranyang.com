@@ -21,3 +21,17 @@
 .badge-green {
   background: #2c9f42;
 }
+
+/* unvisited link */
+a:not([class]):link {
+  color: #376C98;
+  text-decoration: none;
+}
+
+
+/* mouse over link */
+a:not([class]):hover {
+  color: #2455CE;
+  text-decoration: none;
+}
+
