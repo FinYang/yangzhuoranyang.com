@@ -8,6 +8,9 @@ website:
   favicon: img/icon-192.png
   site-url: "https://yangzhuoranyang.com"
   google-analytics: G-W89QFE55QW
+  page-footer: 
+    background: "#3F555D"
+    right: "© 2017-2024, Yangzhuoran Yang"
   navbar:
     pinned: true
     background: "#3F555D"
