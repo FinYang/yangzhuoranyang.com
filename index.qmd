@@ -5,7 +5,6 @@ title: |
     <p class="banner banner-text"> I'm Fin. Welcome to my site 🐟 </p>
 title-block-banner: true
 toc: false
-engine: knitr
 about:
   template: trestles
   image: img/portrait.jpg
@@ -24,50 +23,6 @@ about:
     - text: "{{< ai cv >}}"
       href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
 ---
-
-```{css}
-/*| echo: false */
-
-/* banner */
-.quarto-title-banner {
-  padding: 3em 0; 
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
-    url('img/wide.jpg');
-  background-position: center;
-  background-size: cover;
-}
-
-.banner-title {
-  font-size: 54px;
-  margin-bottom: 10px;
-}
-.banner-text {
-  font-size: 27px;
-  margin-bottom: 20px;
-}
-.banner {
-  font-family: 'Montserrat', sans-serif;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  font-weight: 400;
-  color: #fff;
-}
-
-/* icons */
-
-div.quarto-about-trestles .about-entity .about-link {
-  border: none;
-  font-size: 20pt;
-  padding: 3pt;
-  color: #3F555D;
-}
-
-div.quarto-about-trestles .about-entity .about-link:hover {
-  background-color: #3F555D;
-  color: #EDE3DA;
-}
-
-```
 
 ## Hi
 
