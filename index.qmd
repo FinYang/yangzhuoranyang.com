@@ -19,7 +19,7 @@ about:
     - text: "{{< ai orcid >}}"
       href: https://orcid.org/0000-0002-1232-8017
     - text: "{{< fa brands linkedin >}}"
-      href: https://www.linkedin.com/in/yangzhuoran-yang-693b87122/
+      href: https://www.linkedin.com/in/yangzhuoranyang/
     - text: "{{< ai cv >}}"
       href: https://github.com/FinYang/CV/raw/master/AwesomeCV/YangzhuoranYang_CV.pdf
 ---
