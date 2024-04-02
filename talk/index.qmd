@@ -1,5 +1,5 @@
 ---
-pagetitle: "Yangzhuoran Fin Yang - Talks"
+pagetitle: "Talks - Yangzhuoran Fin Yang"
 listing:
   contents: .
   sort: "date desc"

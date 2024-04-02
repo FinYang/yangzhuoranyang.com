@@ -1,5 +1,5 @@
 ---
-pagetitle: "Yangzhuoran Fin Yang - Teaching"
+pagetitle: "Teaching - Yangzhuoran Fin Yang"
 ---
 
 ## ETC3400 - Principles of econometrics
