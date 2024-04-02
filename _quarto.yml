@@ -9,6 +9,7 @@ website:
   site-url: "https://yangzhuoranyang.com"
   google-analytics: G-W89QFE55QW
   navbar:
+    pinned: true
     background: "#3F555D"
     right:
       - href: index.qmd
