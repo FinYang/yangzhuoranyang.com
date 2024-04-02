@@ -28,6 +28,12 @@ a:not([class]):link {
   text-decoration: none;
 }
 
+/* visited link */
+a:not([class]):visited {
+  color: #376C98;
+  text-decoration: none;
+}
+
 
 /* mouse over link */
 a:not([class]):hover {
