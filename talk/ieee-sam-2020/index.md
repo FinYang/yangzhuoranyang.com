@@ -12,4 +12,4 @@ The reduced-rank regression (RRR) model is widely used in data analytics where t
 
 ### Publication
 
-* [Online Robust Reduced-Rank Regression](/publication/orrrr/)
+* [Yangzhuoran Fin Yang, Ziping Zhao (2020) Online Robust Reduced-Rank Regression. In Proc. of the 11th IEEE Sensor Array and Multichannel Signal Processing Workshop (SAM). Hangzhou, China. 8-11 June 2020.](/publication/orrrr/)
