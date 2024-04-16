@@ -20,17 +20,6 @@
 
 </div>
 
-
-$if(abstract)$
-<div>
-  <div class="abstract">
-    <div class="abstract-title">$labels.abstract$</div>
-    $abstract$
-  </div>
-</div>
-$endif$
-
-
 $if(github)$
 <a href="http://github.com/$github$" class="badge badge badge-green">&nbsp;<i class="bi bi-github"></i></a>
 $endif$
@@ -42,3 +31,15 @@ $endif$
 $if(pdf)$
 <a href=$pdf$ class="badge badge-small badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;PDF</a>
 $endif$
+
+$if(abstract)$
+<div>
+  <div class="abstract">
+    <div class="abstract-title">$labels.abstract$</div>
+    $abstract$
+  </div>
+</div>
+$endif$
+
+
+
