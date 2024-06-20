@@ -31,11 +31,14 @@ The R packages/Shiny apps I've contributed to. All of them are on GitHub and som
 
 ## R Toolbox
 
-* [roam](https://github.com/FinYang/roam): Remote Objects with Active-Binding Magic. Simplifying the creation of R objects that resemble regular objects but are sourced from remote locations.
+* [roam](https://github.com/FinYang/roam): Remote Objects with Active-Binding Magic. Simplify the creation of R objects that resemble regular objects but are sourced from remote locations.
+
+* [lazyparser](https://github.com/FinYang/lazyparser): Parse command line arguments as if they are arguments to an R function.
+
+* [lazybar](https://pkg.yangzhuoranyang.com/lazybar/): A simple Progress Bar showing estimated remaining time. Multiple forecast methods and user defined forecast method for the remaining time are supported. [[CRAN](https://CRAN.R-project.org/package=lazybar)]
 
 * [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
 
-* [lazybar](https://pkg.yangzhuoranyang.com/lazybar/): A simple Progress Bar showing estimated remaining time. Multiple forecast methods and user defined forecast method for the remaining time are supported. [[CRAN](https://CRAN.R-project.org/package=lazybar)]
 
 ## Stochastic process  
 * [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing)
