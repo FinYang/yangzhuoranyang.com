@@ -33,4 +33,4 @@ I am now close to finishing my PhD after a much-hated covid halt (during which I
 
 Recently I have been thinking about the mismatch between the assumption of forecasting models and the DGP itself, and how this can be mitigated by the post-forecast adjustment process. In the long run, I hope to study more about methods and theories that assume less but still provide practical guidance for our understanding of time series forecasting. 
 
-I am a frequent [R package writer](/software/). I have also been [teaching](/teaching/) for a while (but now finally getting some break).
+I am a frequent [R package writer](/software/). I have also been [teaching](/teaching/) for a while.

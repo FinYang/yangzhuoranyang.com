@@ -4,7 +4,7 @@ pagetitle: "Yangzhuoran Yang - Study Materials"
 
 
 Here I have saved some materials from my old private tutoring days. I'm only keeping the most recent version of a unit.
-If you can't access any of the materials, let me know by leaving a comment or sending me an email in the contact section.
+If you can't access any of the materials, send me an email.
 
 ---
 
