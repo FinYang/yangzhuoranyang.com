@@ -1,5 +1,5 @@
 ---
-pagetitle: "Publications - Yangzhuoran Fin Yang"
+pagetitle: "Publications"
 listing:
   contents: .
   template: pubs.ejs

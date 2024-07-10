@@ -1,5 +1,5 @@
 ---
-pagetitle: "Teaching - Yangzhuoran Fin Yang"
+pagetitle: "Teaching"
 ---
 
 
