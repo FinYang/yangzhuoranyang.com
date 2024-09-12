@@ -40,8 +40,8 @@ The R packages/Shiny apps I've contributed to. All of them are on GitHub and som
 * [lazytype](http://pkg.yangzhuoranyang.com/lazytype/): Provides addins for inserting code and running code in a different manner, and functions to allow interaction between scripts and between script and rmarkdown file.
 
 
-## Stochastic process  
-* [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing)
+<!-- ## Stochastic process  
+* [stocon](https://pkg.yangzhuoranyang.com/stocon): Stochastic constrained optimization. (developing) -->
 
 ## Shiny app
 
