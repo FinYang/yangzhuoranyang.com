@@ -35,6 +35,12 @@ $endif$
 $if(pdf)$
 <a href=$pdf$ class="badge badge-small badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;PDF</a>
 $endif$
+$if(pdf)$
+<a href=$slides$ class="badge badge-small badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;slides</a>
+$endif$
+$if(poster)$
+<a href=$poster$ class="badge badge-small badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;poster</a>
+$endif$
 
 $if(abstract)$
 <div>
@@ -44,6 +50,3 @@ $if(abstract)$
   </div>
 </div>
 $endif$
-
-
-
