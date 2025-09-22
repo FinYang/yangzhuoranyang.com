@@ -50,7 +50,7 @@ I taught the tutorial of the unit at [Monash Suzhou](https://www.monash.edu/suzh
 - NOV12 2020
  
 
-## ETC3410 - Applied sconometrics
+## ETC3410 - Applied econometrics
 
 I would have tutored the unit if not for COVID-19. Instead, I mainly worked on the course materials, converting Stata material into R. 
 
