@@ -4,14 +4,30 @@ pagetitle: "Teaching"
 
 # Teaching
 
-Teaching I have been doing at Monash.
+Courses I have been teaching/tutoring/coordinating.
 
-## ETC2410 - Introductory econometrics
+## Maastricht University
+
+### Quantatitive Business
+
+- Period 5 2024-2025
+
+### Mathematics and Statistics 1
+
+- Period 1 2025-2026
+
+### Mathematics and Statistics 2
+
+- Period 2 2025-2026
+
+## Monash University
+
+### ETC2410 - Introductory econometrics
 
 - Semester 2 2024
 
 
-## ETC1000 - Business and economic statistics
+### ETC1000 - Business and economic statistics
 
 <!-- [Handbook entry](https://handbook.monash.edu/current/units/ETC1000) -->
 
@@ -21,28 +37,28 @@ Teaching I have been doing at Monash.
 - Semester 1 2019
 
 
-## ETC3400 - Principles of econometrics
+### ETC3400 - Principles of econometrics
 <!-- [Handbook entry](https://handbook.monash.edu/current/units/ETC3400) -->
 
 - Semester 2 2024
 - Semester 2 2023
 
 
-## ETC3550 - Applied forecasting
+### ETC3550 - Applied forecasting
 <!-- [Handbook entry](https://handbook.monash.edu/current/units/ETC3550) -->
 
 - Semester 1 2023
 - Semester 1 2022
 
 
-## ETC3580 - Applied statistical modelling
+### ETC3580 - Applied statistical modelling
 <!-- [Handbook entry](https://handbook.monash.edu/current/units/ETC3580) -->
 
 - Semester 1 2023
 - Semester 2 2022
 
 
-## ETF5900 - Business statistics
+### ETF5900 - Business statistics
 
 I taught the tutorial of the unit at [Monash Suzhou](https://www.monash.edu/suzhou) campus. Information of the November intake can be found [here](https://www.monash.edu/study/nov-intake-2020).
 
@@ -50,7 +66,7 @@ I taught the tutorial of the unit at [Monash Suzhou](https://www.monash.edu/suzh
 - NOV12 2020
  
 
-## ETC3410 - Applied econometrics
+### ETC3410 - Applied econometrics
 
 I would have tutored the unit if not for COVID-19. Instead, I mainly worked on the course materials, converting Stata material into R. 
 
