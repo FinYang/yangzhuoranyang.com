@@ -8,7 +8,7 @@ Courses I have been teaching/tutoring/coordinating.
 
 ## Maastricht University
 
-### Quantatitive Business
+### Quantitative Business
 
 - Period 5 2024-2025
 
