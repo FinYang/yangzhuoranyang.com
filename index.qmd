@@ -11,7 +11,7 @@ about:
   image-shape: round
   links:
     - text: "{{< fa envelope >}}"
-      href: mailto:Fin.Yang@monash.edu
+      href: mailto:yangzhuoran.yang@maastrichtuniversity.nl
     - text: "{{< ai google-scholar >}}"
       href: https://scholar.google.com/citations?user=keAhMnIAAAAJ
     - text: "{{< fa brands github >}}"
