@@ -10,7 +10,7 @@ website:
   google-analytics: G-W89QFE55QW
   page-footer: 
     background: "#3F555D"
-    right: "© 2017-2024, Yangzhuoran Yang"
+    right: "&copy; 2017-[]{#current-year}, Yangzhuoran Yang"
   navbar:
     pinned: true
     background: "#3F555D"
@@ -38,6 +38,11 @@ format:
     css: styles.css
     toc: true
     backgroundcolor: "#EDE3DA"
+    include-after-body:
+      - text: |
+          <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+          </script>
     
 execute: 
   freeze: auto
