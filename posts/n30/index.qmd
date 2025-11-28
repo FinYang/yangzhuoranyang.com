@@ -1,0 +1,46 @@
+---
+title: "30 isn't a reliable cutoff for a \"large\" sample"
+description: "We should not use a sample size of 30 as a rule of thumb for deciding whether a sample is \"large\" enough."
+date: 2025-11-28
+categories:
+  - statistics
+  - teaching
+---
+
+
+When I was preparing teaching materials for an introductory statistics course, I noticed many textbooks and online tutorials claim that the rule for choosing between a $t$-test and a $z$-test is whether the sample size exceeds 30. In particular, they suggest that as long as the sample size is greater than 30, we can assume the sampling distribution of the mean is approximately normal, citing the Central Limit Theorem (CLT) and the notion of a “large” sample. I believe this is incorrect.
+
+In the context of testing for the mean, to decide whether we should use a $t$-distribution ($t$-test) or a normal distribution ($Z$-test) for the mean, we check if we can assume the variable itself has a normal distrubition.
+
+### When we know the variable has a normal distribution
+
+If $X\sim N(\mu, \sigma^2)$, then $\bar{X} \sim N(\mu, \frac{\sigma^2}{n})$, and
+$$
+\frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1).
+$$
+If we replace $\sigma$ with the estimator $s = \sqrt{\frac{1}{n-1}\sum^n_{i=1} (X_i - \bar{X})^2}$, we have
+$$
+\frac{\bar{X} - \mu}{\frac{s}{\sqrt{n}}} \sim t(n-1).
+$$
+This has nothing to do with Central Limit Theorem (CLT) or the sample size $n$. We started with the normality assumption.
+
+### When we do not know the distribution of the variable
+
+If $X$ has finite expectation and variance, regardless of the distribution,
+$$
+\frac{\bar{X} - \mu}{\frac{s}{\sqrt{n}}} \xrightarrow{d} N(0, 1) \;\text{as}\; n\rightarrow \infty,
+$$
+because of CLT. This has nothing to do with $t$-distribution.
+
+This means with a large enough sample, normal distribution is a good approximation of the sampling distrubition of the sample mean. How large of a sample is large enough for the normal distubution to be a good approximation depends on the convergence rate. In practice, we do not actually know. It could be $30$, it could be $3000$.
+
+Whether we should invoke CLT is a subjective decision, depending on the behaviour of the data. It is usually a good idea to plot a histogram of $X$ and see "how similar" it is to a normal distribution.
+
+### Then why does everyone use $30$?
+
+I think the number 30 comes from a confusion between the behaviour of a $t$ distribution and the CLT.
+When the degrees of freedom are larger than 30, a $t$-distribution is approximately normal. This is a property of the $t$ distribution itself, not a result of the CLT.
+
+If the distribution is not a $t$ distribution, there is no fixed rule for when the CLT "kicks in". People sometimes confuse the two and treat 30 as a cutoff to invoke the CLT.
+
+In practice, depending on the data, it can make little difference if one is lucky. The problem with teaching a specific threshold in an introductory statistics course, especially in exams or assignments, is that students often take away the simple but incorrect rule "CLT takes effect at a sample size of 30", forgetting the underlying intuition of large sample theory. I believe this should not be encouraged.
