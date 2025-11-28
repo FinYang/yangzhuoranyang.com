@@ -15,8 +15,8 @@ website:
     pinned: true
     background: "#3F555D"
     right:
-      - href: index.qmd
-        text: Home
+      - href: posts/index.qmd
+        text: Blog
       - href: publication/index.qmd
         text: Publications
       - href: software/index.md
