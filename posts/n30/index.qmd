@@ -1,6 +1,7 @@
 ---
 title: "30 isn't a reliable cutoff for a \"large\" sample"
 description: "We should not use a sample size of 30 as a rule of thumb for deciding whether a sample is \"large\" enough."
+image: n30.png
 date: 2025-11-28
 categories:
   - statistics
