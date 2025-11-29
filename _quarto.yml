@@ -10,7 +10,10 @@ website:
   google-analytics: G-W89QFE55QW
   page-footer: 
     background: "#3F555D"
-    right: "&copy; 2017-[]{#current-year}, Yangzhuoran Yang"
+    left: "&copy; 2017-[]{#current-year}, Yangzhuoran Yang"
+    right:
+      - icon: rss
+        href: posts/index.xml
   navbar:
     pinned: true
     background: "#3F555D"
