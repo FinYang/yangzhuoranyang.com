@@ -12,6 +12,8 @@ website:
     background: "#3F555D"
     left: "&copy; 2017-[]{#current-year}, Yangzhuoran Yang"
     right:
+      - text: Subscribe
+        href: posts/subscribe.html
       - icon: rss
         href: posts/index.xml
   navbar:

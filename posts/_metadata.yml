@@ -10,6 +10,11 @@ format:
       - title-metadata.html
       - title-block.html
 
+margin-header: "[Subscribe](subscribe.html)"
+resources:
+  - "verification-follow_it-FAZdtWh8AR1plJVdm63V.html"
+
+
 comments:
   giscus:
     repo:  finyang/yangzhuoranyang.com
