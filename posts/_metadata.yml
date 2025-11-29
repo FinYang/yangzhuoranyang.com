@@ -11,8 +11,7 @@ format:
       - title-block.html
 
 margin-header: "[Subscribe](subscribe.html)"
-resources:
-  - "follow.it-verification-code.html"
+
 
 
 comments:

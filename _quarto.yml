@@ -34,7 +34,9 @@ website:
         text: CV
       # - href: contact/index.qmd
       #   text: Contact
-        
+
+resources:
+  - "follow.it-verification-code.html"
       
 
 format:
