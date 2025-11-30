@@ -3,6 +3,7 @@ title: "30 isn't a reliable cutoff for a \"large\" sample"
 description: "We should not use a sample size of 30 as a rule of thumb for deciding whether a sample is \"large\" enough."
 image: n30.png
 date: 2025-11-28
+date-modified: 2025-11-30
 categories:
   - statistics
   - teaching
@@ -45,3 +46,5 @@ When the degrees of freedom are larger than 30, a $t$-distribution is approximat
 If the distribution is not a $t$ distribution, there is no fixed rule for when the CLT "kicks in". People sometimes confuse the two and treat 30 as a cutoff to invoke the CLT.
 
 In practice, depending on the data, it can make little difference if one is lucky. The problem with teaching a specific threshold in an introductory statistics course, especially in exams or assignments, is that students often take away the simple but incorrect rule "CLT takes effect at a sample size of 30", forgetting the underlying intuition of large sample theory. I believe this should not be encouraged.
+
+Edit: My dear friend Dani asked me: if the $t$-distribution includes the normal distribution as a special case, why don't we always use the $t$-test? That is, either we have a small sample and we use the $t$-test with a normality assumption (if we are willing to make such an assumption), or we have a large sample and the $t$-test is equivalent to a $Z$-test. In any case, we can just use a $t$-test. I found no reason to disagree.
