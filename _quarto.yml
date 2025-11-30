@@ -50,4 +50,5 @@ format:
     
 execute: 
   freeze: auto
-    
+
+date-format: "D MMM YYYY"
