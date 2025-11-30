@@ -10,7 +10,7 @@ format:
       - title-metadata.html
       - title-block.html
 
-margin-header: "[Subscribe](subscribe.html)"
+margin-header: "[Subscribe](../subscribe)"
 
 
 

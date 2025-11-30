@@ -2,6 +2,7 @@ project:
   type: website
   resources: 
     - "*.pdf"
+    - "verification-follow_it-FAZdtWh8AR1plJVdm63V.html"
     
 website:
   title: "Yangzhuoran Fin Yang"
@@ -13,7 +14,7 @@ website:
     left: "&copy; 2017-[]{#current-year}, Yangzhuoran Yang"
     right:
       - text: Subscribe
-        href: posts/subscribe.html
+        href: /subscribe
       - icon: rss
         href: posts/index.xml
   navbar:
@@ -34,10 +35,6 @@ website:
         text: CV
       # - href: contact/index.qmd
       #   text: Contact
-
-resources:
-  - "verification-follow_it-FAZdtWh8AR1plJVdm63V.html"
-      
 
 format:
   html:
