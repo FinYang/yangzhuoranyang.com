@@ -17,11 +17,11 @@
    - [x] Link talk in publication page
    - [x] Link publication in talk page
 - [x] Teaching
-- [] Contact
+- [ ] Contact
    - [ ] form
 - [x] CV
 - [x] Website search
 - [x] Google analytics
-- [ ] giscus
+- [x] giscus
 - [x] Old teaching material
 
