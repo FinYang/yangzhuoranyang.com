@@ -35,6 +35,12 @@ website:
         text: CV
       # - href: contact/index.qmd
       #   text: Contact
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "I just started a blog! Check out my first post: [30 isn't a reliable cutoff for a \"large\" sample](/posts/n30)."
+    type: success
+    position: below-navbar
 
 format:
   html:
