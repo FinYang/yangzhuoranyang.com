@@ -1,5 +1,4 @@
 export default async (request, context) => {
-  const ip = request.headers.get("x-nf-client-connection-ip");
   const ua = request.headers.get("user-agent") || "";
 
 
@@ -17,12 +16,11 @@ export default async (request, context) => {
 
   // If any pattern matches, block the request
   if (headlessPatterns.some(p => p.test(ua))) {
-    console.log(`Blocked bot - IP: ${ip}, UA: ${ua}`);
+    console.log(`Blocked bot - UA: ${ua}`);
     return new Response("You appear non human, so I've blocked you. If that's wrong or you're a sentient AI, email me.", { status: 403 });
   }
 
   // Otherwise, allow the visitor
-  console.log(`Allowed visitor - IP: ${ip}, UA: ${ua}`);
   return await context.next();
 };
 
