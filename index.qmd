@@ -26,7 +26,7 @@ about:
 
 ## Hi
 
-My name is Yangzhuoran Yang, but usually I let people call me **Fin** since that's easier if you don't speak Chinese.
+My name is Yangzhuoran Yang (杨杨卓然), but usually I let people call me **Fin** since that's easier if you don't speak Chinese.
 
 I am an assistant professor in statistical learning at the Department of Data Analytics and Digitalisation (DAD) at Maastricht University. My recent research focuses on time series forecasting, outlier detection, and robust estimation.
 
