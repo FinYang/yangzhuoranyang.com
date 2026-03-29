@@ -31,7 +31,7 @@ The R packages/Shiny apps I've contributed to. All of them are on GitHub and som
 
 ## R Toolbox
 
-* [roam](https://github.com/FinYang/roam): Remote Objects with Active-Binding Magic. Simplify the creation of R objects that resemble regular objects but are sourced from remote locations.
+* [roam](https://github.com/FinYang/roam): Remote Objects with Active-Binding Magic. Simplify the creation of R objects that resemble regular objects but are sourced from remote locations. [[CRAN](https://CRAN.R-project.org/package=roam)]
 
 * [lazyparser](https://github.com/FinYang/lazyparser): Parse command line arguments as if they are arguments to an R function.
 
