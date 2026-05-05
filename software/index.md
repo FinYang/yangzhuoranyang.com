@@ -14,6 +14,8 @@ The R packages/Shiny apps I've contributed to. All of them are on GitHub and som
 
 * [flap](https://github.com/FinYang/flap): Forecast Linear Augmented Projection method that can reduce forecast erro variance. [[CRAN](https://cloud.r-project.org/package=flap)] 
 * [tsfeatures](https://pkg.robjhyndman.com/tsfeatures/): Time Series Feature Extraction. [[CRAN](https://cloud.r-project.org/package=tsfeatures)] 
+* [FoReco](https://danigiro.github.io/FoReco/): Forecast Reconciliation [[CRAN](https://cran.r-project.org/package=FoReco)]
+* [FoRecoML](https://danigiro.github.io/FoRecoML/): Forecast Reconciliation with Machine Learning [[CRAN](https://CRAN.R-project.org/package=FoRecoML)]
 
 ## Time series data 
 * [Mcomp](https://pkg.robjhyndman.com/Mcomp): The 1001 time series from the M-competition (Makridakis et al. 1982) and the 3003 time series from the IJF-M3 competition (Makridakis and Hibon, 2000). [[CRAN](https://cloud.r-project.org/package=Mcomp)]   
