@@ -38,7 +38,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "I just started a blog! Check out my first post: [30 isn't a reliable cutoff for a \"large\" sample](/posts/n30)."
+    content: "I started a blog! Check out my second post: [Research ideas lurking in the classroom](/posts/conformal-idea)."
     type: success
     position: below-navbar
 

@@ -1,0 +1,23 @@
+---
+title: "Research ideas lurking in the classroom"
+description: "I heard the idea of conformal forecasting from a classmate before it was published."
+image: cover.jpg
+date: 2026-07-01
+categories:
+  - anecdote
+  - statistics
+  - forecasting
+  - conformal prediction
+---
+
+
+In 2018, I was an undergraduate student at Monash studying actuarial science. I took [Rob](https://robjhyndman.com/)'s third-year course on forecasting. In one of the lectures, we were talking about forecast intervals. Rob made a comment that forecast intervals are usually too narrow because they do not consider the uncertainty due to model misspecification. One classmate asked a question -- I remember him being quite chatty and always asking questions - is it possible to adjust the forecast interval based on simulations or test sets to find the right coverage? Rob's response was that it was possible, but no one had done that.
+
+When I was listening to [Xiaoqian](https://xqnwang.rbind.io/)'s talk on conformal forecasting today at [ISF2026](https://isf.forecasters.org/), it suddenly dawned on me: wasn't that idea proposed in the classroom eight years ago, essentially the core idea of conformal prediction?
+
+That was 2018, just a few months before the first time series conformal forecasting paper (Chernozhukov, Kaspar and Zhu, 2018) was published.
+
+
+### References
+
+Chernozhukov, Victor, Kaspar Wüthrich, and Zhu Yinchu. "Exact and robust conformal inference methods for predictive machine learning with dependent data." In _Conference On learning theory_, pp. 732-749. PMLR, 2018.
