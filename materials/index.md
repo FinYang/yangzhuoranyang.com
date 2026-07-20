@@ -1,5 +1,5 @@
 ---
-pagetitle: "Yangzhuoran Yang - Study Materials"
+pagetitle: "Study Materials"
 ---
 
 
