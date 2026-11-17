@@ -1,0 +1,137 @@
+---
+title: "If I were to design a linear algebra course"
+description: "I would combine it with regression and PCA."
+image: cover.png
+date: 2026-11-17
+categories:
+  - econometrics
+  - mathematics
+  - teaching
+execute: 
+  freeze: false
+---
+
+
+```{r}
+#| eval: false
+#| echo: false
+
+library(plotly)
+
+# Data
+X <- matrix(c(1, 1, 1, 5, 1, 1), ncol = 2)
+
+y <- c(5, 2, 3)
+
+# OLS projection
+beta_hat <- solve(crossprod(X), crossprod(X, y))
+y_hat <- as.vector(X %*% beta_hat)
+u_hat <- y - y_hat
+
+# Plane: all linear combinations of the columns of X
+# Parameterise the plane as a*X[,1] + b*X[,2]
+
+a <- seq(beta_hat[1] - 1.5, beta_hat[1] + 1.5, length.out = 30)
+b <- seq(beta_hat[2] - .5, beta_hat[2] + .5, length.out = 30)
+
+plane_x <- outer(a, b, function(a, b) a + 5 * b)
+plane_y <- outer(a, b, function(a, b) a + b)
+plane_z <- outer(a, b, function(a, b) a + b)
+
+# Plot
+p <- plot_ly() %>%
+
+  # Plane spanned by the columns of X
+  add_surface(
+    x = plane_x,
+    y = plane_y,
+    z = plane_z,
+    opacity = 0.45,
+    colorscale = list(c(0, 1), c("#76A5D5", "#76A5D5")),
+    showscale = FALSE,
+    name = "Column space of X",
+    hoverinfo = "skip"
+  ) %>%
+
+  # Observed vector y
+  add_trace(
+    type = "scatter3d",
+    mode = "lines+markers",
+    x = c(0, y[1]),
+    y = c(0, y[2]),
+    z = c(0, y[3]),
+    line = list(color = "black", width = 7),
+    marker = list(size = 3, color = "black"),
+    name = "y"
+  ) %>%
+
+  # Fitted vector y_hat
+  add_trace(
+    type = "scatter3d",
+    mode = "lines+markers",
+    x = c(0, y_hat[1]),
+    y = c(0, y_hat[2]),
+    z = c(0, y_hat[3]),
+    line = list(color = "#2878B5", width = 6),
+    marker = list(size = 3, color = "#2878B5"),
+    name = "Fitted vector"
+  ) %>%
+
+  # Residual vector: y - y_hat
+  add_trace(
+    type = "scatter3d",
+    mode = "lines+markers",
+    x = c(y_hat[1], y[1]),
+    y = c(y_hat[2], y[2]),
+    z = c(y_hat[3], y[3]),
+    line = list(color = "#D62728", width = 8),
+    marker = list(size = 3, color = "#D62728"),
+    name = "Residual"
+  ) %>%
+
+  # Layout
+  layout(
+    scene = list(
+      xaxis = list(title = "x1"),
+      yaxis = list(title = "x2"),
+      zaxis = list(title = "x3"),
+      aspectmode = "data",
+      camera = list(
+        eye = list(x = 1.6, y = 1.6, z = 1.2)
+      )
+    ),
+    legend = list(x = 0.02, y = 0.98)
+  )
+
+p
+```
+
+I have been teaching a first year linear algebra course this period as a tutor. The course is designed very well -- probably my favourite linear algebra course (not that I have seen many). The course tries to go into geometry and visualisation from the very beginning, instead of focusing much on the manual calculation of matrix multiplication and such. It has "theorems" and "proofs", which might sound weird to mention specifically, but I do think putting things formally is a good way to build a "mathematical thinking". The tutorial questions are also chosen well. They establish a logical link between different ideas and provide some practice to almost all the concepts involved. The textbook is _Linear Algebra and Its Applications_ by David C. Lay, Steven R. Lay and Judi J. McDonald, which I also like very much.
+
+Me loving the course doesn't mean the students love it too. I soon realised some students might feel about linear algebra like how I felt about it when I first encountered it in my undergraduate years. I didn't know what this is for, didn't know why I need to study it, and naturally felt very bored. I am interested in linear algebra now because I have seen all the application that linear algebra can be used for, especially in my own research, so I can appreciate these abstract ideas and the rigorousness of it. I think students should see some of these too. Not just as examples, but as examinable topics so they would actually study. 
+
+If I can design a linear algebra course freely, without worrying about how much time it takes or even the size of the programme, I would combine linear algebra with linear regression and PCA. It would be something like this:
+
+
+| Linear algebra                         | Not so linear algebra                       |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------------|
+|                                        | Simple linear regression                                                                                     |
+| System of linear equations             | When there are only two observations                                                                         |
+| Echelon form                           |                                                                                                              |
+|                                        | Multiple linear regression                                                                                   |
+| No solution v.s. at least one solution | No solution when No. Obs. > No. Var.                                                                         |
+| Linear combination                     | Predicted values are linear combinations of predictors, with coefficients as weights                         |
+| Linear independence                    | Linear independence of variables                                                                             |
+| Matrix algebra                         |                                                                                                              |
+| Invertibility                          | Condition for a unique OLS solution                                                                          |
+| LU-factorisation                       |                                                                                                              |
+| Vector space                           |                                                                                                              |
+| Column space                           | The space span by the columns of the design matrix                                                           |
+| Basis                                  |                                                                                                              |
+|                                        | Vector y is not in Col(X) when No. Obs. > No. Var.                                                 |
+| Orthogonality                          | The residual is the shortest distance between y and Col(X), and is orthogonal to Col(X)  |
+| Projection                             | Fitted values are the projection of y onto Col(X)                                                    |
+| Gram–Schmidt                           |                                                                                                              |
+| Eigenvalue decomposition               | PCA and dimension reduction                                                                                  |
+
+It was in an introductory econometrics course that I first saw the geometric interpretation of regressions. It has been dropped from that course a long time ago, and I haven't seen any other course that does it like that. I reckon there is a place for the geometry of regression to be taught, and it's not bad if it's in a linear algebra course.
