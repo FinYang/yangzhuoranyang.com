@@ -3,6 +3,7 @@ project:
   resources: 
     - "*.pdf"
     - "verification-follow_it-FAZdtWh8AR1plJVdm63V.html"
+    - "materials/**"
     
 website:
   title: "Yangzhuoran Fin Yang"
@@ -58,3 +59,4 @@ execute:
   freeze: auto
 
 date-format: "D MMM YYYY"
+  
