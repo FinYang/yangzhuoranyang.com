@@ -17,10 +17,8 @@ So I did some research. I vaguely remembered something about burning turtle shel
 
 I used that as my first example. My second example is measuring water levels to predict the flooding of the Nile, which is much more scientific in a sense. And, of course, the course is still actually about statistics and programming. See my "brochure" below for more.
 
-<section>
-  <iframe
-    src="https://docs.google.com/gview?url=https://yangzhuoranyang.com/posts/promote-forecasting-course/predicting-the-future.pdf&embedded=true"
-    width="100%"
-    height="465">
-  </iframe>
-</section>
+<iframe
+  src="https://yangzhuoranyang.com/posts/promote-forecasting-course/predicting-the-future.pdf"
+  width="100%"
+  style="aspect-ratio: 210 / 297; height: auto; border: none;">
+</iframe>
