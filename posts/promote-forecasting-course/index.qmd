@@ -1,0 +1,26 @@
+---
+title: "Promote forecasting with bones"
+description: ""
+image: cover.png
+date: 2026-11-19
+categories:
+  - forecasting
+  - teaching
+---
+
+
+I teach an elective course on forecasting, and this year I have the opportunity to put together something that might convince students to choose it.
+
+Whenever I need to introduce forecasting to people who are not necessarily familiar with statistics, I think of the examples in Rob's talk "[Forecasting the future and the future of forecasting](https://robjhyndman.com/seminars/optima_2024.html)", on ancient forecasting methods. One such method involved examining the distribution of maggots in sheep's livers, as practised by the Babylonians; another was the use of hallucinations by the Delphic Oracle in ancient Greece. Because of the concern that I might introduce some bugs into forecasting, or perhaps give students the wrong impression of how high one can get in a forecasting course, I didn't want to used the same examples. The idea of starting with ancient forecasting methods is still very appealing, and I have always been curious about what other "forecasting" methods were out there. 
+
+So I did some research. I vaguely remembered something about burning turtle shells and looking at the cracks but didn't remember where I saw it. Like any other modern human, I turned to ChatGPT for a reference. To my surprise, the first link it gave me was not only from China, but specifically from the Henan Museum, in my home province of Henan! I only realised this after seeing the logo, because the entire page was in English. Didn't expect them to have such a comprehensive archive in English. Now I know where my memory of burning turtle shells came from. Perhaps I was also a forecaster in one of my previous lives.
+
+I used that as my first example. My second example is measuring water levels to predict the flooding of the Nile, which is much more scientific in a sense. And, of course, the course is still actually about statistics and programming. See my "brochure" below for more.
+
+<section>
+  <iframe
+    src="https://docs.google.com/gview?url=https://yangzhuoranyang.com/posts/promote-forecasting-course/predicting-the-future.pdf&embedded=true"
+    width="100%"
+    height="465">
+  </iframe>
+</section>

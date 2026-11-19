@@ -39,7 +39,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "I started a blog! Check out my latest post: [If I were to design a linear algebra course](/posts/linear-algebra-course)."
+    content: "I started a blog! Check out my latest post: [Promote forecasting with bones](/posts/promote-forecasting-course)."
     type: success
     position: below-navbar
 
